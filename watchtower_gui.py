@@ -169,6 +169,33 @@ def parse_top_data(raw_text):
                     continue
     return pd.DataFrame(data)
 
+async def run_omni_sweep(target):
+    """Fires multiple OSINT bridges concurrently."""
+    scripts = [
+        "osint_sherlock_bridge.py",
+        "osint_holehe_bridge.py",
+        "osint_maigret_bridge.py",
+        "osint_shodan_bridge.py",
+        "osint_breach_bridge.py",
+        "osint_urlscan_bridge.py"
+    ]
+    
+    async def run_script(script):
+        if not os.path.exists(os.path.join(BASE_DIR, script)):
+            return script, {"status": "error", "message": "Script not found locally."}
+        proc = await asyncio.create_subprocess_exec(
+            "python", os.path.join(BASE_DIR, script), target,
+            stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+        )
+        stdout, stderr = await proc.communicate()
+        try:
+            return script, json.loads(stdout.decode())
+        except:
+            return script, {"status": "error", "message": "Parse failure.", "raw": stdout.decode()}
+
+    tasks = [run_script(s) for s in scripts]
+    return await asyncio.gather(*tasks)
+
 def get_adb_telemetry():
     st.subheader("📱 S25 Edge Live Interrogation")
     cmd = f'adb -s {S25_ID} shell "cat /proc/net/tcp | grep 1F40"'
@@ -407,6 +434,7 @@ def render_tactical_hud():
                             
             with tab_hunt:
                 hunt_vector = st.selectbox("Extraction Engine", [
+                    "Omni-Source Sweep (Global)",
                     "Sherlock (Fast Alias)", 
                     "Maigret (Deep Alias)", 
                     "Holehe (Email Pivot)",
@@ -440,52 +468,65 @@ def render_tactical_hud():
                     if not target_input:
                         st.warning("Input valid target data.")
                     else:
-                        with st.spinner(f"Deploying {hunt_vector.split(' ')[0]} against '{target_input}'..."):
-                            
-                            cmd = ["python"]
-                            if "Sherlock" in hunt_vector:
-                                script = "osint_sherlock_bridge.py"
-                            elif "Maigret" in hunt_vector:
-                                script = "osint_maigret_bridge.py"
-                            elif "Holehe" in hunt_vector:
-                                script = "osint_holehe_bridge.py"
-                            elif "SpiderFoot" in hunt_vector:
-                                script = "osint_spiderfoot_bridge.py"
-                            elif "Address" in hunt_vector:
-                                script = "osint_address_bridge.py"
-                            elif "Phone" in hunt_vector:
-                                script = "osint_phone_bridge.py"
-                            elif "Subdomains" in hunt_vector:
-                                script = "osint_cert_bridge.py"
-                            elif "URLScan" in hunt_vector:
-                                script = "osint_urlscan_bridge.py"
-                            elif "Breach" in hunt_vector:
-                                script = "osint_breach_bridge.py"
-                            elif "WiGLE" in hunt_vector:
-                                script = "osint_wigle_bridge.py"
-                                cmd.extend([script, target_input])
-                                if lat_range:
-                                    cmd.extend(["--lat", str(lat_range[0]), str(lat_range[1])])
-                                if long_range:
-                                    cmd.extend(["--long", str(long_range[0]), str(long_range[1])])
-                            
-                            if "WiGLE" not in hunt_vector:
-                                cmd.extend([script, target_input])
+                        if "Omni-Source" in hunt_vector:
+                            with st.spinner(f"Initiating Global Omni-Source Barrage against '{target_input}'..."):
+                                results = asyncio.run(run_omni_sweep(target_input))
+                                for script_name, payload in results:
+                                    with st.expander(f"Data Source: {script_name.replace('_bridge.py', '').replace('osint_', '').upper()}", expanded=False):
+                                        if payload.get("status") == "success":
+                                            st.info(payload.get("analysis", "Data extracted."))
+                                            # Dump raw intel if available
+                                            if "intel" in payload:
+                                                st.json(payload["intel"])
+                                        else:
+                                            st.error(payload.get("message", "Failure."))
+                        else:
+                            with st.spinner(f"Deploying {hunt_vector.split(' ')[0]} against '{target_input}'..."):
+                                
+                                cmd = ["python"]
+                                if "Sherlock" in hunt_vector:
+                                    script = "osint_sherlock_bridge.py"
+                                elif "Maigret" in hunt_vector:
+                                    script = "osint_maigret_bridge.py"
+                                elif "Holehe" in hunt_vector:
+                                    script = "osint_holehe_bridge.py"
+                                elif "SpiderFoot" in hunt_vector:
+                                    script = "osint_spiderfoot_bridge.py"
+                                elif "Address" in hunt_vector:
+                                    script = "osint_address_bridge.py"
+                                elif "Phone" in hunt_vector:
+                                    script = "osint_phone_bridge.py"
+                                elif "Subdomains" in hunt_vector:
+                                    script = "osint_cert_bridge.py"
+                                elif "URLScan" in hunt_vector:
+                                    script = "osint_urlscan_bridge.py"
+                                elif "Breach" in hunt_vector:
+                                    script = "osint_breach_bridge.py"
+                                elif "WiGLE" in hunt_vector:
+                                    script = "osint_wigle_bridge.py"
+                                    cmd.extend([script, target_input])
+                                    if lat_range:
+                                        cmd.extend(["--lat", str(lat_range[0]), str(lat_range[1])])
+                                    if long_range:
+                                        cmd.extend(["--long", str(long_range[0]), str(long_range[1])])
+                                
+                                if "WiGLE" not in hunt_vector:
+                                    cmd.extend([script, target_input])
 
-                            hunt_result = subprocess.run(
-                                cmd, 
-                                capture_output=True, text=True
-                            )
-                            try:
-                                hunt_payload = json.loads(hunt_result.stdout)
-                                if hunt_payload.get("status") == "success":
-                                    st.success("Target footprint extracted and profiled.")
-                                    st.info(hunt_payload.get("analysis"))
-                                else:
-                                    st.error(hunt_payload.get("message"))
-                            except json.JSONDecodeError:
-                                # Catches Python stack traces and prints them directly
-                                st.error(f"Bridge Raw Output: {hunt_result.stdout or hunt_result.stderr}")
+                                hunt_result = subprocess.run(
+                                    cmd, 
+                                    capture_output=True, text=True
+                                )
+                                try:
+                                    hunt_payload = json.loads(hunt_result.stdout)
+                                    if hunt_payload.get("status") == "success":
+                                        st.success("Target footprint extracted and profiled.")
+                                        st.info(hunt_payload.get("analysis"))
+                                    else:
+                                        st.error(hunt_payload.get("message"))
+                                except json.JSONDecodeError:
+                                    # Catches Python stack traces and prints them directly
+                                    st.error(f"Bridge Raw Output: {hunt_result.stdout or hunt_result.stderr}")
 
             with tab_chat:
                 st.caption("Unstructured dialogue with dolphin-llama3. Context is preserved for this session.")
@@ -870,10 +911,6 @@ with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
             except Exception as e:
                 st.error(f"Diagnostic Error: {e}")
 
-    if st.session_state.get('live_poll', False):
-        time.sleep(5)
-        st.rerun()
-
 with st.sidebar.expander("[ LOGISTICS & DEPLOYMENT ]"):
     adb_target = st.radio("Select ADB Target", ["S25 Edge", "Tab A8"])
     adb_id = TABA8_ID if "Tab A8" in adb_target else S25_ID
@@ -923,3 +960,7 @@ if st.session_state.get('show_sf', False):
 
 # --- MAIN INTERFACE: GLOBAL COMMAND MATRIX ---
 render_tactical_hud()
+
+if st.session_state.get('live_poll', False):
+    time.sleep(5)
+    st.rerun()
