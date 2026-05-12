@@ -320,7 +320,9 @@ def get_unified_ledger():
         df = pd.DataFrame(rows)
         # Handle sorting safely
         df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
-        df = df.sort_values(by="Timestamp", ascending=False).fillna("N/A")
+        df = df.sort_values(by="Timestamp", ascending=False)
+        df['Timestamp'] = df['Timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S').fillna("N/A")
+        df = df.fillna("N/A")
         return df
     return pd.DataFrame()
 
