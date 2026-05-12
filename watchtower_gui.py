@@ -116,23 +116,24 @@ def parse_battery_data(raw_text):
 def parse_top_data(raw_text):
     lines = raw_text.strip().split('\n')
     data = []
-    start_idx = 0
+    start_idx = -1
     for i, line in enumerate(lines):
         if "PID" in line and "USER" in line:
             start_idx = i + 1
             break
             
-    for line in lines[start_idx:]:
-        parts = line.split()
-        if len(parts) >= 9:
-            try:
-                pid = parts[0]
-                cpu_idx = 8 if '%' not in parts[7] else 7 # Handle formatting variations
-                cpu = float(parts[cpu_idx].replace('%', ''))
-                name = parts[-1]
-                data.append({"Process": name, "CPU %": cpu})
-            except:
-                continue
+    if start_idx != -1:
+        for line in lines[start_idx:]:
+            parts = line.split()
+            if len(parts) >= 9:
+                try:
+                    pid = parts[0]
+                    cpu_idx = 8 if '%' not in parts[7] else 7 # Handle formatting variations
+                    cpu = float(parts[cpu_idx].replace('%', ''))
+                    name = parts[-1]
+                    data.append({"Process": name, "CPU %": cpu})
+                except (IndexError, ValueError):
+                    continue
     return pd.DataFrame(data)
 
 def get_adb_telemetry():
@@ -268,6 +269,60 @@ def render_darkweb_intel(payload: dict):
         # 3. Raw Source Snippet 
         with st.expander("View Raw Source Snippet"):
             st.code(payload.get("data", ""), language="html")
+
+def get_unified_ledger():
+    rows = []
+    
+    # 1. Watchtower_Log.json
+    try:
+        if os.path.exists("Watchtower_Log.json"):
+            with open("Watchtower_Log.json", "r") as f:
+                wt_data = json.load(f)
+                for item in wt_data:
+                    rows.append({
+                        "Timestamp": item.get("timestamp", "N/A"),
+                        "Source": "Watchtower Core",
+                        "Target": item.get("target", item.get("ip", "N/A")),
+                        "Details": item.get("binary", str(item.get("shodan", {})))
+                    })
+    except: pass
+
+    # 2. C2_Activity.log
+    try:
+        if os.path.exists(LOG_FILE):
+            with open(LOG_FILE, "r") as f:
+                for line in f:
+                    match = re.match(r'\[(.*?)\] \[(.*?)\] TARGET: (.*?) \| STATUS: .*? \| DETAILS: (.*)', line)
+                    if match:
+                        rows.append({
+                            "Timestamp": match.group(1),
+                            "Source": f"C2_{match.group(2)}",
+                            "Target": match.group(3),
+                            "Details": match.group(4)
+                        })
+    except: pass
+    
+    # 3. Gemini_Memory_Extraction.json
+    try:
+        if os.path.exists("Gemini_Memory_Extraction.json"):
+            with open("Gemini_Memory_Extraction.json", "r", encoding="utf-8") as f:
+                mem_data = json.load(f)
+                for item in mem_data:
+                    rows.append({
+                        "Timestamp": item.get("created_at", "N/A"),
+                        "Source": "Exocortex Memory",
+                        "Target": "Global",
+                        "Details": item.get("content", "N/A")
+                    })
+    except: pass
+
+    if rows:
+        df = pd.DataFrame(rows)
+        # Handle sorting safely
+        df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
+        df = df.sort_values(by="Timestamp", ascending=False).fillna("N/A")
+        return df
+    return pd.DataFrame()
 
 def render_tactical_hud():
     """Renders the high-density Global Command Matrix."""
@@ -523,6 +578,14 @@ def render_tactical_hud():
                         st.error(f"OCR Engine Failure: {ocr_payload.get('message')}")
                 except Exception as e:
                     st.error("Failed to parse OCR output.")
+
+    st.divider()
+    st.subheader("📚 Master Intelligence Ledger")
+    unified_df = get_unified_ledger()
+    if not unified_df.empty:
+        st.dataframe(unified_df, use_container_width=True, hide_index=True)
+    else:
+        st.warning("No intelligence logs found on disk.")
 
 # --- SIDEBAR: TACTICAL COMMAND MATRIX ---
 st.sidebar.title("⚡ OMEGA NODE C2")
