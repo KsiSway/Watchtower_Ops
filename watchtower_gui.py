@@ -15,6 +15,38 @@ from dotenv import load_dotenv
 
 st.set_page_config(page_title="Watchtower C2", page_icon="⚡", layout="wide")
 
+st.markdown("""
+<style>
+    /* Tactical Matrix Styling */
+    .stButton > button {
+        background-color: transparent !important;
+        border: 1px solid #00d4ff !important;
+        color: #00d4ff !important;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+    }
+    .stButton > button:hover {
+        background-color: rgba(0, 212, 255, 0.1) !important;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+        border-color: #00ffff !important;
+        color: #ffffff !important;
+    }
+    div[data-testid="stMetricValue"] {
+        color: #00ff00 !important;
+        font-family: monospace;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+    }
+    div[data-testid="stMetricLabel"] {
+        color: #a29bfe !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    hr {
+        border-bottom: 1px solid #4a4e69 !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Persistent Mobile Node IDs (mDNS / Paired)
 S25_ID = "adb-R5CY53NEAAY-IYwX0h._adb-tls-connect._tcp"
 TABA8_ID = "adb-R8YW40WRQLA-xrOfga._adb-tls-connect._tcp"
