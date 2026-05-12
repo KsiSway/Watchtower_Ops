@@ -6,6 +6,7 @@ import os
 import re
 import subprocess
 import datetime
+import time
 import shodan
 import asyncio
 import networkx as nx
@@ -719,8 +720,14 @@ with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
     diag_id = TABA8_ID if "Tab A8" in diag_target else S25_ID
 
     st.markdown("---")
+    is_live = st.toggle("🟢 Enable Live Telemetry Feed (5s Polling)")
+    
+    if is_live:
+        st.session_state['live_poll'] = True
+    else:
+        st.session_state['live_poll'] = False
 
-    if st.button("Extract Node Telemetry (HUD)", use_container_width=True):
+    if st.button("Extract Node Telemetry (HUD)", use_container_width=True) or st.session_state.get('live_poll', False):
         with st.spinner(f"Extracting HUD from {diag_target}..."):
             try:
                 shell_cmd = "dumpsys battery"
@@ -728,8 +735,12 @@ with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
                     shell_cmd = f"su -c '{shell_cmd}'"
                 
                 res = subprocess.run(["adb", "-s", diag_id, "shell", shell_cmd], capture_output=True, text=True, timeout=15)
-                st.success(f"Telemetry Acquired: {diag_target}")
-                log_activity("TELEMETRY_EXFIL", diag_id, "SUCCESS", "HUD/Battery Data")
+                
+                # Only show success message and log if it was manually triggered to avoid log spam
+                if not st.session_state.get('live_poll', False):
+                    st.success(f"Telemetry Acquired: {diag_target}")
+                    log_activity("TELEMETRY_EXFIL", diag_id, "SUCCESS", "HUD/Battery Data")
+                    
                 with st.expander("Node HUD Data", expanded=True):
                     parsed_bat = parse_battery_data(res.stdout.strip())
                     c1, c2, c3 = st.columns(3)
@@ -858,6 +869,10 @@ with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
                     st.code(res.stdout)
             except Exception as e:
                 st.error(f"Diagnostic Error: {e}")
+
+    if st.session_state.get('live_poll', False):
+        time.sleep(5)
+        st.rerun()
 
 with st.sidebar.expander("[ LOGISTICS & DEPLOYMENT ]"):
     adb_target = st.radio("Select ADB Target", ["S25 Edge", "Tab A8"])
