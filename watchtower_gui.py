@@ -386,6 +386,41 @@ def get_unified_ledger():
         return df
     return pd.DataFrame()
 
+def search_internal_ledger(query, ledger_df):
+    if query.strip() == "" or ledger_df.empty:
+        return pd.DataFrame()
+    # Search across Target and Details columns
+    mask = ledger_df.apply(lambda row: query.lower() in str(row['Target']).lower() or query.lower() in str(row['Details']).lower(), axis=1)
+    return ledger_df[mask].head(5)
+
+def search_network_mesh(query):
+    baseline_path = os.path.join(BASE_DIR, "Watchtower_Final_Baseline.csv")
+    if not os.path.exists(baseline_path):
+        return pd.DataFrame()
+    df = pd.read_csv(baseline_path)
+    mask = df.apply(lambda row: query.lower() in str(row['IP']).lower() or query.lower() in str(row['MAC']).lower() or query.lower() in str(row['Vendor']).lower(), axis=1)
+    return df[mask].head(5)
+
+def search_live_processes(query):
+    results = []
+    nodes = [("S25 Edge", S25_ID), ("Tab A8", TABA8_ID)]
+    for name, adb_id in nodes:
+        try:
+            # Use ps -A for comprehensive search, grep for the query
+            cmd = f'adb -s {adb_id} shell "ps -A | grep -i {query}"'
+            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, timeout=3).decode()
+            for line in output.strip().split('\n'):
+                parts = line.split()
+                if len(parts) >= 9:
+                    results.append({
+                        "Node": name,
+                        "PID": parts[1],
+                        "Process": parts[-1]
+                    })
+        except:
+            continue
+    return pd.DataFrame(results).head(5)
+
 def render_tactical_hud():
     """Renders the high-density Global Command Matrix."""
     st.title("⚡ Project Watchtower C2")
