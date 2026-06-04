@@ -1,0 +1,1 @@
+postgresql+asyncpg://readonly_user:watchtower_readonly_2026@host.docker.internal:5432/watchtower?sslmode=require

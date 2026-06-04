@@ -12,6 +12,7 @@ import asyncio
 import networkx as nx
 import matplotlib.pyplot as plt
 import requests
+import ipaddress
 try:
     import psutil
     PSUTIL_AVAILABLE = True
@@ -139,6 +140,18 @@ def log_activity(module, target, status, details=""):
     with open(LOG_FILE, "a") as f:
         f.write(log_entry)
 
+def send_discord_comms(content, image_url=None):
+    """Relays tactical intelligence to Discord C2 channel."""
+    webhook = os.getenv("DISCORD_WEBHOOK_URL")
+    if not webhook: return
+    payload = {"content": content}
+    if image_url:
+        payload["embeds"] = [{"image": {"url": image_url}}]
+    try:
+        requests.post(webhook, json=payload, timeout=5)
+    except:
+        pass
+
 def hex_to_ip(hex_str):
     """Converts hex string from /proc/net/tcp to human-readable IP and port."""
     try:
@@ -210,22 +223,29 @@ def render_system_health(container):
         else:
             st.warning("`psutil` library is required for live system telemetry. Run `pip install psutil`.")
 
-async def run_omni_sweep(target):
+async def run_omni_sweep(target, active_scripts: list, lat_range=None, long_range=None):
     """Fires multiple OSINT bridges concurrently."""
-    scripts = [
-        "osint_sherlock_bridge.py",
-        "osint_holehe_bridge.py",
-        "osint_maigret_bridge.py",
-        "osint_shodan_bridge.py",
-        "osint_breach_bridge.py",
-        "osint_urlscan_bridge.py"
-    ]
+    try:
+        if ipaddress.ip_address(target).is_private:
+            for drop in ["osint_shodan_bridge.py", "osint_zoomeye_bridge.py", "osint_crtsh_bridge.py", "osint_leakcheck_bridge.py"]:
+                if drop in active_scripts:
+                    active_scripts.remove(drop)
+    except ValueError:
+        pass
     
     async def run_script(script):
         if not os.path.exists(os.path.join(BASE_DIR, script)):
             return script, {"status": "error", "message": "Script not found locally."}
+        
+        args = ["python", os.path.join(BASE_DIR, script), target]
+        if script == "osint_wigle_bridge.py":
+            if lat_range:
+                args.extend(["--lat", str(lat_range[0]), str(lat_range[1])])
+            if long_range:
+                args.extend(["--long", str(long_range[0]), str(long_range[1])])
+                
         proc = await asyncio.create_subprocess_exec(
-            "python", os.path.join(BASE_DIR, script), target,
+            *args,
             stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
         stdout, stderr = await proc.communicate()
@@ -234,7 +254,7 @@ async def run_omni_sweep(target):
         except:
             return script, {"status": "error", "message": "Parse failure.", "raw": stdout.decode()}
 
-    tasks = [run_script(s) for s in scripts]
+    tasks = [run_script(s) for s in active_scripts]
     return await asyncio.gather(*tasks)
 
 def get_adb_telemetry():
@@ -544,25 +564,28 @@ def render_tactical_hud():
                             st.error(f"Brain Error: {str(e)}")
                             
             with tab_hunt:
-                hunt_vector = st.selectbox("Extraction Engine", [
-                    "Omni-Source Sweep (Global)",
-                    "Sherlock (Fast Alias)", 
-                    "Maigret (Deep Alias)", 
-                    "Holehe (Email Pivot)",
-                    "SpiderFoot (Infrastructure)",
-                    "Address (Geocoding)",
-                    "Phone (Fingerprint)",
-                    "Subdomains (crt.sh)",
-                    "URLScan (Sandbox)",
-                    "Breach (Credentials)",
-                    "WiGLE (RF/BSSID)"
-                ])
+                st.markdown("### Select Intelligence Bridges")
+                c1, c2, c3, c4 = st.columns(4)
+                active_scripts = []
+                if c1.checkbox("Sherlock"): active_scripts.append("osint_sherlock_bridge.py")
+                if c1.checkbox("Maigret"): active_scripts.append("osint_maigret_bridge.py")
+                if c1.checkbox("Holehe"): active_scripts.append("osint_holehe_bridge.py")
+                if c2.checkbox("Shodan"): active_scripts.append("osint_shodan_bridge.py")
+                if c2.checkbox("ZoomEye"): active_scripts.append("osint_zoomeye_bridge.py")
+                if c2.checkbox("URLScan"): active_scripts.append("osint_urlscan_bridge.py")
+                if c3.checkbox("crt.sh"): active_scripts.append("osint_crtsh_bridge.py")
+                if c3.checkbox("Wayback"): active_scripts.append("osint_wayback_bridge.py")
+                if c3.checkbox("LeakCheck"): active_scripts.append("osint_leakcheck_bridge.py")
+                if c4.checkbox("Breach"): active_scripts.append("osint_breach_bridge.py")
+                if c4.checkbox("WiGLE"): active_scripts.append("osint_wigle_bridge.py")
+                if c4.checkbox("Brave"): active_scripts.append("osint_brave_bridge.py")
+
                 target_input = st.text_input("Target Data", placeholder="Alias, Email, IP, Address, Phone, Domain, or BSSID")
                 
                 # Dynamic Geospatial Fields for WiGLE
                 lat_range = None
                 long_range = None
-                if "WiGLE" in hunt_vector:
+                if "osint_wigle_bridge.py" in active_scripts:
                     with st.expander("Geospatial Bounding Box (Optional)", expanded=True):
                         g_col1, g_col2 = st.columns(2)
                         lat_min = g_col1.number_input("Lat Min", value=0.0, format="%.6f")
@@ -575,77 +598,42 @@ def render_tactical_hud():
                         if long_min != 0.0 or long_max != 0.0:
                             long_range = [long_min, long_max]
 
-                if st.button("Execute Autonomous Hunt", use_container_width=True):
+                if st.button("Execute Multi-Vector Sweep", use_container_width=True):
                     if not target_input:
                         st.warning("Input valid target data.")
+                    elif not active_scripts:
+                        st.warning("Select at least one extraction engine.")
                     else:
-                        if "Omni-Source" in hunt_vector:
-                            with st.spinner(f"Initiating Global Omni-Source Barrage against '{target_input}'..."):
-                                results = asyncio.run(run_omni_sweep(target_input))
-                                for script_name, payload in results:
-                                    with st.expander(f"Data Source: {script_name.replace('_bridge.py', '').replace('osint_', '').upper()}", expanded=False):
-                                        if payload.get("status") == "success":
-                                            st.info(payload.get("analysis", "Data extracted."))
-                                            # Dump raw intel if available
-                                            if "intel" in payload:
-                                                st.json(payload["intel"])
-                                        else:
-                                            st.error(payload.get("message", "Failure."))
-                        else:
-                            with st.spinner(f"Deploying {hunt_vector.split(' ')[0]} against '{target_input}'..."):
-                                
-                                cmd = [PYTHON_EXE]
-                                script = ""
-                                
-                                if "Sherlock" in hunt_vector:
-                                    script = "osint_sherlock_bridge.py"
-                                elif "Maigret" in hunt_vector:
-                                    script = "osint_maigret_bridge.py"
-                                elif "Holehe" in hunt_vector:
-                                    script = "osint_holehe_bridge.py"
-                                elif "SpiderFoot" in hunt_vector:
-                                    script = "osint_spiderfoot_bridge.py"
-                                elif "Address" in hunt_vector:
-                                    script = "osint_address_bridge.py"
-                                elif "Phone" in hunt_vector:
-                                    script = "osint_phone_bridge.py"
-                                elif "Subdomains" in hunt_vector:
-                                    script = "osint_cert_bridge.py"
-                                elif "URLScan" in hunt_vector:
-                                    script = "osint_urlscan_bridge.py"
-                                elif "Breach" in hunt_vector:
-                                    script = "osint_breach_bridge.py"
-                                elif "WiGLE" in hunt_vector:
-                                    script = "osint_wigle_bridge.py"
-                                
-                                if "WiGLE" in hunt_vector:
-                                    cmd.extend([os.path.join(BASE_DIR, script), target_input])
-                                    if lat_range:
-                                        cmd.extend(["--lat", str(lat_range[0]), str(lat_range[1])])
-                                    if long_range:
-                                        cmd.extend(["--long", str(long_range[0]), str(long_range[1])])
-                                else:
-                                    cmd.extend([os.path.join(BASE_DIR, script), target_input])
-
-                                hunt_result = subprocess.run(
-                                    cmd, 
-                                    capture_output=True, text=True
-                                )
-                                try:
-                                    hunt_payload = json.loads(hunt_result.stdout)
-                                    if hunt_payload.get("status") == "success":
+                        with st.spinner(f"Initiating Sweep against '{target_input}'..."):
+                            results = asyncio.run(run_omni_sweep(target_input, active_scripts, lat_range, long_range))
+                            for script_name, payload in results:
+                                with st.expander(f"Data Source: {script_name.replace('_bridge.py', '').replace('osint_', '').upper()}", expanded=False):
+                                    if payload.get("status") == "success":
                                         st.success("Target footprint extracted and profiled.")
-                                        st.info(hunt_payload.get("analysis"))
-                                    
-                                    if "SpiderFoot" in hunt_vector and "intel" in hunt_payload:
-                                        findings = hunt_payload["intel"].get("findings", {})
-                                        if findings:
-                                            df = pd.DataFrame(list(findings.items()), columns=["Intelligence Type", "Data Points"])
-                                            st.dataframe(df, use_container_width=True, hide_index=True)
+                                        st.info(payload.get("analysis", "Data extracted."))
+                                        
+                                        # Intercept JARM Hashes for Display
+                                        if script_name in ["osint_shodan_bridge.py", "osint_zoomeye_bridge.py"]:
+                                            raw_data = payload.get("raw_data") or [payload]
+                                            for item in raw_data:
+                                                if isinstance(item, dict) and item.get("jarm"):
+                                                    st.metric(f"JARM Hash ({item.get('ip', 'Target')})", item.get("jarm"))
+
+                                        # Intercept URLScan Visuals for Discord Payload
+                                        if script_name == "osint_urlscan_bridge.py":
+                                            records = payload.get("records", [])
+                                            for r in records:
+                                                if r.get("screenshot_url"):
+                                                    send_discord_comms(f"URLScan Visual Snapshot: {target_input}", image_url=r.get("screenshot_url"))
+                                                    break # Send top result
+
+                                        if script_name == "osint_spiderfoot_bridge.py" and "intel" in payload:
+                                            findings = payload["intel"].get("findings", {})
+                                            if findings:
+                                                df = pd.DataFrame(list(findings.items()), columns=["Intelligence Type", "Data Points"])
+                                                st.dataframe(df, use_container_width=True, hide_index=True)
                                     else:
-                                        st.error(hunt_payload.get("message"))
-                                except json.JSONDecodeError:
-                                    st.error(f"Bridge Raw Output: {hunt_result.stdout or hunt_result.stderr}")
+                                        st.error(payload.get("message", "Failure."))
 
             with tab_chat:
                 st.caption("Unstructured dialogue with dolphin-llama3. Context is preserved for this session.")

@@ -37,7 +37,8 @@ async def fetch_urlscan_data(target: str):
                                 "url": page.get('url'),
                                 "ip": page.get('ip'),
                                 "server": page.get('server'),
-                                "scan_id": res.get('_id')
+                                "scan_id": res.get('_id'),
+                                "screenshot_url": f"https://urlscan.io/screenshots/{res.get('_id')}.png" if res.get('_id') else None
                             })
                         return {"status": "success", "records": results}
                     return {"status": "success", "records": []}
