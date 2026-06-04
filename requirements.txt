@@ -1,0 +1,10 @@
+streamlit
+pandas
+shodan
+censys
+python-dotenv
+requests
+phonenumbers
+aiohttp
+networkx
+matplotlib

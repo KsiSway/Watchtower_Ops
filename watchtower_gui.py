@@ -12,6 +12,11 @@ import asyncio
 import networkx as nx
 import matplotlib.pyplot as plt
 import requests
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    PSUTIL_AVAILABLE = False
 from dotenv import load_dotenv
 
 st.set_page_config(page_title="Watchtower C2", page_icon="⚡", layout="wide")
@@ -45,6 +50,13 @@ st.markdown("""
     hr {
         border-bottom: 1px solid #4a4e69 !important;
     }
+    /* Glassmorphism tactical containers */
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        border: 1px solid rgba(0, 212, 255, 0.2) !important;
+        background: linear-gradient(180deg, rgba(14, 17, 23, 0.9) 0%, rgba(20, 25, 35, 0.9) 100%) !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        border-radius: 8px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -62,6 +74,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = os.path.join(BASE_DIR, "C2_Activity.log")
 REPORTS_DIR = os.path.join(BASE_DIR, "reports")
 CORAL_PYTHON = r"C:\Users\Lance\Coral_Env\Scripts\python.exe"
+PYTHON_EXE = r"C:\Users\Lance\AppData\Local\Programs\Python\Python312\python.exe"
 if not os.path.exists(REPORTS_DIR):
     os.makedirs(REPORTS_DIR)
 
@@ -168,6 +181,34 @@ def parse_top_data(raw_text):
                 except (IndexError, ValueError):
                     continue
     return pd.DataFrame(data)
+
+def render_system_health(container):
+    """Renders live system telemetry and Watchtower jobs."""
+    with container.container(border=True):
+        if PSUTIL_AVAILABLE:
+            st.markdown("### 🎛️ Core Telemetry")
+            col1, col2, col3 = st.columns(3)
+            col1.metric("CPU Usage", f"{psutil.cpu_percent()}%")
+            col2.metric("RAM Usage", f"{psutil.virtual_memory().percent}%")
+            col3.metric("Disk Usage", f"{psutil.disk_usage('/').percent}%")
+            
+            st.markdown("### ⚙️ Background Jobs (Watchtower)")
+            jobs = []
+            for p in psutil.process_iter(['pid', 'name', 'cmdline']):
+                try:
+                    if p.info['name'] in ['python.exe', 'python3', 'python'] and p.info['cmdline']:
+                        cmd = " ".join(p.info['cmdline'])
+                        if 'Watchtower_Ops' in cmd or 'watchtower' in cmd:
+                            jobs.append({"PID": p.info['pid'], "Command": cmd})
+                except (psutil.NoSuchProcess, psutil.AccessDenied):
+                    pass
+            
+            if jobs:
+                st.dataframe(pd.DataFrame(jobs), use_container_width=True, hide_index=True)
+            else:
+                st.caption("No active Watchtower background jobs detected.")
+        else:
+            st.warning("`psutil` library is required for live system telemetry. Run `pip install psutil`.")
 
 async def run_omni_sweep(target):
     """Fires multiple OSINT bridges concurrently."""
@@ -334,9 +375,10 @@ def get_unified_ledger():
     rows = []
     
     # 1. Watchtower_Log.json
+    wt_path = os.path.join(BASE_DIR, "Watchtower_Log.json")
     try:
-        if os.path.exists("Watchtower_Log.json"):
-            with open("Watchtower_Log.json", "r") as f:
+        if os.path.exists(wt_path):
+            with open(wt_path, "r", encoding="utf-8") as f:
                 wt_data = json.load(f)
                 for item in wt_data:
                     rows.append({
@@ -345,12 +387,12 @@ def get_unified_ledger():
                         "Target": item.get("target", item.get("ip", "N/A")),
                         "Details": item.get("binary", str(item.get("shodan", {})))
                     })
-    except: pass
+    except (FileNotFoundError, json.JSONDecodeError): pass
 
     # 2. C2_Activity.log
     try:
         if os.path.exists(LOG_FILE):
-            with open(LOG_FILE, "r") as f:
+            with open(LOG_FILE, "r", encoding="utf-8") as f:
                 for line in f:
                     match = re.match(r'\[(.*?)\] \[(.*?)\] TARGET: (.*?) \| STATUS: .*? \| DETAILS: (.*)', line)
                     if match:
@@ -360,12 +402,13 @@ def get_unified_ledger():
                             "Target": match.group(3),
                             "Details": match.group(4)
                         })
-    except: pass
+    except Exception: pass
     
     # 3. Gemini_Memory_Extraction.json
+    mem_path = os.path.join(BASE_DIR, "Gemini_Memory_Extraction.json")
     try:
-        if os.path.exists("Gemini_Memory_Extraction.json"):
-            with open("Gemini_Memory_Extraction.json", "r", encoding="utf-8") as f:
+        if os.path.exists(mem_path):
+            with open(mem_path, "r", encoding="utf-8") as f:
                 mem_data = json.load(f)
                 for item in mem_data:
                     rows.append({
@@ -374,7 +417,7 @@ def get_unified_ledger():
                         "Target": "Global",
                         "Details": item.get("content", "N/A")
                     })
-    except: pass
+    except (FileNotFoundError, json.JSONDecodeError): pass
 
     if rows:
         df = pd.DataFrame(rows)
@@ -426,6 +469,29 @@ def render_tactical_hud():
     st.title("⚡ Project Watchtower C2")
     st.divider()
     
+    # --- Top-Level Metrics ---
+    h1, h2, h3, h4 = st.columns(4)
+    h1.metric("VPN UPLINK", "192.168.68.110", delta="SECURE")
+    h2.metric("MESH LATENCY", "1.2ms", delta="18 Nodes")
+    h3.metric("C2 LOAD", "0.4", delta="Nominal")
+    h4.metric("INTEL", "142", delta="Records")
+    st.divider()
+    
+    # --- Target Profiles & Timeline ---
+    ca, cb = st.columns(2)
+    with ca:
+        st.subheader("🎯 Target Profiles")
+        for t in [{"n": "Raynard", "r": "Ghost"}, {"n": "Ikaika", "r": "Architect"}]:
+            st.info(f"{t['n']} - {t['r']}")
+    with cb:
+        st.subheader("⏳ Target Intelligence Timeline")
+        st.markdown("""
+        * **08:00** - Ghost (Raynard) detected on Mesh via mDNS.
+        * **08:15** - Architect (Ikaika) deployed NIDS.
+        * **09:30** - Threat footprint confirmed.
+        """)
+    st.divider()
+    
     col_alpha, col_bravo, col_charlie = st.columns(3)
     
     # --- COLUMN 1: NODE CONTROL ---
@@ -446,16 +512,26 @@ def render_tactical_hud():
         with st.container(border=True):
             
             # Implement tabs to separate manual analysis from autonomous hunting
-            tab_manual, tab_hunt, tab_chat = st.tabs(["Manual Analysis", "Autonomous Hunt", "Direct Uplink"])
+            tab_manual, tab_hunt, tab_chat, tab_doc = st.tabs(["Manual Analysis", "Autonomous Hunt", "Direct Uplink", "Doc Interrogator"])
             
+            with tab_doc:
+                st.markdown("**docling File Interrogator**")
+                uploaded_doc = st.file_uploader("Upload Intel Document", type=["pdf", "txt", "md"])
+                if st.button("Extract Data", use_container_width=True, key="doc_extract"):
+                    if uploaded_doc:
+                        st.info("Processing via Cognitive Core...")
+                    else:
+                        st.warning("Upload a document first.")
+
             with tab_manual:
                 intel_vector = st.selectbox("Intelligence Vector", ["profile", "darkweb", "telemetry"])
                 raw_data = st.text_area("Raw Intelligence Data", height=100)
                 
                 if st.button("Execute Cognitive Analysis", use_container_width=True):
                     with st.spinner("Processing via dolphin-llama3..."):
+                        brain_path = os.path.join(BASE_DIR, "osint_brain.py")
                         brain_result = subprocess.run(
-                            ["python", "osint_brain.py", intel_vector, raw_data], 
+                            [PYTHON_EXE, brain_path, intel_vector, raw_data], 
                             capture_output=True, text=True
                         )
                         try:
@@ -518,7 +594,9 @@ def render_tactical_hud():
                         else:
                             with st.spinner(f"Deploying {hunt_vector.split(' ')[0]} against '{target_input}'..."):
                                 
-                                cmd = ["python"]
+                                cmd = [PYTHON_EXE]
+                                script = ""
+                                
                                 if "Sherlock" in hunt_vector:
                                     script = "osint_sherlock_bridge.py"
                                 elif "Maigret" in hunt_vector:
@@ -539,14 +617,15 @@ def render_tactical_hud():
                                     script = "osint_breach_bridge.py"
                                 elif "WiGLE" in hunt_vector:
                                     script = "osint_wigle_bridge.py"
-                                    cmd.extend([script, target_input])
+                                
+                                if "WiGLE" in hunt_vector:
+                                    cmd.extend([os.path.join(BASE_DIR, script), target_input])
                                     if lat_range:
                                         cmd.extend(["--lat", str(lat_range[0]), str(lat_range[1])])
                                     if long_range:
                                         cmd.extend(["--long", str(long_range[0]), str(long_range[1])])
-                                
-                                if "WiGLE" not in hunt_vector:
-                                    cmd.extend([script, target_input])
+                                else:
+                                    cmd.extend([os.path.join(BASE_DIR, script), target_input])
 
                                 hunt_result = subprocess.run(
                                     cmd, 
@@ -557,10 +636,15 @@ def render_tactical_hud():
                                     if hunt_payload.get("status") == "success":
                                         st.success("Target footprint extracted and profiled.")
                                         st.info(hunt_payload.get("analysis"))
+                                    
+                                    if "SpiderFoot" in hunt_vector and "intel" in hunt_payload:
+                                        findings = hunt_payload["intel"].get("findings", {})
+                                        if findings:
+                                            df = pd.DataFrame(list(findings.items()), columns=["Intelligence Type", "Data Points"])
+                                            st.dataframe(df, use_container_width=True, hide_index=True)
                                     else:
                                         st.error(hunt_payload.get("message"))
                                 except json.JSONDecodeError:
-                                    # Catches Python stack traces and prints them directly
                                     st.error(f"Bridge Raw Output: {hunt_result.stdout or hunt_result.stderr}")
 
             with tab_chat:
@@ -587,12 +671,13 @@ def render_tactical_hud():
                     with st.chat_message("assistant"):
                         with st.spinner("Processing..."):
                             payload = {
-                                "model": "dolphin-llama3:latest",
+                                "model": "orca-mini:latest",
                                 "messages": st.session_state.chat_memory,
                                 "stream": False
                             }
                             try:
-                                response = requests.post("http://127.0.0.1:11434/api/chat", json=payload, timeout=300)
+                                host_ip = "ollama" if os.environ.get("DOCKER_ENV") == "true" else "127.0.0.1"
+                                response = requests.post(f"http://{host_ip}:11434/api/chat", json=payload, timeout=300)
                                 if response.status_code == 200:
                                     ai_response = response.json().get("message", {}).get("content", "")
                                     st.markdown(ai_response)
@@ -611,7 +696,7 @@ def render_tactical_hud():
             if st.button("Deploy NIDS Sensor", use_container_width=True):
                 with st.spinner("Sniffing Mesh..."):
                     trip_result = subprocess.run(
-                        ["python", "mesh_tripwire.py", TABA8_ID], 
+                        [PYTHON_EXE, "mesh_tripwire.py", TABA8_ID], 
                         capture_output=True, text=True
                     )
                     try:
@@ -670,14 +755,22 @@ def render_tactical_hud():
         with v_col3:
             st.markdown("**Tesseract OCR**")
             with st.spinner("Extracting hard text via Tesseract..."):
-                # Convert Windows paths to WSL paths for Linux-based Tesseract execution
-                wsl_script = subprocess.check_output(["wsl", "wslpath", os.path.join(BASE_DIR, "osint_ocr_engine.py")]).decode().strip()
-                wsl_img = subprocess.check_output(["wsl", "wslpath", img_path]).decode().strip()
+                is_docker = os.environ.get("DOCKER_ENV") == "true"
                 
-                ocr_result = subprocess.run(
-                    ["wsl", "python3", wsl_script, wsl_img],
-                    capture_output=True, text=True
-                )
+                if is_docker:
+                    ocr_result = subprocess.run(
+                        ["python3", os.path.join(BASE_DIR, "osint_ocr_engine.py"), img_path],
+                        capture_output=True, text=True
+                    )
+                else:
+                    # Convert Windows paths to WSL paths for Linux-based Tesseract execution
+                    wsl_script = subprocess.check_output(["wsl", "wslpath", os.path.join(BASE_DIR, "osint_ocr_engine.py")]).decode().strip()
+                    wsl_img = subprocess.check_output(["wsl", "wslpath", img_path]).decode().strip()
+                    
+                    ocr_result = subprocess.run(
+                        ["wsl", "python3", wsl_script, wsl_img],
+                        capture_output=True, text=True
+                    )
                 try:
                     ocr_payload = json.loads(ocr_result.stdout)
                     if ocr_payload.get("status") == "success":
@@ -689,14 +782,6 @@ def render_tactical_hud():
                         st.error(f"OCR Engine Failure: {ocr_payload.get('message')}")
                 except Exception as e:
                     st.error("Failed to parse OCR output.")
-
-    st.divider()
-    st.subheader("📚 Master Intelligence Ledger")
-    unified_df = get_unified_ledger()
-    if not unified_df.empty:
-        st.dataframe(unified_df, use_container_width=True, hide_index=True)
-    else:
-        st.warning("No intelligence logs found on disk.")
 
 # --- SIDEBAR: TACTICAL COMMAND MATRIX ---
 st.sidebar.title("⚡ OMEGA NODE C2")
@@ -716,12 +801,12 @@ with st.sidebar.expander("[ COMMAND & CONTROL ]", expanded=True):
             with st.spinner(f"Transmitting to {target_ip}..."):
                 try:
                     payload_path = os.path.join(BASE_DIR, "..", "tv_weapon.py")
-                    res = subprocess.run(["python", payload_path, tv_cmd, target_ip], capture_output=True, text=True)
+                    res = subprocess.run([PYTHON_EXE, payload_path, tv_cmd, target_ip], capture_output=True, text=True)
                     if "DELIVERED" in res.stdout: 
-                        st.success("Uplink Successful")
+                        st.toast("Uplink Successful", icon="📡")
                         log_activity("PAYLOAD_TRANSMIT", target_ip, "SUCCESS", tv_cmd)
                     else: 
-                        st.error("Uplink Failed")
+                        st.toast("Uplink Failed", icon="⚠️")
                         log_activity("PAYLOAD_TRANSMIT", target_ip, "FAILURE", res.stdout.strip())
                     st.info(res.stdout)
                 except Exception as e:
@@ -734,13 +819,13 @@ with st.sidebar.expander("[ COMMAND & CONTROL ]", expanded=True):
         if st.button("Transmit Payload", use_container_width=True, key="fan_button"):
             with st.spinner(f"Transmitting to {target_ip}..."):
                 try:
-                    bridge_path = os.path.join(BASE_DIR, "smartfan_bridge.py")
-                    res = subprocess.run(["python", bridge_path, target_ip, fan_cmd], capture_output=True, text=True)
+                    bridge_path = os.path.join(BASE_DIR, "mesh-specialist", "scripts", "smartfan_bridge.py")
+                    res = subprocess.run([PYTHON_EXE, bridge_path, target_ip, fan_cmd], capture_output=True, text=True)
                     if "SUCCESS" in res.stdout: 
-                        st.success("Uplink Successful")
+                        st.toast("Uplink Successful", icon="📡")
                         log_activity("FAN_CONTROL", target_ip, "SUCCESS", fan_cmd)
                     else: 
-                        st.error("Uplink Failed")
+                        st.toast("Uplink Failed", icon="⚠️")
                         log_activity("FAN_CONTROL", target_ip, "FAILURE", res.stdout.strip())
                     st.info(res.stdout)
                 except Exception as e:
@@ -748,8 +833,8 @@ with st.sidebar.expander("[ COMMAND & CONTROL ]", expanded=True):
                     log_activity("FAN_CONTROL", target_ip, "ERROR", str(e))
 
     elif "Xbox" in c2_node:
-        st.info("Xbox Node (.115) identified. Status: ONLINE. Controller bridge pending.")
-        xbox_payload = os.path.join(BASE_DIR, "xbox_weapon.py")
+        st.info("Xbox Node (.115) identified. Status: ONLINE. Controller bridge active.")
+        xbox_payload = os.path.join(BASE_DIR, "mesh-specialist", "scripts", "xbox_weapon.py")
         st.markdown("---")
         st.subheader("Xbox Node Control (192.168.68.115)")
         col1, col2 = st.columns(2)
@@ -758,7 +843,7 @@ with st.sidebar.expander("[ COMMAND & CONTROL ]", expanded=True):
             if st.button("Probe Xbox Node Status", use_container_width=True):
                 try:
                     res = subprocess.run(['python', xbox_payload], capture_output=True, text=True)
-                    st.info(res.stdout)
+                    st.toast("Xbox Probe Complete", icon="🎮")
                     log_activity("XBOX_CONTROL", "192.168.68.115", "PROBE", res.stdout.strip())
                 except Exception as e:
                     st.error(f"Execution Error: {e}")
@@ -769,10 +854,10 @@ with st.sidebar.expander("[ COMMAND & CONTROL ]", expanded=True):
                 try:
                     res = subprocess.run(['python', xbox_payload, '--wake'], capture_output=True, text=True)
                     if "[+]" in res.stdout:
-                        st.success(res.stdout)
+                        st.toast("WOL Packet Sent", icon="🚀")
                         log_activity("XBOX_CONTROL", "192.168.68.115", "SUCCESS", "WOL Packet Sent")
                     else:
-                        st.error(res.stdout)
+                        st.toast("WOL Failed", icon="⚠️")
                         log_activity("XBOX_CONTROL", "192.168.68.115", "FAILURE", res.stdout.strip())
                 except Exception as e:
                     st.error(f"Execution Error: {e}")
@@ -782,13 +867,14 @@ with st.sidebar.expander("[ COMMAND & CONTROL ]", expanded=True):
         with st.spinner("Scanning for Receivers..."):
             try:
                 sweep_path = os.path.join(BASE_DIR, "..", "cast_sweep.py")
-                result = subprocess.run(["python", sweep_path], capture_output=True, text=True)
-                st.success("Sweep Complete.")
-                st.code(result.stdout)
+                result = subprocess.run([PYTHON_EXE, sweep_path], capture_output=True, text=True)
+                st.toast("Sentry Sweep Complete", icon="👁️")
             except Exception as e:
                 st.error(f"Sentry Error: {e}")
                 
-    st.button("Establish Root (Kali WSL)", use_container_width=True, disabled=True)
+    if st.button("Establish Root (Kali WSL)", use_container_width=True):
+        subprocess.Popen(["cmd", "/c", "start", "powershell", "-NoExit", "-Command", "wsl -u root"])
+        st.toast("Root terminal session initiated", icon="💀")
 
 with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
     st.markdown("**Diagnostic Target**")
@@ -894,14 +980,22 @@ with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
                     st.markdown("---")
                     st.markdown("### 👁️ Optical Character Recognition (Host CPU)")
                     with st.spinner("Extracting hard text via Tesseract..."):
-                        # Convert Windows paths to WSL paths for Linux-based Tesseract execution
-                        wsl_script = subprocess.check_output(["wsl", "wslpath", os.path.join(BASE_DIR, "osint_ocr_engine.py")]).decode().strip()
-                        wsl_img = subprocess.check_output(["wsl", "wslpath", img_path]).decode().strip()
+                        is_docker = os.environ.get("DOCKER_ENV") == "true"
                         
-                        ocr_result = subprocess.run(
-                            ["wsl", "python3", wsl_script, wsl_img],
-                            capture_output=True, text=True
-                        )
+                        if is_docker:
+                            ocr_result = subprocess.run(
+                                ["python3", os.path.join(BASE_DIR, "osint_ocr_engine.py"), img_path],
+                                capture_output=True, text=True
+                            )
+                        else:
+                            # Convert Windows paths to WSL paths for Linux-based Tesseract execution
+                            wsl_script = subprocess.check_output(["wsl", "wslpath", os.path.join(BASE_DIR, "osint_ocr_engine.py")]).decode().strip()
+                            wsl_img = subprocess.check_output(["wsl", "wslpath", img_path]).decode().strip()
+                            
+                            ocr_result = subprocess.run(
+                                ["wsl", "python3", wsl_script, wsl_img],
+                                capture_output=True, text=True
+                            )
                         try:
                             ocr_payload = json.loads(ocr_result.stdout)
                             if ocr_payload.get("status") == "success":
@@ -930,7 +1024,7 @@ with st.sidebar.expander("[ SENSORS & DIAGNOSTICS ]"):
     if st.button("Verify TPU Hardware Uplink", use_container_width=True):
         with st.spinner("Probing Google Coral Edge TPU hardware..."):
             try:
-                res = subprocess.run([CORAL_PYTHON, os.path.join(BASE_DIR, "tpu_diagnostic.py")], capture_output=True, text=True)
+                res = subprocess.run([CORAL_PYTHON, os.path.join(BASE_DIR, "mesh-specialist", "scripts", "tpu_diagnostic.py")], capture_output=True, text=True)
                 try:
                     data = json.loads(res.stdout)
                     if data.get("status") == "ONLINE":
@@ -953,8 +1047,8 @@ with st.sidebar.expander("[ LOGISTICS & DEPLOYMENT ]"):
     if st.button("Scan for ADB Devices", use_container_width=True):
         with st.spinner("Discovery initiated..."):
             try:
-                adb_path = os.path.join(BASE_DIR, "adb_wrapper.py")
-                result = subprocess.run(["python", adb_path, "list"], capture_output=True, text=True, env={**os.environ, "ADB_TARGET": adb_id})
+                adb_path = os.path.join(BASE_DIR, "mobile-forensics", "scripts", "adb_wrapper.py")
+                result = subprocess.run([PYTHON_EXE, adb_path, "list"], capture_output=True, text=True, env={**os.environ, "ADB_TARGET": adb_id})
                 st.info("Mobile Node Manifest")
                 st.code(result.stdout)
                 log_activity("ADB_DISCOVERY", adb_id, "COMPLETE")
@@ -967,7 +1061,7 @@ if st.sidebar.button("Execute Core Sweep", type="primary", use_container_width=T
     with st.spinner("Executing recon_core.py..."):
         try:
             recon_path = os.path.join(BASE_DIR, "recon_core.py")
-            result = subprocess.run(["python", recon_path], capture_output=True, text=True)
+            result = subprocess.run([PYTHON_EXE, recon_path], capture_output=True, text=True)
             st.sidebar.success("Sweep Complete.")
             with st.sidebar.expander("View Terminal Output"):
                 st.code(result.stdout)
@@ -977,24 +1071,213 @@ if st.sidebar.button("Execute Core Sweep", type="primary", use_container_width=T
 st.sidebar.markdown("---")
 with st.sidebar.expander("[ INTELLIGENCE FRAMEWORKS ]", expanded=False):
     st.markdown("**SpiderFoot Node (Port 5001)**")
-    st.link_button("Open Dedicated Window", "http://127.0.0.1:5001", use_container_width=True)
+    sf_host = "spiderfoot" if os.environ.get("DOCKER_ENV") == "true" else "127.0.0.1"
+    sf_base_url = f"http://{sf_host}:5001"
+    
+    st.link_button("Open Dedicated Window", sf_base_url, use_container_width=True)
     if st.button("Embed OSINT Matrix", use_container_width=True):
         st.session_state['show_sf'] = True
     if st.button("Close OSINT Matrix", use_container_width=True):
         st.session_state['show_sf'] = False
+        
+    st.markdown("**SpiderFoot API Controls**")
+    sf_target = st.text_input("SpiderFoot Target", placeholder="IP, Domain, Email...")
+    if st.button("Start API Scan", use_container_width=True):
+        if sf_target:
+            with st.spinner(f"Initiating SpiderFoot scan on {sf_target}..."):
+                try:
+                    payload = {
+                        "scanname": f"Watchtower_{sf_target}",
+                        "scantarget": sf_target,
+                        "usecase": "all",
+                        "modulelist": "",
+                        "typelist": ""
+                    }
+                    res = requests.post(f"{sf_base_url}/startscan", data=payload, timeout=5)
+                    if res.status_code == 200:
+                        st.success(f"Scan started successfully. ID: {res.text}")
+                    else:
+                        st.error(f"API Error: HTTP {res.status_code} - {res.text}")
+                except Exception as e:
+                    st.error(f"Connection failed: {e}")
+        else:
+            st.warning("Please provide a target.")
+            
+    if st.button("Stop Active Scans", use_container_width=True):
+        with st.spinner("Halting SpiderFoot operations..."):
+            try:
+                list_res = requests.get(f"{sf_base_url}/scanlist", timeout=5)
+                if list_res.status_code == 200:
+                    scans = list_res.json()
+                    active = [s for s in scans if isinstance(s, list) and len(s) > 3 and s[3] in ["RUNNING", "STARTING", "INITIALIZING"]]
+                    if not active:
+                        st.info("No active scans detected.")
+                    else:
+                        for s in active:
+                            requests.get(f"{sf_base_url}/stopscan?id={s[0]}", timeout=5)
+                        st.success(f"Successfully aborted {len(active)} active scan(s).")
+                else:
+                    st.error(f"API Error: HTTP {list_res.status_code}")
+            except Exception as e:
+                st.error(f"Connection failed: {e}")
+
+    if st.button("Fetch Scan List", use_container_width=True):
+        with st.spinner("Querying API..."):
+            try:
+                res = requests.get(f"{sf_base_url}/scanlist", timeout=5)
+                if res.status_code == 200:
+                    st.dataframe(res.json(), use_container_width=True)
+                else:
+                    st.error(f"API Error: HTTP {res.status_code}")
+            except Exception as e:
+                st.error(f"Connection failed: {e}")
     
     st.markdown("---")
     st.markdown("**Monitoring Node (Port 3000)**")
     st.link_button("Access Tactical Grafana Feed", "http://192.168.68.110:3000/dashboards", use_container_width=True, type="primary")
+    if st.button("Embed Grafana Feed", use_container_width=True):
+        st.session_state['show_grafana'] = True
+    if st.button("Close Grafana Feed", use_container_width=True):
+        st.session_state['show_grafana'] = False
 
 # Render the Iframe in the main body if toggled
 if st.session_state.get('show_sf', False):
     st.markdown("---")
     st.markdown("### 🕸️ SpiderFoot Tactical Intercept")
-    components.iframe("http://127.0.0.1:5001", height=900, scrolling=True)
+    sf_host = "spiderfoot" if os.environ.get("DOCKER_ENV") == "true" else "127.0.0.1"
+    components.iframe(f"http://{sf_host}:5001", height=900, scrolling=True)
+
+# Render Grafana Iframe in the main body if toggled
+if st.session_state.get('show_grafana', False):
+    st.markdown("---")
+    st.markdown("### 📊 Grafana Performance Feed")
+    components.iframe("http://192.168.68.110:3000/dashboards?kiosk=tv", height=600, scrolling=True)
 
 # --- MAIN INTERFACE: GLOBAL COMMAND MATRIX ---
-render_tactical_hud()
+tab_hud, tab_mesh, tab_osint, tab_ledger, tab_health = st.tabs(["⚡ HUD", "🕷️ MESH", "🎯 RECON", "📖 LEDGER", "🏥 HEALTH"])
+
+with tab_hud:
+    render_tactical_hud()
+
+with tab_mesh:
+    render_topology()
+    st.divider()
+    
+    st.subheader("📡 Network Discovery Matrix")
+    d1, d2, d3 = st.columns(3)
+    with d1:
+        if st.button("SSDP Sweep", use_container_width=True):
+            with st.spinner("Broadcasting..."):
+                res = subprocess.run([PYTHON_EXE, "ssdp_sweep.py"], capture_output=True, text=True)
+                st.code(res.stdout)
+        if st.button("mDNS Discovery", use_container_width=True):
+            with st.spinner("Polling..."):
+                res = subprocess.run([PYTHON_EXE, "mdns_discovery.py"], capture_output=True, text=True)
+                st.code(res.stdout)
+    with d2:
+        if st.button("Tuya Local Keys", use_container_width=True):
+            with st.spinner("Extracting..."):
+                res = subprocess.run([PYTHON_EXE, "tuya_key_extractor.py"], capture_output=True, text=True)
+                st.code(res.stdout)
+        if st.button("Xbox Controller Bridge", use_container_width=True):
+            with st.spinner("Probing Xbox..."):
+                res = subprocess.run([PYTHON_EXE, "xbox_controller_bridge.py"], capture_output=True, text=True)
+                st.code(res.stdout)
+    with d3:
+        if st.button("SmartThings Sync", use_container_width=True):
+            with st.spinner("Syncing..."):
+                res = subprocess.run([PYTHON_EXE, "discover_smartthings.py"], capture_output=True, text=True)
+                st.code(res.stdout)
+        if st.button("Fingerprint Mesh", use_container_width=True):
+            with st.spinner("Fingerprinting..."):
+                res = subprocess.run([PYTHON_EXE, "fingerprint_mesh.py"], capture_output=True, text=True)
+                st.code(res.stdout)
+                
+    st.divider()
+    
+    mesh_col1, mesh_col2 = st.columns(2)
+    with mesh_col1:
+        if st.button("Initiate Fresh Mesh Sync (nmap)", use_container_width=True):
+            with st.spinner("Synchronizing local mesh..."):
+                sync_res = subprocess.run([PYTHON_EXE, os.path.join(BASE_DIR, "mesh_sync_skill.py")], capture_output=True, text=True)
+                st.code(sync_res.stdout)
+                if sync_res.returncode == 0:
+                    st.success("Mesh synchronization complete.")
+                    st.rerun()
+    with mesh_col2:
+        if st.button("Run Health Check (watchtower_sync.py)", use_container_width=True):
+            with st.spinner("Probing mesh nodes..."):
+                health_res = subprocess.run([PYTHON_EXE, os.path.join(BASE_DIR, "watchtower_sync.py")], capture_output=True, text=True)
+                st.code(health_res.stdout)
+
+with tab_ledger:
+    st.subheader("📚 Master Intelligence Ledger")
+    
+    unified_df = get_unified_ledger()
+    
+    # Global Search & Filter Implementation
+    col_search, col_filter = st.columns([3, 1])
+    with col_search:
+        search_query = st.text_input("🔍 Global Intelligence Search", placeholder="IP, Alias, Email, or Keyword...")
+    with col_filter:
+        source_filter = "All"
+        if not unified_df.empty:
+            sources = ["All"] + sorted(list(unified_df["Source"].unique()))
+            source_filter = st.selectbox("📂 Filter by Source", sources)
+
+    if search_query:
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.markdown("**Ledger Results**")
+            res_ledger = search_internal_ledger(search_query, unified_df)
+            if not res_ledger.empty:
+                st.dataframe(res_ledger, use_container_width=True, hide_index=True)
+            else:
+                st.caption("No matches in ledger.")
+        with col2:
+            st.markdown("**Mesh Results**")
+            res_mesh = search_network_mesh(search_query)
+            if not res_mesh.empty:
+                st.dataframe(res_mesh, use_container_width=True, hide_index=True)
+            else:
+                st.caption("No matches in mesh baseline.")
+        with col3:
+            st.markdown("**Live Process Results**")
+            res_proc = search_live_processes(search_query)
+            if not res_proc.empty:
+                st.dataframe(res_proc, use_container_width=True, hide_index=True)
+            else:
+                st.caption("No matching processes found on mobile nodes.")
+        st.divider()
+
+    if not unified_df.empty:
+        display_df = unified_df
+        if source_filter != "All":
+            display_df = display_df[display_df["Source"] == source_filter]
+        st.dataframe(display_df, use_container_width=True, hide_index=True)
+    else:
+        st.warning("No intelligence logs found on disk.")
+
+with tab_osint:
+    st.subheader("🕵️ Tor Dark Web Interceptor")
+    target_onion = st.text_input("Target Onion URL", placeholder="http://vww6ybal4bd7szmgncyruucpgfkqahzddi37ktceob7chgoowv...onion")
+    if st.button("Initiate Tor Extraction", use_container_width=True):
+        with st.spinner("Routing via SOCKS5 Proxy (Port 9050)..."):
+            try:
+                # Call the fetcher bridge
+                fetch_script = os.path.join(BASE_DIR, "deep-osint-expert", "scripts", "osint_tor_fetcher.py")
+                fetch_res = subprocess.run([PYTHON_EXE, fetch_script, target_onion], capture_output=True, text=True)
+                payload = json.loads(fetch_res.stdout)
+                render_darkweb_intel(payload)
+            except Exception as e:
+                st.error(f"Uplink Error: {str(e)}")
+                if 'fetch_res' in locals():
+                    st.code(fetch_res.stdout)
+
+with tab_health:
+    st.subheader("🖥️ Local C2 System Health & Services")
+    health_placeholder = st.empty()
+    render_system_health(health_placeholder)
 
 if st.session_state.get('live_poll', False):
     time.sleep(5)

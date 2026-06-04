@@ -1,0 +1,116 @@
+version: '3.8'
+
+services:
+  watchtower:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: watchtower_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - SHODAN_API_KEY=${SHODAN_API_KEY}
+      - CENSYS_PERSONAL_ACCESS_TOKEN=${CENSYS_PERSONAL_ACCESS_TOKEN}
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - ABUSEIPDB_API_KEY=${ABUSEIPDB_API_KEY}
+      - ALIENVAULT_API_KEY=${ALIENVAULT_API_KEY}
+      - ABSTRACT_API_KEY=${ABSTRACT_API_KEY}
+      - EXA_API_KEY=${EXA_API_KEY}
+      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - HF_TOKEN=${HF_TOKEN}
+      - BRAVE_SEARCH_API_KEY=${BRAVE_SEARCH_API_KEY}
+      - BRAVE_ANSWERS_API_KEY=${BRAVE_ANSWERS_API_KEY}
+      - BRAVE_AUTOSUGGEST_API_KEY=${BRAVE_AUTOSUGGEST_API_KEY}
+      - BRAVE_SPELLCHECK_API_KEY=${BRAVE_SPELLCHECK_API_KEY}
+      - URLSCAN_API_KEY=${URLSCAN_API_KEY}
+      - LEAKCHECK_API_KEY=${LEAKCHECK_API_KEY}
+      - WIGLE_API_NAME=${WIGLE_API_NAME}
+      - WIGLE_API_TOKEN=${WIGLE_API_TOKEN}
+      - ZOOMEYE_API_KEY=${ZOOMEYE_API_KEY}
+      - GRAFANA_USER=${GRAFANA_USER}
+      - GRAFANA_PASS=${GRAFANA_PASS}
+      - DOCKER_ENV=true
+    depends_on:
+      - influxdb
+      - grafana
+      - spiderfoot
+      - ollama
+    restart: unless-stopped
+    networks:
+      - watchtower-network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: watchtower_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    restart: unless-stopped
+    networks:
+      - watchtower-network
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: watchtower_influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=lance
+      - DOCKER_INFLUXDB_INIT_PASSWORD=LANCE-1985-SECURE
+      - DOCKER_INFLUXDB_INIT_ORG=watchtower
+      - DOCKER_INFLUXDB_INIT_BUCKET=telemetry
+      - DOCKER_INFLUXDB_INIT_RETENTION=30d
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_TOKEN}
+    restart: unless-stopped
+    networks:
+      - watchtower-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: watchtower_grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=KsiSway
+      - GF_SECURITY_ADMIN_PASSWORD=DOCnomore1!
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    depends_on:
+      - influxdb
+    restart: unless-stopped
+    networks:
+      - watchtower-network
+
+  spiderfoot:
+    build:
+      context: ./spiderfoot
+    image: spiderfoot:latest
+    container_name: spiderfoot
+    ports:
+      - "5001:5001"
+    volumes:
+      - spiderfoot_data:/var/lib/spiderfoot
+    restart: unless-stopped
+    networks:
+      - watchtower-network
+
+volumes:
+  influxdb_data:
+  grafana_data:
+  spiderfoot_data:
+  ollama_data:
+
+networks:
+  watchtower-network:
+    driver: bridge

@@ -1,0 +1,41 @@
+<h2>Task 3: Omni-Source Global OSINT Sweep</h2>
+<p class="subtitle">Architecture and Data Flow</p>
+
+<div class="mockup">
+  <div class="mockup-header">Proposed Architecture</div>
+  <div class="mockup-body">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div class="section">
+        <h3>1. Async Orchestrator (run_omni_sweep)</h3>
+        <p>Uses <code>asyncio.create_subprocess_exec</code> to fire 6 OSINT bridges concurrently.</p>
+        <p><b>Bridges:</b> Sherlock, Holehe, Maigret, Shodan, Breach, URLScan.</p>
+      </div>
+      <div class="section">
+        <h3>2. UI Integration (Hunt Button)</h3>
+        <p>Adds "Omni-Source Sweep (Global)" to the select box.</p>
+        <p>Displays results in dynamic expanders per source with automated extraction notes.</p>
+      </div>
+      <div class="section">
+        <h3>3. Data Flow</h3>
+        <p>User Input &rarr; Orchestrator &rarr; Concurrent Subprocesses &rarr; JSON Parsing &rarr; Tactical UI HUD.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="proceed" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Looks good!</h3>
+      <p>Proceed with this architecture.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="refine" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Need Refinement</h3>
+      <p>I have some questions or changes.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1243 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-05-02 16:31 -0700
+Stats: 0:00:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 21.08% done; ETC: 16:31 (0:00:15 remaining)
+Stats: 0:00:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 25.49% done; ETC: 16:32 (0:00:41 remaining)
+Stats: 0:00:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 30.38% done; ETC: 16:32 (0:00:55 remaining)
+Stats: 0:00:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 34.22% done; ETC: 16:32 (0:01:05 remaining)
+Stats: 0:00:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 36.75% done; ETC: 16:33 (0:01:16 remaining)
+Stats: 0:01:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 39.65% done; ETC: 16:33 (0:01:22 remaining)
+Stats: 0:01:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 42.31% done; ETC: 16:33 (0:01:27 remaining)
+Stats: 0:01:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 45.77% done; ETC: 16:33 (0:01:28 remaining)
+Stats: 0:01:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 49.22% done; ETC: 16:34 (0:01:27 remaining)
+Stats: 0:01:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 52.44% done; ETC: 16:34 (0:01:25 remaining)
+Stats: 0:01:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 56.14% done; ETC: 16:34 (0:01:21 remaining)
+Stats: 0:02:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 61.23% done; ETC: 16:34 (0:01:12 remaining)
+Stats: 0:02:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 66.00% done; ETC: 16:34 (0:01:04 remaining)
+Stats: 0:02:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 70.60% done; ETC: 16:34 (0:00:56 remaining)
+Stats: 0:02:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 74.81% done; ETC: 16:34 (0:00:48 remaining)
+Stats: 0:02:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 78.75% done; ETC: 16:34 (0:00:42 remaining)
+Stats: 0:02:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 82.64% done; ETC: 16:34 (0:00:34 remaining)
+Stats: 0:03:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 86.63% done; ETC: 16:34 (0:00:27 remaining)
+Stats: 0:03:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 88.69% done; ETC: 16:34 (0:00:23 remaining)
+Stats: 0:03:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 91.38% done; ETC: 16:34 (0:00:18 remaining)
+Stats: 0:03:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 93.48% done; ETC: 16:34 (0:00:14 remaining)
+Stats: 0:03:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 95.09% done; ETC: 16:35 (0:00:11 remaining)
+Stats: 0:03:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.00% done; ETC: 16:35 (0:00:09 remaining)
+Stats: 0:04:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.03% done; ETC: 16:35 (0:00:10 remaining)
+Stats: 0:04:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.06% done; ETC: 16:35 (0:00:10 remaining)
+Stats: 0:04:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.10% done; ETC: 16:35 (0:00:10 remaining)
+Stats: 0:04:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.11% done; ETC: 16:35 (0:00:11 remaining)
+Stats: 0:04:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.13% done; ETC: 16:36 (0:00:11 remaining)
+Stats: 0:04:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.16% done; ETC: 16:36 (0:00:11 remaining)
+Stats: 0:05:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.17% done; ETC: 16:36 (0:00:12 remaining)
+Stats: 0:05:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.19% done; ETC: 16:36 (0:00:12 remaining)
+Stats: 0:05:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.20% done; ETC: 16:36 (0:00:12 remaining)
+Stats: 0:05:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.21% done; ETC: 16:36 (0:00:13 remaining)
+Stats: 0:05:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.22% done; ETC: 16:37 (0:00:13 remaining)
+Stats: 0:05:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.25% done; ETC: 16:37 (0:00:13 remaining)
+Stats: 0:06:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.23% done; ETC: 16:37 (0:00:14 remaining)
+Stats: 0:06:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.20% done; ETC: 16:37 (0:00:14 remaining)
+Stats: 0:06:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.22% done; ETC: 16:37 (0:00:15 remaining)
+Stats: 0:06:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.25% done; ETC: 16:37 (0:00:15 remaining)
+Stats: 0:06:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.27% done; ETC: 16:38 (0:00:15 remaining)
+Stats: 0:06:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.30% done; ETC: 16:38 (0:00:16 remaining)
+Stats: 0:07:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.32% done; ETC: 16:38 (0:00:16 remaining)
+Stats: 0:07:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.35% done; ETC: 16:38 (0:00:16 remaining)
+Stats: 0:07:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.37% done; ETC: 16:38 (0:00:16 remaining)
+Stats: 0:07:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.38% done; ETC: 16:38 (0:00:17 remaining)
+Stats: 0:07:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.42% done; ETC: 16:39 (0:00:17 remaining)
+Stats: 0:07:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.43% done; ETC: 16:39 (0:00:17 remaining)
+Stats: 0:08:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.46% done; ETC: 16:39 (0:00:17 remaining)
+Stats: 0:08:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.51% done; ETC: 16:39 (0:00:18 remaining)
+Stats: 0:08:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.54% done; ETC: 16:39 (0:00:18 remaining)
+Stats: 0:08:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.57% done; ETC: 16:39 (0:00:18 remaining)
+Stats: 0:08:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.58% done; ETC: 16:40 (0:00:18 remaining)
+Stats: 0:08:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.60% done; ETC: 16:40 (0:00:18 remaining)
+Warning: 192.168.68.119 giving up on port because retransmission cap hit (10).
+Stats: 0:09:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.60% done; ETC: 16:40 (0:00:19 remaining)
+Stats: 0:09:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.65% done; ETC: 16:40 (0:00:19 remaining)
+Stats: 0:09:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.68% done; ETC: 16:40 (0:00:19 remaining)
+Stats: 0:09:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.71% done; ETC: 16:41 (0:00:19 remaining)
+Stats: 0:09:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.73% done; ETC: 16:41 (0:00:19 remaining)
+Stats: 0:09:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.77% done; ETC: 16:41 (0:00:20 remaining)
+Stats: 0:10:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.79% done; ETC: 16:41 (0:00:20 remaining)
+Stats: 0:10:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.83% done; ETC: 16:41 (0:00:20 remaining)
+Stats: 0:10:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.86% done; ETC: 16:41 (0:00:20 remaining)
+Stats: 0:10:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.89% done; ETC: 16:42 (0:00:20 remaining)
+Stats: 0:10:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.91% done; ETC: 16:42 (0:00:20 remaining)
+Stats: 0:10:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.94% done; ETC: 16:42 (0:00:20 remaining)
+Stats: 0:11:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.96% done; ETC: 16:42 (0:00:21 remaining)
+Stats: 0:11:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.98% done; ETC: 16:42 (0:00:21 remaining)
+Stats: 0:11:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.01% done; ETC: 16:42 (0:00:21 remaining)
+Stats: 0:11:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.03% done; ETC: 16:43 (0:00:21 remaining)
+Stats: 0:11:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.07% done; ETC: 16:43 (0:00:21 remaining)
+Stats: 0:11:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.10% done; ETC: 16:43 (0:00:21 remaining)
+Stats: 0:12:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.11% done; ETC: 16:43 (0:00:21 remaining)
+Stats: 0:12:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.13% done; ETC: 16:43 (0:00:21 remaining)
+Stats: 0:12:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.15% done; ETC: 16:43 (0:00:22 remaining)
+Stats: 0:12:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.17% done; ETC: 16:44 (0:00:22 remaining)
+Stats: 0:12:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.20% done; ETC: 16:44 (0:00:22 remaining)
+Stats: 0:12:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.22% done; ETC: 16:44 (0:00:22 remaining)
+Stats: 0:13:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.24% done; ETC: 16:44 (0:00:22 remaining)
+Stats: 0:13:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.26% done; ETC: 16:44 (0:00:22 remaining)
+Stats: 0:13:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.29% done; ETC: 16:44 (0:00:22 remaining)
+Stats: 0:13:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.32% done; ETC: 16:45 (0:00:22 remaining)
+Stats: 0:13:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.36% done; ETC: 16:45 (0:00:22 remaining)
+Stats: 0:13:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.39% done; ETC: 16:45 (0:00:22 remaining)
+Stats: 0:14:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.41% done; ETC: 16:45 (0:00:22 remaining)
+Stats: 0:14:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.44% done; ETC: 16:45 (0:00:22 remaining)
+Stats: 0:14:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.47% done; ETC: 16:45 (0:00:22 remaining)
+Stats: 0:14:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.49% done; ETC: 16:46 (0:00:22 remaining)
+Stats: 0:14:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.51% done; ETC: 16:46 (0:00:22 remaining)
+Stats: 0:14:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.55% done; ETC: 16:46 (0:00:22 remaining)
+Stats: 0:15:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.57% done; ETC: 16:46 (0:00:22 remaining)
+Stats: 0:15:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.59% done; ETC: 16:46 (0:00:22 remaining)
+Stats: 0:15:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.60% done; ETC: 16:46 (0:00:22 remaining)
+Stats: 0:15:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.61% done; ETC: 16:47 (0:00:23 remaining)
+Stats: 0:15:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.63% done; ETC: 16:47 (0:00:23 remaining)
+Stats: 0:15:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.63% done; ETC: 16:47 (0:00:23 remaining)
+Stats: 0:16:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.64% done; ETC: 16:47 (0:00:23 remaining)
+Stats: 0:16:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.65% done; ETC: 16:47 (0:00:23 remaining)
+Stats: 0:16:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.67% done; ETC: 16:47 (0:00:23 remaining)
+Stats: 0:16:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.68% done; ETC: 16:48 (0:00:23 remaining)
+Stats: 0:16:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.70% done; ETC: 16:48 (0:00:23 remaining)
+Stats: 0:16:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.72% done; ETC: 16:48 (0:00:23 remaining)
+Stats: 0:17:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.74% done; ETC: 16:48 (0:00:23 remaining)
+Stats: 0:17:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.78% done; ETC: 16:48 (0:00:23 remaining)
+Stats: 0:17:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.81% done; ETC: 16:48 (0:00:23 remaining)
+Stats: 0:17:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.83% done; ETC: 16:49 (0:00:23 remaining)
+Stats: 0:17:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.87% done; ETC: 16:49 (0:00:23 remaining)
+Stats: 0:17:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.90% done; ETC: 16:49 (0:00:23 remaining)
+Stats: 0:18:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.92% done; ETC: 16:49 (0:00:23 remaining)
+Stats: 0:18:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.94% done; ETC: 16:49 (0:00:23 remaining)
+Stats: 0:18:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.97% done; ETC: 16:49 (0:00:23 remaining)
+Stats: 0:18:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 97.98% done; ETC: 16:50 (0:00:23 remaining)
+Stats: 0:18:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.00% done; ETC: 16:50 (0:00:23 remaining)
+Stats: 0:18:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.02% done; ETC: 16:50 (0:00:23 remaining)
+Stats: 0:19:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.05% done; ETC: 16:50 (0:00:23 remaining)
+Stats: 0:19:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.07% done; ETC: 16:50 (0:00:23 remaining)
+Stats: 0:19:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.10% done; ETC: 16:50 (0:00:22 remaining)
+Stats: 0:19:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.10% done; ETC: 16:51 (0:00:23 remaining)
+Stats: 0:19:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.14% done; ETC: 16:51 (0:00:22 remaining)
+Stats: 0:19:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.18% done; ETC: 16:51 (0:00:22 remaining)
+Stats: 0:20:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.21% done; ETC: 16:51 (0:00:22 remaining)
+Stats: 0:20:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.24% done; ETC: 16:51 (0:00:22 remaining)
+Stats: 0:20:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.27% done; ETC: 16:51 (0:00:21 remaining)
+Stats: 0:20:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.29% done; ETC: 16:52 (0:00:21 remaining)
+Stats: 0:20:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.32% done; ETC: 16:52 (0:00:21 remaining)
+Stats: 0:20:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.36% done; ETC: 16:52 (0:00:21 remaining)
+Stats: 0:21:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.40% done; ETC: 16:52 (0:00:20 remaining)
+Stats: 0:21:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.41% done; ETC: 16:52 (0:00:20 remaining)
+Stats: 0:21:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.44% done; ETC: 16:52 (0:00:20 remaining)
+Stats: 0:21:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.47% done; ETC: 16:53 (0:00:20 remaining)
+Stats: 0:21:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.49% done; ETC: 16:53 (0:00:20 remaining)
+Stats: 0:21:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.51% done; ETC: 16:53 (0:00:20 remaining)
+Stats: 0:22:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.54% done; ETC: 16:53 (0:00:19 remaining)
+Stats: 0:22:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.57% done; ETC: 16:53 (0:00:19 remaining)
+Stats: 0:22:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.58% done; ETC: 16:53 (0:00:19 remaining)
+Stats: 0:22:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.60% done; ETC: 16:54 (0:00:19 remaining)
+Stats: 0:22:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.63% done; ETC: 16:54 (0:00:19 remaining)
+Stats: 0:22:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.66% done; ETC: 16:54 (0:00:19 remaining)
+Stats: 0:23:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.68% done; ETC: 16:54 (0:00:18 remaining)
+Stats: 0:23:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.70% done; ETC: 16:54 (0:00:18 remaining)
+Stats: 0:23:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.73% done; ETC: 16:54 (0:00:18 remaining)
+Stats: 0:23:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.74% done; ETC: 16:54 (0:00:18 remaining)
+Stats: 0:23:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.76% done; ETC: 16:55 (0:00:18 remaining)
+Stats: 0:23:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.77% done; ETC: 16:55 (0:00:18 remaining)
+Stats: 0:24:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.79% done; ETC: 16:55 (0:00:18 remaining)
+Stats: 0:24:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.82% done; ETC: 16:55 (0:00:17 remaining)
+Stats: 0:24:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.84% done; ETC: 16:55 (0:00:17 remaining)
+Stats: 0:24:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.87% done; ETC: 16:55 (0:00:17 remaining)
+Stats: 0:24:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.89% done; ETC: 16:56 (0:00:17 remaining)
+Stats: 0:24:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.90% done; ETC: 16:56 (0:00:16 remaining)
+Stats: 0:25:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.94% done; ETC: 16:56 (0:00:16 remaining)
+Stats: 0:25:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.99% done; ETC: 16:56 (0:00:15 remaining)
+Stats: 0:25:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.04% done; ETC: 16:56 (0:00:15 remaining)
+Stats: 0:25:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.09% done; ETC: 16:56 (0:00:14 remaining)
+Stats: 0:25:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.14% done; ETC: 16:57 (0:00:13 remaining)
+Stats: 0:25:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.20% done; ETC: 16:57 (0:00:13 remaining)
+Stats: 0:26:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.25% done; ETC: 16:57 (0:00:12 remaining)
+Stats: 0:26:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.30% done; ETC: 16:57 (0:00:11 remaining)
+Stats: 0:26:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.33% done; ETC: 16:57 (0:00:11 remaining)
+Stats: 0:26:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.36% done; ETC: 16:57 (0:00:10 remaining)
+Stats: 0:26:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.39% done; ETC: 16:58 (0:00:10 remaining)
+Stats: 0:26:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.40% done; ETC: 16:58 (0:00:10 remaining)
+Stats: 0:27:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.44% done; ETC: 16:58 (0:00:09 remaining)
+Stats: 0:27:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.47% done; ETC: 16:58 (0:00:09 remaining)
+Stats: 0:27:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.51% done; ETC: 16:58 (0:00:08 remaining)
+Stats: 0:27:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.54% done; ETC: 16:58 (0:00:08 remaining)
+Stats: 0:27:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.55% done; ETC: 16:58 (0:00:07 remaining)
+Stats: 0:27:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.60% done; ETC: 16:59 (0:00:07 remaining)
+Stats: 0:28:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.63% done; ETC: 16:59 (0:00:06 remaining)
+Stats: 0:28:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.65% done; ETC: 16:59 (0:00:06 remaining)
+Stats: 0:28:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.68% done; ETC: 16:59 (0:00:05 remaining)
+Stats: 0:28:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.70% done; ETC: 16:59 (0:00:05 remaining)
+Stats: 0:28:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.72% done; ETC: 16:59 (0:00:05 remaining)
+Stats: 0:28:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.77% done; ETC: 17:00 (0:00:04 remaining)
+Stats: 0:29:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.78% done; ETC: 17:00 (0:00:04 remaining)
+Stats: 0:29:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.81% done; ETC: 17:00 (0:00:03 remaining)
+Stats: 0:29:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.84% done; ETC: 17:00 (0:00:03 remaining)
+Stats: 0:29:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.86% done; ETC: 17:00 (0:00:02 remaining)
+Stats: 0:29:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.88% done; ETC: 17:00 (0:00:02 remaining)
+Stats: 0:29:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.88% done; ETC: 17:01 (0:00:02 remaining)
+Stats: 0:30:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.89% done; ETC: 17:01 (0:00:02 remaining)
+Stats: 0:30:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.92% done; ETC: 17:01 (0:00:02 remaining)
+Stats: 0:30:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.94% done; ETC: 17:01 (0:00:01 remaining)
+Stats: 0:30:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.97% done; ETC: 17:01 (0:00:01 remaining)
+Stats: 0:30:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.99% done; ETC: 17:01 (0:00:00 remaining)
+Stats: 0:30:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:02 (0:00:00 remaining)
+Stats: 0:31:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:02 (0:00:00 remaining)
+Stats: 0:31:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:02 (0:00:00 remaining)
+Stats: 0:31:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:02 (0:00:00 remaining)
+Stats: 0:31:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:02 (0:00:00 remaining)
+Stats: 0:31:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:02 (0:00:00 remaining)
+Stats: 0:31:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:03 (0:00:00 remaining)
+Stats: 0:32:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:03 (0:00:00 remaining)
+Stats: 0:32:10 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:03 (0:00:00 remaining)
+Stats: 0:32:20 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:03 (0:00:00 remaining)
+Stats: 0:32:30 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:03 (0:00:00 remaining)
+Stats: 0:32:40 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:03 (0:00:00 remaining)
+Stats: 0:32:50 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:04 (0:00:00 remaining)
+Stats: 0:33:00 elapsed; 236 hosts completed (19 up), 19 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 100.00% done; ETC: 17:04 (0:00:00 remaining)
+Stats: 0:33:11 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 0.00% done
+Stats: 0:33:21 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 41.38% done; ETC: 17:04 (0:00:23 remaining)
+Stats: 0:33:30 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 55.17% done; ETC: 17:05 (0:00:20 remaining)
+Stats: 0:33:41 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 58.62% done; ETC: 17:05 (0:00:25 remaining)
+Stats: 0:33:51 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 62.07% done; ETC: 17:05 (0:00:28 remaining)
+Stats: 0:34:00 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 62.07% done; ETC: 17:05 (0:00:33 remaining)
+Stats: 0:34:10 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 62.07% done; ETC: 17:05 (0:00:39 remaining)
+Stats: 0:34:20 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 62.07% done; ETC: 17:06 (0:00:45 remaining)
+Stats: 0:34:30 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 62.07% done; ETC: 17:06 (0:00:51 remaining)
+Stats: 0:34:40 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 79.31% done; ETC: 17:06 (0:00:25 remaining)
+Stats: 0:34:50 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 79.31% done; ETC: 17:06 (0:00:27 remaining)
+Stats: 0:35:00 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 79.31% done; ETC: 17:06 (0:00:30 remaining)
+Stats: 0:35:10 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 79.31% done; ETC: 17:06 (0:00:32 remaining)
+Stats: 0:35:20 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 82.76% done; ETC: 17:06 (0:00:28 remaining)
+Stats: 0:35:30 elapsed; 236 hosts completed (19 up), 19 undergoing Service Scan
+Service scan Timing: About 89.66% done; ETC: 17:06 (0:00:17 remaining)
+Stats: 0:35:40 elapsed; 236 hosts completed (19 up), 19 undergoing Script Scan
+NSE Timing: About 98.53% done; ETC: 17:06 (0:00:00 remaining)
+Stats: 0:35:50 elapsed; 236 hosts completed (19 up), 19 undergoing Script Scan
+NSE Timing: About 99.27% done; ETC: 17:07 (0:00:00 remaining)
+Stats: 0:36:00 elapsed; 236 hosts completed (19 up), 19 undergoing Script Scan
+NSE Timing: About 75.86% done; ETC: 17:07 (0:00:00 remaining)
+Nmap scan report for 192.168.68.1
+Host is up (0.0080s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT    STATE SERVICE    VERSION
+53/tcp  open  domain     (unknown banner: Q9-U-2026032301)
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|     bind
+|_    Q9-U-2026032301
+80/tcp  open  http       OpenWrt uHTTPd
+443/tcp open  ssl/https?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.99%I=7%D=5/2%Time=69F6910B%P=i686-pc-windows-windows%r(D
+SF:NSVersionBindReqTCP,3C,"\0:\0\x06\x81\x80\0\x01\0\x01\0\0\0\0\x07versio
+SF:n\x04bind\0\0\x10\0\x03\xc0\x0c\0\x10\0\x03\0\0\0\0\0\x10\x0fQ9-U-20260
+SF:32301");
+MAC Address: 98:BA:5F:13:D2:75 (TP-Link Systems)
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.68.100
+Host is up (0.19s latency).
+All 1000 scanned ports on 192.168.68.100 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 00:D2:B1:2D:92:94 (TPV Display Technology (Xiamen))
+
+Nmap scan report for 192.168.68.101
+Host is up (0.0083s latency).
+Not shown: 993 closed tcp ports (reset)
+PORT     STATE SERVICE             VERSION
+7000/tcp open  rtsp                AirTunes rtspd 377.40.00
+7443/tcp open  ssl/oracleas-https?
+8001/tcp open  vcom-tunnel?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, SSLSessionReq: 
+|     HTTP/1.0 403 Forbidden
+|     content-type: text/html
+|     content-length: 173
+|     <html><head><meta charset=utf-8 http-equiv="Content-Language" content="en"/><link rel="stylesheet" type="text/css" href="/error.css"/></head><body><h1>403</h1></body></html>
+|   FourOhFourRequest: 
+|     HTTP/1.0 404 Not Found
+|     content-type: application/json; charset=utf-8
+|     content-length: 29
+|     <html><body>404</body></html>
+|   GetRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     content-length: 29
+|     <html><body>401</body></html>
+|   HTTPOptions, RTSPRequest: 
+|     HTTP/1.0 200 OK
+|     content-type: application/json; charset=utf-8
+|     access-control-allow-headers: content-type
+|_    content-length: 3
+8002/tcp open  ssl/teradataordbms?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, SSLSessionReq: 
+|     HTTP/1.0 403 Forbidden
+|     content-type: text/html
+|     content-length: 173
+|     <html><head><meta charset=utf-8 http-equiv="Content-Language" content="en"/><link rel="stylesheet" type="text/css" href="/error.css"/></head><body><h1>403</h1></body></html>
+|   GetRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     content-length: 29
+|     <html><body>401</body></html>
+|   HTTPOptions, RTSPRequest: 
+|     HTTP/1.0 200 OK
+|     content-type: application/json; charset=utf-8
+|     access-control-allow-headers: content-type
+|_    content-length: 3
+8008/tcp open  http?
+8009/tcp open  ssl/ajp13?
+8080/tcp open  http-proxy          WebServer
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 404 Not Found
+|     Content-Type: text/html
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Content-Type
+|     Content-Length: 341
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:23 GMT
+|     Server: WebServer
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>404 Not Found</title>
+|     </head>
+|     <body>
+|     <h1>404 Not Found</h1>
+|     </body>
+|     </html>
+|   GetRequest: 
+|     HTTP/1.0 403 Forbidden
+|     Content-Type: text/html
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Content-Type
+|     Content-Length: 341
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:22 GMT
+|     Server: WebServer
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>403 Forbidden</title>
+|     </head>
+|     <body>
+|     <h1>403 Forbidden</h1>
+|     </body>
+|     </html>
+|   HTTPOptions: 
+|     HTTP/1.0 200 OK
+|     Allow: OPTIONS, GET, HEAD, POST
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Content-Type
+|     Content-Length: 0
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:23 GMT
+|     Server: WebServer
+|   RTSPRequest: 
+|     HTTP/1.0 400 Bad Request
+|     Content-Type: text/html
+|     Content-Length: 345
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:23 GMT
+|     Server: WebServer
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>400 Bad Request</title>
+|     </head>
+|     <body>
+|     <h1>400 Bad Request</h1>
+|     </body>
+|_    </html>
+|_http-server-header: WebServer
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8001-TCP:V=7.99%I=7%D=5/2%Time=69F69106%P=i686-pc-windows-windows%r
+SF:(GetRequest,4E,"HTTP/1\.0\x20401\x20Unauthorized\r\ncontent-length:\x20
+SF:29\r\n\r\n<html><body>401</body></html>")%r(FourOhFourRequest,7A,"HTTP/
+SF:1\.0\x20404\x20Not\x20Found\r\ncontent-type:\x20application/json;\x20ch
+SF:arset=utf-8\r\ncontent-length:\x2029\r\n\r\n<html><body>404</body></htm
+SF:l>")%r(HTTPOptions,84,"HTTP/1\.0\x20200\x20OK\r\ncontent-type:\x20appli
+SF:cation/json;\x20charset=utf-8\r\naccess-control-allow-headers:\x20conte
+SF:nt-type\r\ncontent-length:\x203\r\n\r\n200")%r(RTSPRequest,84,"HTTP/1\.
+SF:0\x20200\x20OK\r\ncontent-type:\x20application/json;\x20charset=utf-8\r
+SF:\naccess-control-allow-headers:\x20content-type\r\ncontent-length:\x203
+SF:\r\n\r\n200")%r(RPCCheck,F5,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-t
+SF:ype:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><meta\x2
+SF:0charset=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"en\"/><l
+SF:ink\x20rel=\"stylesheet\"\x20type=\"text/css\"\x20href=\"/error\.css\"/
+SF:></head><body><h1>403</h1></body></html>")%r(DNSVersionBindReqTCP,F5,"H
+SF:TTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-l
+SF:ength:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\
+SF:"Content-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20t
+SF:ype=\"text/css\"\x20href=\"/error\.css\"/></head><body><h1>403</h1></bo
+SF:dy></html>")%r(DNSStatusRequestTCP,F5,"HTTP/1\.0\x20403\x20Forbidden\r\
+SF:ncontent-type:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><hea
+SF:d><meta\x20charset=utf-8\x20http-equiv=\"Content-Language\"\x20content=
+SF:\"en\"/><link\x20rel=\"stylesheet\"\x20type=\"text/css\"\x20href=\"/err
+SF:or\.css\"/></head><body><h1>403</h1></body></html>")%r(Help,F5,"HTTP/1\
+SF:.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-length:
+SF:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\"Conte
+SF:nt-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20type=\"
+SF:text/css\"\x20href=\"/error\.css\"/></head><body><h1>403</h1></body></h
+SF:tml>")%r(SSLSessionReq,F5,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-typ
+SF:e:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><meta\x20c
+SF:harset=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"en\"/><lin
+SF:k\x20rel=\"stylesheet\"\x20type=\"text/css\"\x20href=\"/error\.css\"/><
+SF:/head><body><h1>403</h1></body></html>");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8002-TCP:V=7.99%T=SSL%I=7%D=5/2%Time=69F69111%P=i686-pc-windows-win
+SF:dows%r(GetRequest,4E,"HTTP/1\.0\x20401\x20Unauthorized\r\ncontent-lengt
+SF:h:\x2029\r\n\r\n<html><body>401</body></html>")%r(HTTPOptions,84,"HTTP/
+SF:1\.0\x20200\x20OK\r\ncontent-type:\x20application/json;\x20charset=utf-
+SF:8\r\naccess-control-allow-headers:\x20content-type\r\ncontent-length:\x
+SF:203\r\n\r\n200")%r(RTSPRequest,84,"HTTP/1\.0\x20200\x20OK\r\ncontent-ty
+SF:pe:\x20application/json;\x20charset=utf-8\r\naccess-control-allow-heade
+SF:rs:\x20content-type\r\ncontent-length:\x203\r\n\r\n200")%r(RPCCheck,F5,
+SF:"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent
+SF:-length:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv
+SF:=\"Content-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x2
+SF:0type=\"text/css\"\x20href=\"/error\.css\"/></head><body><h1>403</h1></
+SF:body></html>")%r(DNSVersionBindReqTCP,F5,"HTTP/1\.0\x20403\x20Forbidden
+SF:\r\ncontent-type:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><
+SF:head><meta\x20charset=utf-8\x20http-equiv=\"Content-Language\"\x20conte
+SF:nt=\"en\"/><link\x20rel=\"stylesheet\"\x20type=\"text/css\"\x20href=\"/
+SF:error\.css\"/></head><body><h1>403</h1></body></html>")%r(DNSStatusRequ
+SF:estTCP,F5,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\
+SF:r\ncontent-length:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20
+SF:http-equiv=\"Content-Language\"\x20content=\"en\"/><link\x20rel=\"style
+SF:sheet\"\x20type=\"text/css\"\x20href=\"/error\.css\"/></head><body><h1>
+SF:403</h1></body></html>")%r(Help,F5,"HTTP/1\.0\x20403\x20Forbidden\r\nco
+SF:ntent-type:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><
+SF:meta\x20charset=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"e
+SF:n\"/><link\x20rel=\"stylesheet\"\x20type=\"text/css\"\x20href=\"/error\
+SF:.css\"/></head><body><h1>403</h1></body></html>")%r(SSLSessionReq,F5,"H
+SF:TTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-l
+SF:ength:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\
+SF:"Content-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20t
+SF:ype=\"text/css\"\x20href=\"/error\.css\"/></head><body><h1>403</h1></bo
+SF:dy></html>");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.99%I=7%D=5/2%Time=69F69106%P=i686-pc-windows-windows%r
+SF:(GetRequest,234,"HTTP/1\.0\x20403\x20Forbidden\r\nContent-Type:\x20text
+SF:/html\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Hea
+SF:ders:\x20Content-Type\r\nContent-Length:\x20341\r\nConnection:\x20close
+SF:\r\nDate:\x20Sun,\x2003\x20May\x202026\x2000:04:22\x20GMT\r\nServer:\x2
+SF:0WebServer\r\n\r\n<\?xml\x20version=\"1\.0\"\x20encoding=\"iso-8859-1\"
+SF:\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20T
+SF:ransitional//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\"http://www\.w3
+SF:\.org/TR/xhtml1/DTD/xhtml1-transitional\.dtd\">\n<html\x20xmlns=\"http:
+SF://www\.w3\.org/1999/xhtml\"\x20xml:lang=\"en\"\x20lang=\"en\">\n\x20<he
+SF:ad>\n\x20\x20<title>403\x20Forbidden</title>\n\x20</head>\n\x20<body>\n
+SF:\x20\x20<h1>403\x20Forbidden</h1>\n\x20</body>\n</html>\n")%r(HTTPOptio
+SF:ns,DE,"HTTP/1\.0\x20200\x20OK\r\nAllow:\x20OPTIONS,\x20GET,\x20HEAD,\x2
+SF:0POST\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Hea
+SF:ders:\x20Content-Type\r\nContent-Length:\x200\r\nConnection:\x20close\r
+SF:\nDate:\x20Sun,\x2003\x20May\x202026\x2000:04:23\x20GMT\r\nServer:\x20W
+SF:ebServer\r\n\r\n")%r(RTSPRequest,1EE,"HTTP/1\.0\x20400\x20Bad\x20Reques
+SF:t\r\nContent-Type:\x20text/html\r\nContent-Length:\x20345\r\nConnection
+SF::\x20close\r\nDate:\x20Sun,\x2003\x20May\x202026\x2000:04:23\x20GMT\r\n
+SF:Server:\x20WebServer\r\n\r\n<\?xml\x20version=\"1\.0\"\x20encoding=\"is
+SF:o-8859-1\"\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x2
+SF:01\.0\x20Transitional//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\"http
+SF:://www\.w3\.org/TR/xhtml1/DTD/xhtml1-transitional\.dtd\">\n<html\x20xml
+SF:ns=\"http://www\.w3\.org/1999/xhtml\"\x20xml:lang=\"en\"\x20lang=\"en\"
+SF:>\n\x20<head>\n\x20\x20<title>400\x20Bad\x20Request</title>\n\x20</head
+SF:>\n\x20<body>\n\x20\x20<h1>400\x20Bad\x20Request</h1>\n\x20</body>\n</h
+SF:tml>\n")%r(FourOhFourRequest,234,"HTTP/1\.0\x20404\x20Not\x20Found\r\nC
+SF:ontent-Type:\x20text/html\r\nAccess-Control-Allow-Origin:\x20\*\r\nAcce
+SF:ss-Control-Allow-Headers:\x20Content-Type\r\nContent-Length:\x20341\r\n
+SF:Connection:\x20close\r\nDate:\x20Sun,\x2003\x20May\x202026\x2000:04:23\
+SF:x20GMT\r\nServer:\x20WebServer\r\n\r\n<\?xml\x20version=\"1\.0\"\x20enc
+SF:oding=\"iso-8859-1\"\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x
+SF:20XHTML\x201\.0\x20Transitional//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20
+SF:\x20\"http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-transitional\.dtd\">\n<h
+SF:tml\x20xmlns=\"http://www\.w3\.org/1999/xhtml\"\x20xml:lang=\"en\"\x20l
+SF:ang=\"en\">\n\x20<head>\n\x20\x20<title>404\x20Not\x20Found</title>\n\x
+SF:20</head>\n\x20<body>\n\x20\x20<h1>404\x20Not\x20Found</h1>\n\x20</body
+SF:>\n</html>\n");
+MAC Address: B0:F2:F6:E3:B0:34 (Samsung Electronics)
+
+Nmap scan report for 192.168.68.102
+Host is up (0.017s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE         VERSION
+8008/tcp open  http?
+8009/tcp open  ssl/castv2      Ninja Sphere Chromecast driver
+8443/tcp open  ssl/https-alt?
+9000/tcp open  ssl/cslistener?
+MAC Address: 78:80:38:89:66:C4 (Funai Electric)
+
+Nmap scan report for 192.168.68.105
+Host is up (0.016s latency).
+All 1000 scanned ports on 192.168.68.105 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 00:1C:C2:7F:AC:A1 (Part II Research)
+
+Nmap scan report for 192.168.68.108
+Host is up (0.066s latency).
+All 1000 scanned ports on 192.168.68.108 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 28:3A:4D:45:95:E7 (Cloud Network Technology (Samoa) Limited)
+
+Nmap scan report for 192.168.68.109
+Host is up (0.029s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE    SERVICE       VERSION
+7/tcp    filtered echo
+8000/tcp open     ssl/http-alt?
+MAC Address: C4:EF:3D:92:BA:9B (Samsung Electronics)
+
+Nmap scan report for 192.168.68.112
+Host is up (0.057s latency).
+All 1000 scanned ports on 192.168.68.112 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 24:F0:D3:CF:8F:CF (Samsung Electronics)
+
+Nmap scan report for 192.168.68.113
+Host is up (0.061s latency).
+All 1000 scanned ports on 192.168.68.113 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: F2:2C:30:30:63:60 (Unknown)
+
+Nmap scan report for 192.168.68.114
+Host is up (0.013s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT     STATE SERVICE             VERSION
+4000/tcp open  remoteanything?
+| fingerprint-strings: 
+|   GenericLines, GetRequest, NoMachine, RTSPRequest: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/html
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:24 GMT
+|     Content-Length: 94
+|     <HTML><HEAD>
+|     <TITLE>400 Bad Request</TITLE>
+|     </HEAD><BODY>
+|     <H1>Bad Request</H1>
+|     </BODY></HTML>
+|   HTTPOptions: 
+|     HTTP/1.1 501 Not Implemented
+|     Content-Type: text/html
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:24 GMT
+|     Content-Length: 102
+|     <HTML><HEAD>
+|     <TITLE>501 Not Implemented</TITLE>
+|     </HEAD><BODY>
+|     <H1>Not Implemented</H1>
+|     </BODY></HTML>
+|   Help, SSLSessionReq: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/html
+|     Connection: close
+|     Date: Sun, 03 May 2026 00:04:39 GMT
+|     Content-Length: 94
+|     <HTML><HEAD>
+|     <TITLE>400 Bad Request</TITLE>
+|     </HEAD><BODY>
+|     <H1>Bad Request</H1>
+|_    </BODY></HTML>
+8001/tcp open  vcom-tunnel?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie, X11Probe: 
+|     HTTP/1.0 403 Forbidden
+|     content-type: text/html
+|     content-length: 38
+|_    <html><body><h1>403</h1></body></html>
+8002/tcp open  ssl/teradataordbms?
+8080/tcp open  http                lighttpd
+|_http-server-header: WebServer
+9110/tcp open  upnp                Samsung AllShare upnpd 1.0 (UPnP 1.1)
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port4000-TCP:V=7.99%I=7%D=5/2%Time=69F69106%P=i686-pc-windows-windows%r
+SF:(GetRequest,DF,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20
+SF:text/html\r\nConnection:\x20close\r\nDate:\x20Sun,\x2003\x20May\x202026
+SF:\x2000:04:24\x20GMT\r\nContent-Length:\x2094\r\n\r\n<HTML><HEAD>\n<TITL
+SF:E>400\x20Bad\x20Request</TITLE>\n</HEAD><BODY>\n<H1>Bad\x20Request</H1>
+SF:\n</BODY></HTML>\n")%r(NoMachine,DF,"HTTP/1\.1\x20400\x20Bad\x20Request
+SF:\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\nDate:\x20Sun,
+SF:\x2003\x20May\x202026\x2000:04:24\x20GMT\r\nContent-Length:\x2094\r\n\r
+SF:\n<HTML><HEAD>\n<TITLE>400\x20Bad\x20Request</TITLE>\n</HEAD><BODY>\n<H
+SF:1>Bad\x20Request</H1>\n</BODY></HTML>\n")%r(GenericLines,DF,"HTTP/1\.1\
+SF:x20400\x20Bad\x20Request\r\nContent-Type:\x20text/html\r\nConnection:\x
+SF:20close\r\nDate:\x20Sun,\x2003\x20May\x202026\x2000:04:24\x20GMT\r\nCon
+SF:tent-Length:\x2094\r\n\r\n<HTML><HEAD>\n<TITLE>400\x20Bad\x20Request</T
+SF:ITLE>\n</HEAD><BODY>\n<H1>Bad\x20Request</H1>\n</BODY></HTML>\n")%r(HTT
+SF:POptions,EC,"HTTP/1\.1\x20501\x20Not\x20Implemented\r\nContent-Type:\x2
+SF:0text/html\r\nConnection:\x20close\r\nDate:\x20Sun,\x2003\x20May\x20202
+SF:6\x2000:04:24\x20GMT\r\nContent-Length:\x20102\r\n\r\n<HTML><HEAD>\n<TI
+SF:TLE>501\x20Not\x20Implemented</TITLE>\n</HEAD><BODY>\n<H1>Not\x20Implem
+SF:ented</H1>\n</BODY></HTML>\n")%r(RTSPRequest,DF,"HTTP/1\.1\x20400\x20Ba
+SF:d\x20Request\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\nD
+SF:ate:\x20Sun,\x2003\x20May\x202026\x2000:04:24\x20GMT\r\nContent-Length:
+SF:\x2094\r\n\r\n<HTML><HEAD>\n<TITLE>400\x20Bad\x20Request</TITLE>\n</HEA
+SF:D><BODY>\n<H1>Bad\x20Request</H1>\n</BODY></HTML>\n")%r(Help,DF,"HTTP/1
+SF:\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/html\r\nConnectio
+SF:n:\x20close\r\nDate:\x20Sun,\x2003\x20May\x202026\x2000:04:39\x20GMT\r\
+SF:nContent-Length:\x2094\r\n\r\n<HTML><HEAD>\n<TITLE>400\x20Bad\x20Reques
+SF:t</TITLE>\n</HEAD><BODY>\n<H1>Bad\x20Request</H1>\n</BODY></HTML>\n")%r
+SF:(SSLSessionReq,DF,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\
+SF:x20text/html\r\nConnection:\x20close\r\nDate:\x20Sun,\x2003\x20May\x202
+SF:026\x2000:04:39\x20GMT\r\nContent-Length:\x2094\r\n\r\n<HTML><HEAD>\n<T
+SF:ITLE>400\x20Bad\x20Request</TITLE>\n</HEAD><BODY>\n<H1>Bad\x20Request</
+SF:H1>\n</BODY></HTML>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8001-TCP:V=7.99%I=7%D=5/2%Time=69F69124%P=i686-pc-windows-windows%r
+SF:(DNSVersionBindReqTCP,6D,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type
+SF::\x20text/html\r\ncontent-length:\x2038\r\n\r\n<html><body><h1>403</h1>
+SF:</body></html>")%r(DNSStatusRequestTCP,6D,"HTTP/1\.0\x20403\x20Forbidde
+SF:n\r\ncontent-type:\x20text/html\r\ncontent-length:\x2038\r\n\r\n<html><
+SF:body><h1>403</h1></body></html>")%r(Help,6D,"HTTP/1\.0\x20403\x20Forbid
+SF:den\r\ncontent-type:\x20text/html\r\ncontent-length:\x2038\r\n\r\n<html
+SF:><body><h1>403</h1></body></html>")%r(SSLSessionReq,6D,"HTTP/1\.0\x2040
+SF:3\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-length:\x2038\r
+SF:\n\r\n<html><body><h1>403</h1></body></html>")%r(TerminalServerCookie,6
+SF:D,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\nconte
+SF:nt-length:\x2038\r\n\r\n<html><body><h1>403</h1></body></html>")%r(TLSS
+SF:essionReq,6D,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/ht
+SF:ml\r\ncontent-length:\x2038\r\n\r\n<html><body><h1>403</h1></body></htm
+SF:l>")%r(Kerberos,6D,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20t
+SF:ext/html\r\ncontent-length:\x2038\r\n\r\n<html><body><h1>403</h1></body
+SF:></html>")%r(SMBProgNeg,6D,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-ty
+SF:pe:\x20text/html\r\ncontent-length:\x2038\r\n\r\n<html><body><h1>403</h
+SF:1></body></html>")%r(X11Probe,6D,"HTTP/1\.0\x20403\x20Forbidden\r\ncont
+SF:ent-type:\x20text/html\r\ncontent-length:\x2038\r\n\r\n<html><body><h1>
+SF:403</h1></body></html>")%r(LPDString,6D,"HTTP/1\.0\x20403\x20Forbidden\
+SF:r\ncontent-type:\x20text/html\r\ncontent-length:\x2038\r\n\r\n<html><bo
+SF:dy><h1>403</h1></body></html>")%r(LDAPSearchReq,6D,"HTTP/1\.0\x20403\x2
+SF:0Forbidden\r\ncontent-type:\x20text/html\r\ncontent-length:\x2038\r\n\r
+SF:\n<html><body><h1>403</h1></body></html>")%r(LDAPBindReq,6D,"HTTP/1\.0\
+SF:x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-length:\x2
+SF:038\r\n\r\n<html><body><h1>403</h1></body></html>")%r(SIPOptions,6D,"HT
+SF:TP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-le
+SF:ngth:\x2038\r\n\r\n<html><body><h1>403</h1></body></html>")%r(LANDesk-R
+SF:C,6D,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\nco
+SF:ntent-length:\x2038\r\n\r\n<html><body><h1>403</h1></body></html>");
+MAC Address: 64:E7:D8:D1:32:6A (Samsung Electronics)
+
+Nmap scan report for 192.168.68.115
+Host is up (0.0016s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT     STATE SERVICE VERSION
+2869/tcp open  upnp    Microsoft IIS httpd
+MAC Address: D8:E2:DF:6D:94:DB (Microsoft)
+
+Nmap scan report for 192.168.68.116
+Host is up (0.036s latency).
+All 1000 scanned ports on 192.168.68.116 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 5C:47:5E:B8:4B:01 (Ring)
+
+Nmap scan report for 192.168.68.117
+Host is up (0.024s latency).
+All 1000 scanned ports on 192.168.68.117 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 5C:47:5E:B8:41:5B (Ring)
+
+Nmap scan report for 192.168.68.118
+Host is up (0.11s latency).
+All 1000 scanned ports on 192.168.68.118 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: AC:9F:C3:F4:30:45 (Ring)
+
+Nmap scan report for 192.168.68.119
+Host is up (0.14s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE    SERVICE     VERSION
+1782/tcp filtered hp-hcip
+5269/tcp filtered xmpp-server
+MAC Address: AC:9F:C3:F6:4B:E7 (Ring)
+
+Nmap scan report for 192.168.68.246
+Host is up (0.010s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE SERVICE    VERSION
+80/tcp  open  http       OpenWrt uHTTPd
+443/tcp open  ssl/https?
+MAC Address: 8C:86:DD:C5:64:F5 (TP-Link Systems)
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.68.248
+Host is up (0.0092s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE SERVICE    VERSION
+80/tcp  open  http       OpenWrt uHTTPd
+443/tcp open  ssl/https?
+MAC Address: 98:BA:5F:13:D2:48 (TP-Link Systems)
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.68.249
+Host is up (0.0048s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE SERVICE    VERSION
+80/tcp  open  http       OpenWrt uHTTPd
+443/tcp open  ssl/https?
+MAC Address: 8C:86:DD:C5:A7:53 (TP-Link Systems)
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.68.250
+Host is up (0.0011s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE SERVICE    VERSION
+80/tcp  open  http       OpenWrt uHTTPd
+443/tcp open  ssl/https?
+MAC Address: 98:BA:5F:13:D2:5C (TP-Link Systems)
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel
+
+Stats: 0:36:13 elapsed; 255 hosts completed (20 up), 1 undergoing Service Scan
+Service scan Timing: About 7.14% done; ETC: 17:08 (0:01:18 remaining)
+Stats: 0:36:23 elapsed; 255 hosts completed (20 up), 1 undergoing Service Scan
+Service scan Timing: About 64.29% done; ETC: 17:07 (0:00:09 remaining)
+Stats: 0:36:33 elapsed; 255 hosts completed (20 up), 1 undergoing Service Scan
+Service scan Timing: About 78.57% done; ETC: 17:07 (0:00:07 remaining)
+Stats: 0:36:44 elapsed; 255 hosts completed (20 up), 1 undergoing Service Scan
+Service scan Timing: About 92.86% done; ETC: 17:07 (0:00:03 remaining)
+Stats: 0:36:50 elapsed; 255 hosts completed (20 up), 1 undergoing Script Scan
+NSE Timing: About 99.39% done; ETC: 17:08 (0:00:00 remaining)
+Stats: 0:37:00 elapsed; 255 hosts completed (20 up), 1 undergoing Script Scan
+NSE Timing: About 99.85% done; ETC: 17:08 (0:00:00 remaining)
+Stats: 0:37:10 elapsed; 255 hosts completed (20 up), 1 undergoing Script Scan
+NSE Timing: About 96.43% done; ETC: 17:08 (0:00:00 remaining)
+Nmap scan report for host.docker.internal (192.168.68.110)
+Host is up (0.0019s latency).
+Not shown: 986 closed tcp ports (reset)
+PORT     STATE SERVICE          VERSION
+22/tcp   open  ssh              OpenSSH for_Windows_9.5 (protocol 2.0)
+53/tcp   open  domain           Unbound
+80/tcp   open  http             Golang net/http server
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     Date: Sun, 03 May 2026 00:07:24 GMT
+|     Content-Length: 0
+|   GenericLines, Help, LPDString, RTSPRequest, SIPOptions, SSLSessionReq, Socks5: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|     Request
+|   GetRequest: 
+|     HTTP/1.0 302 Found
+|     Content-Type: text/html; charset=utf-8
+|     Location: /login.html
+|     Date: Sun, 03 May 2026 00:07:24 GMT
+|     Content-Length: 34
+|     href="/login.html">Found</a>.
+|   HTTPOptions: 
+|     HTTP/1.0 302 Found
+|     Location: /login.html
+|     Date: Sun, 03 May 2026 00:07:24 GMT
+|     Content-Length: 0
+|   OfficeScan: 
+|     HTTP/1.1 400 Bad Request: missing required Host header
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|_    Request: missing required Host header
+135/tcp  open  msrpc            Microsoft Windows RPC
+139/tcp  open  netbios-ssn      Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http         Golang net/http server
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     Date: Sun, 03 May 2026 00:07:30 GMT
+|     Content-Length: 0
+|   GenericLines, Help, LPDString, RTSPRequest, SIPOptions, SSLSessionReq, Socks5: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|     Request
+|   GetRequest: 
+|     HTTP/1.0 302 Found
+|     Content-Type: text/html; charset=utf-8
+|     Location: /login.html
+|     Date: Sun, 03 May 2026 00:07:30 GMT
+|     Content-Length: 34
+|     href="/login.html">Found</a>.
+|   HTTPOptions: 
+|     HTTP/1.0 302 Found
+|     Location: /login.html
+|     Date: Sun, 03 May 2026 00:07:30 GMT
+|     Content-Length: 0
+|   OfficeScan: 
+|     HTTP/1.1 400 Bad Request: missing required Host header
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|_    Request: missing required Host header
+445/tcp  open  microsoft-ds?
+2179/tcp open  vmrdp?
+3000/tcp open  http             Golang net/http server
+| fingerprint-strings: 
+|   GenericLines, Help: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|     Request
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     Cache-Control: no-store
+|     Content-Type: text/html; charset=UTF-8
+|     X-Content-Type-Options: nosniff
+|     X-Frame-Options: deny
+|     X-Xss-Protection: 1; mode=block
+|     Date: Sun, 03 May 2026 00:07:24 GMT
+|     <!DOCTYPE html>
+|     <html lang="en-US">
+|     <head>
+|     <meta charset="utf-8" />
+|     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+|     <meta name="viewport" content="width=device-width" />
+|     <meta name="theme-color" content="#000" />
+|     <title>Grafana</title>
+|     <base href="/" />
+|     <link rel="icon" type="image/png" href="public/build/img/fav32.png" />
+|     <link rel="apple-touch-icon" sizes="180x180" href="public/build/img/apple-touch-icon.png" />
+|     <link rel="mask-icon" href="public/img/grafana_mask_icon.svg" color="#F05A28" />
+|     <link rel="stylesheet" href="public/build/grafana.app.88685c26236df711f7b7.css" />
+|     <link rel="st
+|   HTTPOptions: 
+|     HTTP/1.0 404 Not Found
+|     Cache-Control: no-store
+|     Content-Type: text/html; charset=UTF-8
+|     X-Content-Type-Options: nosniff
+|     X-Frame-Options: deny
+|     X-Xss-Protection: 1; mode=block
+|     Date: Sun, 03 May 2026 00:07:24 GMT
+|     <!DOCTYPE html>
+|     <html lang="en-US">
+|     <head>
+|     <meta charset="utf-8" />
+|     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+|     <meta name="viewport" content="width=device-width" />
+|     <meta name="theme-color" content="#000" />
+|     <title>Grafana</title>
+|     <base href="/" />
+|     <link rel="icon" type="image/png" href="public/build/img/fav32.png" />
+|     <link rel="apple-touch-icon" sizes="180x180" href="public/build/img/apple-touch-icon.png" />
+|     <link rel="mask-icon" href="public/img/grafana_mask_icon.svg" color="#F05A28" />
+|     <link rel="stylesheet" href="public/build/grafana.app.88685c26236df711f7b7.css" />
+|_    <link
+3001/tcp open  http             Node.js Express framework
+5357/tcp open  http             Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+8080/tcp open  http             Apache httpd 2.4.66
+8082/tcp open  blackice-alerts?
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 400 Bad Request
+|     content-type: text/html; charset=utf-8
+|     content-length: 122
+|     server-timing: total;dur=2.319, render;dur=0
+|     x-content-type-options: nosniff
+|     x-download-options: noopen
+|     x-robots-tag: noindex, nofollow
+|     referrer-policy: no-referrer
+|     server: granian
+|     date: Sun, 03 May 2026 00:07:24 GMT
+|     <!doctype html>
+|     <html lang=en>
+|     <title>400 Bad Request</title>
+|     <h1>Bad Request</h1>
+|     <p>Host &#39;&#39; is not trusted.</p>
+|   GetRequest: 
+|     HTTP/1.0 400 Bad Request
+|     content-type: text/html; charset=utf-8
+|     content-length: 122
+|     server-timing: total;dur=191.184, render;dur=0
+|     x-content-type-options: nosniff
+|     x-download-options: noopen
+|     x-robots-tag: noindex, nofollow
+|     referrer-policy: no-referrer
+|     server: granian
+|     date: Sun, 03 May 2026 00:07:24 GMT
+|     <!doctype html>
+|     <html lang=en>
+|     <title>400 Bad Request</title>
+|     <h1>Bad Request</h1>
+|     <p>Host &#39;&#39; is not trusted.</p>
+|   HTTPOptions: 
+|     HTTP/1.0 400 Bad Request
+|     content-type: text/html; charset=utf-8
+|     content-length: 122
+|     server-timing: total;dur=5.903, render;dur=0
+|     x-content-type-options: nosniff
+|     x-download-options: noopen
+|     x-robots-tag: noindex, nofollow
+|     referrer-policy: no-referrer
+|     server: granian
+|     date: Sun, 03 May 2026 00:07:29 GMT
+|     <!doctype html>
+|     <html lang=en>
+|     <title>400 Bad Request</title>
+|     <h1>Bad Request</h1>
+|     <p>Host &#39;&#39; is not trusted.</p>
+|   RPCCheck, RTSPRequest: 
+|     HTTP/1.1 400 Bad Request
+|     connection: close
+|     content-length: 0
+|_    date: Sun, 03 May 2026 00:07:29 GMT
+8086/tcp open  http             InfluxDB http admin 2.7.12
+4 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.99%I=7%D=5/2%Time=69F691BC%P=i686-pc-windows-windows%r(G
+SF:etRequest,B0,"HTTP/1\.0\x20302\x20Found\r\nContent-Type:\x20text/html;\
+SF:x20charset=utf-8\r\nLocation:\x20/login\.html\r\nDate:\x20Sun,\x2003\x2
+SF:0May\x202026\x2000:07:24\x20GMT\r\nContent-Length:\x2034\r\n\r\n<a\x20h
+SF:ref=\"/login\.html\">Found</a>\.\n\n")%r(HTTPOptions,65,"HTTP/1\.0\x203
+SF:02\x20Found\r\nLocation:\x20/login\.html\r\nDate:\x20Sun,\x2003\x20May\
+SF:x202026\x2000:07:24\x20GMT\r\nContent-Length:\x200\r\n\r\n")%r(RTSPRequ
+SF:est,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/pla
+SF:in;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Reque
+SF:st")%r(FourOhFourRequest,55,"HTTP/1\.0\x20401\x20Unauthorized\r\nDate:\
+SF:x20Sun,\x2003\x20May\x202026\x2000:07:24\x20GMT\r\nContent-Length:\x200
+SF:\r\n\r\n")%r(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nCon
+SF:tent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\
+SF:r\n400\x20Bad\x20Request")%r(Help,67,"HTTP/1\.1\x20400\x20Bad\x20Reques
+SF:t\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20cl
+SF:ose\r\n\r\n400\x20Bad\x20Request")%r(SSLSessionReq,67,"HTTP/1\.1\x20400
+SF:\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\n
+SF:Connection:\x20close\r\n\r\n400\x20Bad\x20Request")%r(LPDString,67,"HTT
+SF:P/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20char
+SF:set=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request")%r(SIPO
+SF:ptions,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/
+SF:plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Re
+SF:quest")%r(Socks5,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type
+SF::\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x2
+SF:0Bad\x20Request")%r(OfficeScan,A3,"HTTP/1\.1\x20400\x20Bad\x20Request:\
+SF:x20missing\x20required\x20Host\x20header\r\nContent-Type:\x20text/plain
+SF:;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request
+SF::\x20missing\x20required\x20Host\x20header");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.99%T=SSL%I=7%D=5/2%Time=69F691C2%P=i686-pc-windows-wind
+SF:ows%r(GetRequest,B0,"HTTP/1\.0\x20302\x20Found\r\nContent-Type:\x20text
+SF:/html;\x20charset=utf-8\r\nLocation:\x20/login\.html\r\nDate:\x20Sun,\x
+SF:2003\x20May\x202026\x2000:07:30\x20GMT\r\nContent-Length:\x2034\r\n\r\n
+SF:<a\x20href=\"/login\.html\">Found</a>\.\n\n")%r(HTTPOptions,65,"HTTP/1\
+SF:.0\x20302\x20Found\r\nLocation:\x20/login\.html\r\nDate:\x20Sun,\x2003\
+SF:x20May\x202026\x2000:07:30\x20GMT\r\nContent-Length:\x200\r\n\r\n")%r(F
+SF:ourOhFourRequest,55,"HTTP/1\.0\x20401\x20Unauthorized\r\nDate:\x20Sun,\
+SF:x2003\x20May\x202026\x2000:07:30\x20GMT\r\nContent-Length:\x200\r\n\r\n
+SF:")%r(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Typ
+SF:e:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x
+SF:20Bad\x20Request")%r(RTSPRequest,67,"HTTP/1\.1\x20400\x20Bad\x20Request
+SF:\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20clo
+SF:se\r\n\r\n400\x20Bad\x20Request")%r(Help,67,"HTTP/1\.1\x20400\x20Bad\x2
+SF:0Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection
+SF::\x20close\r\n\r\n400\x20Bad\x20Request")%r(SSLSessionReq,67,"HTTP/1\.1
+SF:\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=ut
+SF:f-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request")%r(LPDString,
+SF:67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\
+SF:x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request")
+SF:%r(SIPOptions,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x
+SF:20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Ba
+SF:d\x20Request")%r(Socks5,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConte
+SF:nt-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\
+SF:n400\x20Bad\x20Request")%r(OfficeScan,A3,"HTTP/1\.1\x20400\x20Bad\x20Re
+SF:quest:\x20missing\x20required\x20Host\x20header\r\nContent-Type:\x20tex
+SF:t/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20
+SF:Request:\x20missing\x20required\x20Host\x20header");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port3000-TCP:V=7.99%I=7%D=5/2%Time=69F691BC%P=i686-pc-windows-windows%r
+SF:(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x
+SF:20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Ba
+SF:d\x20Request")%r(GetRequest,1000,"HTTP/1\.0\x20200\x20OK\r\nCache-Contr
+SF:ol:\x20no-store\r\nContent-Type:\x20text/html;\x20charset=UTF-8\r\nX-Co
+SF:ntent-Type-Options:\x20nosniff\r\nX-Frame-Options:\x20deny\r\nX-Xss-Pro
+SF:tection:\x201;\x20mode=block\r\nDate:\x20Sun,\x2003\x20May\x202026\x200
+SF:0:07:24\x20GMT\r\n\r\n<!DOCTYPE\x20html>\n<html\x20lang=\"en-US\">\n\x2
+SF:0\x20<head>\n\x20\x20\x20\x20\n\x20\x20\x20\x20<meta\x20charset=\"utf-8
+SF:\"\x20/>\n\x20\x20\x20\x20<meta\x20http-equiv=\"X-UA-Compatible\"\x20co
+SF:ntent=\"IE=edge,chrome=1\"\x20/>\n\x20\x20\x20\x20<meta\x20name=\"viewp
+SF:ort\"\x20content=\"width=device-width\"\x20/>\n\x20\x20\x20\x20<meta\x2
+SF:0name=\"theme-color\"\x20content=\"#000\"\x20/>\n\n\x20\x20\x20\x20<tit
+SF:le>Grafana</title>\n\n\x20\x20\x20\x20<base\x20href=\"/\"\x20/>\n\n\x20
+SF:\x20\x20\x20<link\x20rel=\"icon\"\x20type=\"image/png\"\x20href=\"publi
+SF:c/build/img/fav32\.png\"\x20/>\n\x20\x20\x20\x20<link\x20rel=\"apple-to
+SF:uch-icon\"\x20sizes=\"180x180\"\x20href=\"public/build/img/apple-touch-
+SF:icon\.png\"\x20/>\n\x20\x20\x20\x20<link\x20rel=\"mask-icon\"\x20href=\
+SF:"public/img/grafana_mask_icon\.svg\"\x20color=\"#F05A28\"\x20/>\n\n\x20
+SF:\x20\x20\x20\n\x20\x20\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20hr
+SF:ef=\"public/build/grafana\.app\.88685c26236df711f7b7\.css\"\x20/>\n\x20
+SF:\x20\x20\x20\n\n\x20\x20\x20\x20\n\x20\x20\x20\x20\n\x20\x20\x20\x20<li
+SF:nk\x20rel=\"st")%r(Help,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConte
+SF:nt-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\
+SF:n400\x20Bad\x20Request")%r(HTTPOptions,1000,"HTTP/1\.0\x20404\x20Not\x2
+SF:0Found\r\nCache-Control:\x20no-store\r\nContent-Type:\x20text/html;\x20
+SF:charset=UTF-8\r\nX-Content-Type-Options:\x20nosniff\r\nX-Frame-Options:
+SF:\x20deny\r\nX-Xss-Protection:\x201;\x20mode=block\r\nDate:\x20Sun,\x200
+SF:3\x20May\x202026\x2000:07:24\x20GMT\r\n\r\n<!DOCTYPE\x20html>\n<html\x2
+SF:0lang=\"en-US\">\n\x20\x20<head>\n\x20\x20\x20\x20\n\x20\x20\x20\x20<me
+SF:ta\x20charset=\"utf-8\"\x20/>\n\x20\x20\x20\x20<meta\x20http-equiv=\"X-
+SF:UA-Compatible\"\x20content=\"IE=edge,chrome=1\"\x20/>\n\x20\x20\x20\x20
+SF:<meta\x20name=\"viewport\"\x20content=\"width=device-width\"\x20/>\n\x2
+SF:0\x20\x20\x20<meta\x20name=\"theme-color\"\x20content=\"#000\"\x20/>\n\
+SF:n\x20\x20\x20\x20<title>Grafana</title>\n\n\x20\x20\x20\x20<base\x20hre
+SF:f=\"/\"\x20/>\n\n\x20\x20\x20\x20<link\x20rel=\"icon\"\x20type=\"image/
+SF:png\"\x20href=\"public/build/img/fav32\.png\"\x20/>\n\x20\x20\x20\x20<l
+SF:ink\x20rel=\"apple-touch-icon\"\x20sizes=\"180x180\"\x20href=\"public/b
+SF:uild/img/apple-touch-icon\.png\"\x20/>\n\x20\x20\x20\x20<link\x20rel=\"
+SF:mask-icon\"\x20href=\"public/img/grafana_mask_icon\.svg\"\x20color=\"#F
+SF:05A28\"\x20/>\n\n\x20\x20\x20\x20\n\x20\x20\x20\x20\x20\x20<link\x20rel
+SF:=\"stylesheet\"\x20href=\"public/build/grafana\.app\.88685c26236df711f7
+SF:b7\.css\"\x20/>\n\x20\x20\x20\x20\n\n\x20\x20\x20\x20\n\x20\x20\x20\x20
+SF:\n\x20\x20\x20\x20<link\x20");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8082-TCP:V=7.99%I=7%D=5/2%Time=69F691BC%P=i686-pc-windows-windows%r
+SF:(GetRequest,1B5,"HTTP/1\.0\x20400\x20Bad\x20Request\r\ncontent-type:\x2
+SF:0text/html;\x20charset=utf-8\r\ncontent-length:\x20122\r\nserver-timing
+SF::\x20total;dur=191\.184,\x20render;dur=0\r\nx-content-type-options:\x20
+SF:nosniff\r\nx-download-options:\x20noopen\r\nx-robots-tag:\x20noindex,\x
+SF:20nofollow\r\nreferrer-policy:\x20no-referrer\r\nserver:\x20granian\r\n
+SF:date:\x20Sun,\x2003\x20May\x202026\x2000:07:24\x20GMT\r\n\r\n<!doctype\
+SF:x20html>\n<html\x20lang=en>\n<title>400\x20Bad\x20Request</title>\n<h1>
+SF:Bad\x20Request</h1>\n<p>Host\x20&#39;&#39;\x20is\x20not\x20trusted\.</p
+SF:>\n")%r(FourOhFourRequest,1B3,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nco
+SF:ntent-type:\x20text/html;\x20charset=utf-8\r\ncontent-length:\x20122\r\
+SF:nserver-timing:\x20total;dur=2\.319,\x20render;dur=0\r\nx-content-type-
+SF:options:\x20nosniff\r\nx-download-options:\x20noopen\r\nx-robots-tag:\x
+SF:20noindex,\x20nofollow\r\nreferrer-policy:\x20no-referrer\r\nserver:\x2
+SF:0granian\r\ndate:\x20Sun,\x2003\x20May\x202026\x2000:07:24\x20GMT\r\n\r
+SF:\n<!doctype\x20html>\n<html\x20lang=en>\n<title>400\x20Bad\x20Request</
+SF:title>\n<h1>Bad\x20Request</h1>\n<p>Host\x20&#39;&#39;\x20is\x20not\x20
+SF:trusted\.</p>\n")%r(HTTPOptions,1B3,"HTTP/1\.0\x20400\x20Bad\x20Request
+SF:\r\ncontent-type:\x20text/html;\x20charset=utf-8\r\ncontent-length:\x20
+SF:122\r\nserver-timing:\x20total;dur=5\.903,\x20render;dur=0\r\nx-content
+SF:-type-options:\x20nosniff\r\nx-download-options:\x20noopen\r\nx-robots-
+SF:tag:\x20noindex,\x20nofollow\r\nreferrer-policy:\x20no-referrer\r\nserv
+SF:er:\x20granian\r\ndate:\x20Sun,\x2003\x20May\x202026\x2000:07:29\x20GMT
+SF:\r\n\r\n<!doctype\x20html>\n<html\x20lang=en>\n<title>400\x20Bad\x20Req
+SF:uest</title>\n<h1>Bad\x20Request</h1>\n<p>Host\x20&#39;&#39;\x20is\x20n
+SF:ot\x20trusted\.</p>\n")%r(RTSPRequest,67,"HTTP/1\.1\x20400\x20Bad\x20Re
+SF:quest\r\nconnection:\x20close\r\ncontent-length:\x200\r\ndate:\x20Sun,\
+SF:x2003\x20May\x202026\x2000:07:29\x20GMT\r\n\r\n")%r(RPCCheck,67,"HTTP/1
+SF:\.1\x20400\x20Bad\x20Request\r\nconnection:\x20close\r\ncontent-length:
+SF:\x200\r\ndate:\x20Sun,\x2003\x20May\x202026\x2000:07:29\x20GMT\r\n\r\n"
+SF:);
+Service Info: Host: 172.17.0.3; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (20 hosts up) scanned in 2233.09 seconds

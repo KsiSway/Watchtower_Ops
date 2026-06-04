@@ -1,0 +1,10 @@
+# Nmap 7.99 scan initiated Sat May  9 11:21:41 2026 as: C:\\Users\\Lance\\scoop\\apps\\nmap\\current\\nmap.exe -sV -T4 --open -oN C:\\Users\\Lance\\Watchtower_Ops\\Enum_Results\\192.168.68.100_services.txt 192.168.68.100
+Nmap scan report for 192.168.68.100
+Host is up (0.026s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT     STATE SERVICE    VERSION
+8009/tcp open  tcpwrapped
+MAC Address: 00:D2:B1:2D:92:94 (TPV Display Technology (Xiamen))
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat May  9 11:21:44 2026 -- 1 IP address (1 host up) scanned in 2.52 seconds

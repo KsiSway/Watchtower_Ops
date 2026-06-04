@@ -1,0 +1,12 @@
+# Nmap 7.99 scan initiated Sat May  9 11:23:58 2026 as: C:\\Users\\Lance\\scoop\\apps\\nmap\\current\\nmap.exe -sV -T4 --open -oN C:\\Users\\Lance\\Watchtower_Ops\\Enum_Results\\192.168.68.250_services.txt 192.168.68.250
+Nmap scan report for 192.168.68.250
+Host is up (0.0025s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE SERVICE   VERSION
+80/tcp  open  http      OpenWrt uHTTPd
+443/tcp open  ssl/https
+MAC Address: 98:BA:5F:13:D2:5C (TP-Link Systems)
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat May  9 11:26:33 2026 -- 1 IP address (1 host up) scanned in 155.15 seconds

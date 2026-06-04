@@ -1,0 +1,24 @@
+# Target Intelligence: KsiSway (Culver Lee)
+# Source: Autonomous Footprint Hunt & Deep Interrogation
+# Date: 2026-05-04
+
+NAME: Culver Lee
+PRIMARY ALIAS: KsiSway
+COMMUNITY ALIAS: KSI Shway 7
+OTHER ALIASES: SwayLee2Cold, Kapitan Sisway
+LOCATION: United States
+
+[ PROFESSIONAL PROFILE ]
+- ROLE: Full-Stack Developer / Web Operations Lead (KSI Global Gaming)
+- DOMAIN: Infrastructure maintenance, Discord automation, and forum administration.
+- EDITORIAL: Former/Freelance Author at Engadget (identifies as "Kapitan Sisway" in journalism contexts).
+
+[ IDENTITY NODES ]
+- GitHub: https://github.com/KsiSway (Disciplined, interest in Sway/i3 IPC and Linux customization).
+- Hugging Face: https://huggingface.co/Ksisway (Verified real name: Culver Lee).
+- Twitter: @KsiSway (Kapitan Sisway / "Penulis Lepas").
+- KSI Global: Web Ops specialist; maintains community tactical integrity.
+- RSI / Star Citizen: Ship Master (Interest in cinematic capture and Scorpius ship family).
+
+[ COGNITIVE ANALYSIS ]
+The target is a high-competency technical professional who bridges the gap between software development and digital community leadership. He maintains a distinct "Kapitan" persona for technical writing and public social media while operating as a core technical administrator for one of the largest legacy gaming communities (KSI Global). His technical stack includes TypeScript, Python, and Linux automation (specifically Wayland-based compositors).

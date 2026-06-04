@@ -1,0 +1,5 @@
+Feature,Bandwidth (The Pipe),Latency (The Speed of the Signal)
+Definition,"The total capacity to move data over time (e.g., Mbps).",The time (ping) it takes for data to travel to a server and back.
+Analogy,A multi-lane highway that determines how many cars fit.,The speed limit and road conditions determining travel time.
+Impact,Affects 4K streaming and large file downloads.,"Affects gaming, ""snappiness"" of web pages, and IoT response."
+Problem State,"Slow downloads, buffering.","Jitter, rubber-banding, and ""stuck"" applications."

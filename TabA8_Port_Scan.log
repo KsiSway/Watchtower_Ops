@@ -1,0 +1,8 @@
+# Nmap 7.99 scan initiated Sat May  2 22:39:36 2026 as: C:\\Users\\Lance\\scoop\\apps\\nmap\\current\\nmap.exe -p 30000-50000 -oN TabA8_Port_Scan.log 192.168.68.112
+Nmap scan report for 192.168.68.112
+Host is up (0.0041s latency).
+All 20001 scanned ports on 192.168.68.112 are in ignored states.
+Not shown: 20001 closed tcp ports (reset)
+MAC Address: 24:F0:D3:CF:8F:CF (Samsung Electronics)
+
+# Nmap done at Sat May  2 22:39:45 2026 -- 1 IP address (1 host up) scanned in 9.59 seconds

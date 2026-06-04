@@ -1,0 +1,2 @@
+# Nmap 7.99 scan initiated Wed May  6 12:06:18 2026 as: C:\\Users\\Lance\\scoop\\apps\\nmap\\current\\nmap.exe -sV -T4 -Pn -oN Watchtower_Ops/TabA8_Sync.log 192.168.68.112
+# Nmap done at Wed May  6 12:06:20 2026 -- 1 IP address (0 hosts up) scanned in 2.22 seconds
