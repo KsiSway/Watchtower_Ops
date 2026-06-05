@@ -1,0 +1,19 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-06-04 09:11 -0700
+Nmap scan report for 192.168.68.109
+Host is up (0.013s latency).
+Not shown: 99 closed tcp ports (reset)
+PORT     STATE SERVICE       VERSION
+8000/tcp open  ssl/http-alt?
+MAC Address: C4:EF:3D:92:BA:9B (Samsung Electronics)
+Device type: phone
+Running: Google Android 12.X|10.X|11.X, Linux 5.X|4.X
+OS CPE: cpe:/o:google:android:12 cpe:/o:linux:linux_kernel:5.4 cpe:/o:linux:linux_kernel:4 cpe:/o:google:android:10 cpe:/o:google:android:11
+OS details: Android 12 (Linux 5.4), Android 10 - 12 (Linux 4.14 - 4.19)
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   12.95 ms 192.168.68.109
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 19.76 seconds

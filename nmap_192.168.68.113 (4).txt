@@ -1,0 +1,15 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-06-04 09:17 -0700
+Nmap scan report for 192.168.68.113
+Host is up (0.049s latency).
+All 100 scanned ports on 192.168.68.113 are in ignored states.
+Not shown: 100 closed tcp ports (reset)
+MAC Address: F2:2C:30:30:63:60 (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   48.67 ms 192.168.68.113
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.53 seconds

@@ -1,0 +1,1 @@
+Get-ChildItem -Path D:\Watchtower_Ops -Filter *.pdf | Select-Object Name, @{Name="Size(MB)";Expression={"{0:N2}" -f ($_.Length / 1MB)}}
