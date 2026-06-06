@@ -27,7 +27,7 @@ except Exception as e:
     logging.error(f"Failed to initialize file logger: {str(e)}")
 
 # InfluxDB Configuration
-INFLUX_URL = "http://localhost:8086"
+INFLUX_URL = "http://host.docker.internal:8086"
 INFLUX_TOKEN = os.getenv("INFLUXDB_TOKEN")
 INFLUX_ORG = "watchtower"
 INFLUX_BUCKET = "telemetry"
@@ -36,7 +36,8 @@ influx_client = InfluxDBClient(url=INFLUX_URL, token=INFLUX_TOKEN, org=INFLUX_OR
 write_api = influx_client.write_api(write_options=ASYNCHRONOUS)
 
 # Hybrid Execution Topology (192.168.68.x Subnet)
-NODE_OPTIPLEX = "http://127.0.0.1:8081/predict"
+# Infrastructure Patch: Replace the loopback variable
+NODE_OPTIPLEX = "http://host.docker.internal:8081/predict"
 NODE_S25_EDGE = "adb-R5CY53NEAAY-IYwX0h._adb-tls-connect._tcp"
 NODE_TAB_A8 = "adb-R8YW40WRQLA-xrOfga._adb-tls-connect._tcp"
 
@@ -79,7 +80,7 @@ async def dispatch_adb_inference(target_ip: str, device_name: str, binary_execut
     try:
         # Utilizing asyncio.create_subprocess_exec to bypass blocked port 8080
         process = await asyncio.create_subprocess_exec(
-            "adb.exe", "-s", target_ip, "shell", binary_execution_string,
+            "adb", "-s", target_ip, "shell", binary_execution_string,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )

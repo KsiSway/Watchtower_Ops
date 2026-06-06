@@ -1,0 +1,2 @@
+docker compose down watchtower_gui
+docker compose up -d watchtower_gui

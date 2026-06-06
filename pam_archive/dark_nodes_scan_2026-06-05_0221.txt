@@ -1,0 +1,36 @@
+# Nmap 7.99 scan initiated Fri Jun  5 02:20:38 2026 as: nmap -sV -Pn -p 22,80,443,8080,8443 -oN D:\\Watchtower_Ops\\dark_nodes_scan.txt 192.168.68.105,108,113,120
+Nmap scan report for 192.168.68.105
+Host is up (0.023s latency).
+
+PORT     STATE  SERVICE    VERSION
+22/tcp   closed ssh
+80/tcp   closed http
+443/tcp  closed https
+8080/tcp closed http-proxy
+8443/tcp closed https-alt
+MAC Address: 00:1C:C2:7F:AC:A1 (Part II Research)
+
+Nmap scan report for 192.168.68.113
+Host is up (0.12s latency).
+
+PORT     STATE  SERVICE    VERSION
+22/tcp   closed ssh
+80/tcp   closed http
+443/tcp  closed https
+8080/tcp closed http-proxy
+8443/tcp closed https-alt
+MAC Address: F2:2C:30:30:63:60 (Unknown)
+
+Nmap scan report for 192.168.68.120
+Host is up (0.11s latency).
+
+PORT     STATE  SERVICE    VERSION
+22/tcp   closed ssh
+80/tcp   closed http
+443/tcp  closed https
+8080/tcp closed http-proxy
+8443/tcp closed https-alt
+MAC Address: E6:DD:84:4A:EA:6B (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jun  5 02:20:42 2026 -- 4 IP addresses (3 hosts up) scanned in 4.35 seconds

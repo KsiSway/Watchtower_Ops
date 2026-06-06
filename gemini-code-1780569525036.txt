@@ -1,2 +1,0 @@
-[SITUATIONAL AWARENESS: MCP CONFIGURATION ANOMALY]
-The Docker AI Assistant hallucinated an incorrect SQLite MCP configuration located in the legacy C:\ drive namespace. This violates our Namespace Isolation protocols and breaks the intelligence pipeline. The required action is to purge the C:\ config and strictly enforce the PostgreSQL Model Context Protocol (MCP) using our Principle of Least Privilege (PoLP) credentials within the D:\Watchtower_Ops airlock. Route the attached execution directive to Google Antigravity to repair the infrastructure.

@@ -1,0 +1,2 @@
+Remove-Item -Path "C:\Users\Lance\Watchtower_Ops\*" -Recurse -Force
+Get-ChildItem -Path "D:\Watchtower_Ops"

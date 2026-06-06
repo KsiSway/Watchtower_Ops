@@ -46,10 +46,21 @@ def execute_local_fallback(target: str):
     else:
         return {"status": "skipped", "message": "Target outside authorized local subnet."}
 
+import ipaddress
+
 async def run_passive_recon(target: str):
     """Orchestrates passive recon via multiple bridges with local fallback."""
     logging.info(f"Starting Unified Passive Recon for: {target}")
     db = ReconDatastore()
+    
+    internal_aliases = ["watchtower_influxdb", "optiplex-local", "host.docker.internal"]
+    try:
+        ipaddress.ip_address(target)
+    except ValueError:
+        if target.endswith(".local") or target in internal_aliases:
+            logging.warning(f"[!] INTERNAL HOSTNAME DETECTED: {target}. Bypassing external OSINT APIs.")
+            return {"status": "skipped", "message": "Target is an internal node. External queries aborted."}
+
     
     # Run bridges in parallel
     tasks = [

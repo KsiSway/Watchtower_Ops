@@ -1,0 +1,15 @@
+>System
+    >USB xHCI Compliant Host Controller
+    (ID:PCI\VEN_8086&DEV_A2AF&SUBSYS_07A31028&REV_00\3&11583659&0&A0, FriendlyName:Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft), Class:USB, Manufacturer:Generic USB xHCI Host Controller, StatusCode:25165834)
+        >USB Root Hub (USB 3.0)
+        (ID:USB\ROOT_HUB30\4&1874195A&0&0, Class:USB, Manufacturer:(Standard USB HUBs), StatusCode:25165834)
+            >[Port 19] USB Attached SCSI (UAS) Mass Storage Device
+            (ID:USB\VID_0BC2&PID_2344\MSFT30NAAZ878M, Class:SCSIAdapter, Manufacturer:USB Attached SCSI (UAS) Compatible Device, StatusCode:25190410)
+            >[Port 9] Intel(R) Wireless Bluetooth(R)
+            (ID:USB\VID_8087&PID_0A2A\5&2631D8FE&0&9, Class:Bluetooth, Manufacturer:Intel Corporation, StatusCode:25174026)
+            >[Port 20] VirtualBox USB Driver
+            (ID:USB\VID_18D1&PID_9302\5&2631D8FE&0&20, FriendlyName:[Port 20] USBIP Shared Device, Class:USB, Manufacturer:Oracle Corporation, StatusCode:25190410)
+            >[Port 2] USB Composite Device
+            (ID:USB\VID_046D&PID_C34B\5&2631D8FE&0&2, Class:USB, Manufacturer:(Standard USB Host Controller), StatusCode:25182218)
+            >[Port 7] USB Composite Device
+            (ID:USB\VID_25A7&PID_FA07\5&2631D8FE&0&7, Class:USB, Manufacturer:(Standard USB Host Controller), StatusCode:25182218)

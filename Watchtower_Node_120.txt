@@ -1,9 +1,0 @@
-# Nmap 7.99 scan initiated Sun May  3 01:07:43 2026 as: C:\\Users\\Lance\\scoop\\apps\\nmap\\current\\nmap.exe -sV -sC -p- -T4 -oN Watchtower_Node_120.txt 192.168.68.120
-Nmap scan report for 192.168.68.120
-Host is up (0.012s latency).
-All 65535 scanned ports on 192.168.68.120 are in ignored states.
-Not shown: 65535 closed tcp ports (reset)
-MAC Address: E6:DD:84:4A:EA:6B (Unknown)
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sun May  3 01:08:25 2026 -- 1 IP address (1 host up) scanned in 42.51 seconds

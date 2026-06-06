@@ -1,0 +1,1 @@
+Get-WmiObject Win32_Process -Filter "name='python.exe'" | Where-Object {$_.CommandLine -match "watchtower_daemon.py"} | Select-Object ProcessId, @{Name="CPU(s)";Expression={$_.KernelModeTime + $_.UserModeTime}}, @{Name="RAM(MB)";Expression={[math]::Round($_.WorkingSetSize / 1MB, 2)}}

@@ -1,0 +1,8 @@
+# Nmap 7.99 scan initiated Fri Jun  5 03:39:40 2026 as: nmap -sA -Pn -p 22,80,443,8080,8443 -oN D:\\Watchtower_Ops\\dynamic_scan_results.txt 1Nmap scan report for 192.168.68.105
+Host is up (0.019s latency).
+All 65535 scanned ports on 192.168.68.105 are in ignored states.
+Not shown: 65535 closed tcp ports (reset)
+MAC Address: 00:1C:C2:7F:AC:A1 (Part II Research)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jun  5 03:40:25 2026 -- 1 IP address (1 host up) scanned in 101.71 seconds

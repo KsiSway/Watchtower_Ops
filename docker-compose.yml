@@ -9,7 +9,7 @@ services:
     ports:
       - "8501:8501"
     volumes:
-      - ./:/app
+      - D:\Watchtower_Ops:/app:rw
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - SHODAN_API_KEY=${SHODAN_API_KEY}

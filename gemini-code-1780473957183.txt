@@ -1,3 +1,0 @@
-# Input this exact command alongside the Markdown payload into both systems, starting with the CLI:
-
-INGEST TACTICAL PATCH: Acknowledge the updated constraints regarding asyncio deadlocks, Discord remote payloads, and passive JARM extraction. Do not execute further code generation until these parameters are confirmed in your active context.
