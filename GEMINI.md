@@ -17,6 +17,7 @@ Directive: You are a tactical OSINT analysis engine for Project Watchtower. Role
   - `osint_urlscan_bridge.py`: Passive sandboxing and visual footprinting via URLScan.io.
   - `osint_breach_bridge.py`: Correlates target email against known data breaches via LeakCheck/DeHashed.
   - `osint_wigle_bridge.py`: Geospatially-optimized RF reconnaissance bridge for BSSID/SSID correlation.
+  - `osint_firecrawl_bridge.py`: Async OSINT extraction engine with concurrency throttling (Semaphore: 5) and exponential backoff.
   - `osint_brain.py`: Local LLM interface for tactical analysis (Profile/DarkWeb/Telemetry).
   - SpiderFoot: Embedded via iframe for full-spectrum OSINT.
 - **APIs:** Shodan (Python library), Censys, AbuseIPDB, AlienVault, AbstractAPI, WiGLE (Basic Auth), Local Ollama (192.168.68.110:11434).
@@ -26,7 +27,8 @@ Directive: You are a tactical OSINT analysis engine for Project Watchtower. Role
 - **Tab A8 (.112) [CRITICAL]:** Primary node for localized RF sniffing and Termux-dependent background tasks. **Requirement:** All commands MUST be wrapped in `su` to utilize root access and bypass SELinux sandboxing.
 - **S25 Edge (.109):** Secondary node. Enforces strict SELinux sandboxing; avoid Termux-based background execution.
 - **Sovereign Android Control:** Direct remote shell deployment for S25 Edge and Tab A8 via C2 Dashboard.
-- **IoT/Mesh Nodes:** 
+- **IoT/Mesh Nodes:**
+  - **GL-MT300N-V2 (Mango) [NEW]:** Hardware VPN Airlock (192.168.8.1). Segregates OSINT pipeline to 192.168.88.0 subnet.
   - TV/Monitor control via `tv_weapon.py`.
   - Smart Fan control via `smartfan_bridge.py`.
   - Xbox Node control via `xbox_weapon.py` (WOL Target: `D8-E2-DF-6D-94-DB`).
@@ -82,6 +84,22 @@ Directive: You are a tactical OSINT analysis engine for Project Watchtower. Role
 1. **Internal:** Run "Execute Core Sweep" in the sidebar to populate the External Threat Ledger.
 2. **External:** Trigger "Initiate Fresh Nmap Batch Scan" in the Deep Scan tab to update local node status.
 3. Action: Use the "Node Selection" matrix to transmit payloads or extract telemetry.
+
+## Session Summary (June 5, 2026)
+- **Infrastructure Patch:**
+    - Resolved Docker Loopback Paradox in `hybrid_inference.py`.
+    - Rerouted `NODE_OPTIPLEX` and `INFLUX_URL` to `host.docker.internal` (Bridge Gateway).
+    - Patched mobile node `adb` binary path for Linux container compatibility.
+    - Updated `requirements.txt` to include `influxdb-client`.
+- **Hardware Expansion (VPN Airlock):**
+    - Logged deployment of GL-MT300N-V2 (Mango) router.
+    - established hardware-level VPN Airlock (ProtonVPN/FastestVPN) with Kernel-level Global Kill Switch.
+    - Physical toggle switch mapped to VPN Client for manual override.
+    - Validated static routing between 192.168.68.0 and 192.168.88.0 subnets.
+- **Extraction Optimization:**
+    - Deployed `osint_firecrawl_bridge.py` for Phase 2 extraction.
+    - Implemented `asyncio.Semaphore` (Limit: 5) to prevent Layer 7 rate-limiting.
+    - Integrated automated exponential backoff with jitter for HTTP 429 handling.
 
 ## Session Summary (May 6, 2026)
 - **Host Hardening:**
