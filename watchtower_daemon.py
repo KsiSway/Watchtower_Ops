@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-INFLUX_URL = "http://localhost:8086"
+INFLUX_URL = "http://host.docker.internal:8086"
 INFLUX_TOKEN = os.getenv("INFLUXDB_TOKEN")
 INFLUX_ORG = "watchtower"
 INFLUX_BUCKET = "telemetry"

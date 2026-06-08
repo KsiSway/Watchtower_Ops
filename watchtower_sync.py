@@ -42,7 +42,7 @@ async def check_port(ip, port, timeout=1.0):
     except Exception:
         return False
 
-def load_nodes_from_memory(filepath="d:\\Watchtower_Ops\\Gemini_Memory_Extraction.json"):
+def load_nodes_from_memory(filepath="/D/Watchtower_Ops/Gemini_Memory_Extraction.json"):
     """Parses the JSON memory file to dynamically extract mesh nodes."""
     nodes = {}
     if not os.path.exists(filepath):
