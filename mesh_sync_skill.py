@@ -7,8 +7,8 @@ import os
 # Directive: Use this script exclusively for local mesh synchronization.
 
 SUBNET = "192.168.68.0/24"
-TARGETS_FILE = r"C:\Users\Lance\Watchtower_Ops\targets.txt"
-RAW_SCAN_FILE = r"C:\Users\Lance\Watchtower_Ops\raw_scan.txt"
+TARGETS_FILE = "targets.txt"
+RAW_SCAN_FILE = "raw_scan.txt"
 
 def execute_mesh_sync():
     print(f"[*] Executing Ping Sweep on local mesh: {SUBNET}...")
