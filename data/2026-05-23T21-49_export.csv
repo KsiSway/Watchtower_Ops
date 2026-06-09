@@ -1,0 +1,10 @@
+﻿Name,Image,Status,Ports
+watchtower_grafana,grafana/grafana:latest,Up 4 hours,"0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp"
+watchtower_gui_app,watchtower_ops-watchtower_gui,Up 4 hours (healthy),"0.0.0.0:8501->8501/tcp, [::]:8501->8501/tcp"
+watchtower-cache,redis:alpine,Up 4 hours,6379/tcp
+watchtower-db,postgres:15,Up 4 hours,5432/tcp
+watchtower_influxdb,influxdb:2.7,Up 4 hours,"0.0.0.0:8086->8086/tcp, [::]:8086->8086/tcp"
+watchtower_ollama,ollama/ollama:latest,Up 4 hours,11434/tcp
+spiderfoot,spiderfoot:latest,Up 4 hours,"0.0.0.0:5001->5001/tcp, [::]:5001->5001/tcp"
+searxng,searxng/searxng:latest,Up 4 hours,"0.0.0.0:8082->8080/tcp, [::]:8082->8080/tcp"
+redis,redis:alpine,Up 4 hours,6379/tcp

@@ -1,7 +1,0 @@
-62f4615b:1  Failed to load resource: the server responded with a status of 404 ()
-seal?rid=f1a11c5d-0232-4077-8498-2e69a38c1335:1  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
-consent.trustarc.com/analytics?action=0&domain=ea.com&implied=1&session=e4ffa767bec54515b10981ec21842e08&new=1&referer=https://www.ea.com:1  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
-p.typekit.net/p.gif?s=1&k=txn1klh&ht=tk&h=www.ea.com&f=7105.7106.7107.7108.7109.7111.10294.10296.10304.10801.10802.14541.14542.14545.14548.15498.15506.15510.15815.37504.16382.17265.17267.17268.17269.25318&a=366630&js=1.21.0&app=typekit&e=js&_=1778714232462:1  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
-js-agent.newrelic.com/nr-spa-1209.min.js:1  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
-about:blank:1  Failed to load resource: net::ERR_UNKNOWN_URL_SCHEME
-ea-local-footer-ea-local-footer-js~ea-play-comparison-ea-play-comparison-js~hybrid-ea-hybrid-buy-wid.3eef87b3.7f98f11cb4ce8530db98.chunk.js:2 Download the Apollo DevTools for a better development experience: https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm

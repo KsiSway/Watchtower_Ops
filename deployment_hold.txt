@@ -1,1 +1,0 @@
-[*] Waiting for Operator to confirm physical hardware reset before executing recover_mango_sensor.sh

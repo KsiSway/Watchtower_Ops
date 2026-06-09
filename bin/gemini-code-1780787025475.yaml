@@ -1,0 +1,26 @@
+# WATCHTOWER INTEGRATION BLUEPRINT: TARGET MANGO
+# Format: Optimized for NotebookLM Ingestion
+
+Target_Hardware:
+  Model: "GL.iNet GL-MT300N-V2 (Mango)"
+  Identifiers:
+    SN: "28fd19b83b24eca1"
+    MAC: "94:83:C4:43:49:77"
+  Current_State: "Factory Default (192.168.8.1)"
+
+Integration_Phases:
+  Phase_1_Network_Assimilation:
+    Objective: "Migrate target from isolated 192.168.8.x subnet into primary 192.168.68.x mesh without causing routing loops."
+    Action: "Assign static IP on the 192.168.68.x subnet. Disable target DHCP server to prevent IP collisions with primary gateway."
+  
+  Phase_2_Access_Control_Hardening:
+    Objective: "Eliminate unauthorized access vectors."
+    Action: "Generate and deploy ED25519 SSH keys. Disable password authentication in Dropbear configuration. Restrict administrative access to Central Host only."
+
+  Phase_3_Telemetry_Pipeline:
+    Objective: "Centralize system monitoring."
+    Action: "Configure OpenWrt remote syslog. Stream kernel and firewall logs via UDP port 514 to Central Host (192.168.68.110) for InfluxDB/Grafana ingestion."
+
+Central_Host_Parameters:
+  IP: "192.168.68.110"
+  Role: "Watchtower Command Center / Telemetry Aggregator"

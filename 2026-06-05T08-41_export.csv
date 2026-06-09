@@ -1,3 +1,0 @@
-﻿PID,Command
-19960,C:\Users\Lance\AppData\Local\Programs\Python\Python312\python.exe -m streamlit run watchtower_gui.py
-25676,C:\Users\Lance\AppData\Local\Programs\Python\Python312\python.exe D:\Watchtower_Ops\watchtower_daemon.py

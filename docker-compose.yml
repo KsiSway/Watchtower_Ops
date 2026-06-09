@@ -62,7 +62,7 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - influxdb_data:/var/lib/influxdb2
+      - ./data/influxdb:/var/lib/influxdb2
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=lance
@@ -81,7 +81,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./data/grafana:/var/lib/grafana
     environment:
       - GF_SECURITY_ADMIN_USER=KsiSway
       - GF_SECURITY_ADMIN_PASSWORD=DOCnomore1!
@@ -100,7 +100,7 @@ services:
     ports:
       - "5001:5001"
     volumes:
-      - spiderfoot_data:/var/lib/spiderfoot
+      - ./data/spiderfoot:/var/lib/spiderfoot
     restart: unless-stopped
     networks:
       - watchtower-network

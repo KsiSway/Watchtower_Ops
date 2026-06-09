@@ -1,0 +1,9 @@
+# Nmap 7.99 scan initiated Sun Jun  7 22:54:59 2026 as: nmap -Pn -sV -sC -p- -oN D:\\Watchtower_Ops\\dynamic_scan_results.txt 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up.
+All 65535 scanned ports on localhost (127.0.0.1) are in ignored states.
+Not shown: 65535 filtered tcp ports (no-response)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jun  8 02:37:09 2026 -- 1 IP address (1 host up) scanned in 13329.98 seconds
+ Jun  7 23:03:17 2026 -- 1 IP address (1 host up) scanned in 1472.85 seconds
