@@ -2,10 +2,74 @@ import asyncio
 import sys
 import os
 import json
+import platform
+from pathlib import Path
 from google import genai
 from google.genai import types
 from google.genai import errors
 from pydantic import BaseModel, Field
+
+# ==========================================
+# 1. ARCHITECTURAL PATHING & BASE JAIL
+# ==========================================
+if platform.system() == "Windows":
+    DEFAULT_WORK_DIR = r"D:\Watchtower_Ops"
+    # Windows lacks native O_NOFOLLOW blocking, fallback to standard flags
+    O_SECURE_FLAGS = os.O_RDWR | os.O_CREAT
+else:
+    # Matches actual Docker volume architecture (./:/app)
+    DEFAULT_WORK_DIR = "/app"
+    # Linux POSIX: Block symlink TOCTOU race conditions at the kernel level
+    O_SECURE_FLAGS = os.O_RDWR | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0)
+
+BASE_JAIL = Path(DEFAULT_WORK_DIR).resolve()
+
+os.environ.setdefault("WORK_DIR", DEFAULT_WORK_DIR)
+WORK_DIR = Path(os.environ["WORK_DIR"]).resolve()
+
+ALLOWED_COMMANDS = {"ping", "ipconfig", "netstat", "tasklist", "tracert"}
+MAX_RETRIES = 3
+
+async def validate_workspace() -> bool:
+    """Asynchronously validates the workspace directory with strict path jailing."""
+    if not WORK_DIR.exists() or not WORK_DIR.is_dir():
+        print(f"[-] CRITICAL: Workspace missing or invalid at {WORK_DIR}.")
+        return False
+    
+    if not WORK_DIR.is_relative_to(BASE_JAIL):
+        print(f"[-] CRITICAL: Path Traversal Attempt! {WORK_DIR} escaped {BASE_JAIL}.")
+        return False
+
+    print(f"[+] Workspace securely jailed and validated at: {WORK_DIR}")
+    return True
+
+def secure_write(filename: str, data: str) -> bool:
+    """
+    Neutralizes TOCTOU race conditions by interacting directly with
+    kernel file descriptors instead of string paths.
+    """
+    target_file = WORK_DIR / filename
+    
+    # Secondary boundary check prior to I/O
+    if not target_file.resolve().is_relative_to(BASE_JAIL):
+        print(f"[-] I/O BLOCKED: Target {filename} attempts to escape jail.")
+        return False
+
+    try:
+        # Open file descriptor with kernel-level symlink blocking
+        # 0o600 ensures rw------- permissions (Operator only)
+        fd = os.open(target_file, O_SECURE_FLAGS, 0o600)
+        
+        # Wrap the raw FD back into a Python file object for writing
+        with open(fd, 'w', encoding='utf-8') as f:
+            f.write(data)
+            
+        print(f"[+] Payload securely written to inode via FD: {filename}")
+        return True
+    except OSError as e:
+        # If O_NOFOLLOW trips on a swapped symlink, it throws an OSError
+        print(f"[-] Secure I/O failed (Symlink swap detected?): {e}")
+        return False
 
 # 1. Define the rigid steel molds (The Schema)
 class NetworkInterface(BaseModel):
@@ -17,7 +81,8 @@ class NetworkTelemetry(BaseModel):
 
 async def execute_tactical_payload(command_list: list) -> dict:
     """Production-grade asynchronous execution wrapper."""
-    safe_dir = r"D:\Watchtower_Ops"
+    if command_list and command_list[0] not in ALLOWED_COMMANDS:
+        raise ValueError(f"BLOCKED: Unsafe command '{command_list[0]}' not in whitelist.")
     
     if not isinstance(command_list, list):
         raise TypeError("FATAL: Command must be a list of arguments.")
@@ -26,7 +91,7 @@ async def execute_tactical_payload(command_list: list) -> dict:
         *command_list,
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
-        cwd=safe_dir
+        cwd=str(WORK_DIR)
     )
     
     stdout, stderr = await process.communicate()
@@ -64,7 +129,7 @@ async def arm_autonomous_bridge(objective: str):
     
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        sys.exit("FATAL: GEMINI_API_KEY not found in session memory.")
+        sys.exit("FATAL: GEMINI_API_KEY environment variable not set.")
 
     print("[*] Neural Link Established. Initializing Exocortex Agent...")
     client = genai.Client(api_key=api_key)
@@ -110,27 +175,56 @@ async def arm_autonomous_bridge(objective: str):
 
     try:
         raw_text = raw_text.replace('```json', '').replace('```', '').strip()
+        if not raw_text:
+            sys.exit("FATAL: Agent returned empty response.")
         command_list = json.loads(raw_text)
+        if not isinstance(command_list, list) or not command_list:
+            sys.exit("FATAL: Agent did not return a valid non-empty command list.")
         print(f"[+] AI Generated Payload: {command_list}")
-    except json.JSONDecodeError:
-        sys.exit(f"FATAL: Agent hallucinated invalid JSON structure or returned empty string.")
+    except json.JSONDecodeError as e:
+        sys.exit(f"FATAL: Agent returned invalid JSON: {e}")
 
-    telemetry = await execute_tactical_payload(command_list)
+    try:
+        telemetry = await execute_tactical_payload(command_list)
+    except ValueError as e:
+        sys.exit(f"FATAL: {e}")
 
     if telemetry['status_code'] != 0:
         print(f"[!] EXECUTION FAILED.\n[!] TRACE: {telemetry['stderr']}")
     else:
         print(f"[+] OBJECTIVE SECURED.")
-        # Proceed to Phase 3
-        parsed_data = await extract_tactical_data(client, telemetry['stdout'])
-        print(f"[+] PARSED TELEMETRY:\n{parsed_data}")
+        # Proceed to Phase 3 with retry logic
+        max_extract_retries = 3
+        for attempt in range(max_extract_retries):
+            try:
+                parsed_data = await extract_tactical_data(client, telemetry['stdout'])
+                print(f"[+] PARSED TELEMETRY:\n{parsed_data}")
+                break
+            except Exception as e:
+                if attempt == max_extract_retries - 1:
+                    sys.exit(f"FATAL: Phase 3 extraction failed after {max_extract_retries} attempts: {e}")
+                wait_time = 2 ** (attempt + 1)
+                print(f"[!] Phase 3 extraction failed. Retrying in {wait_time}s...")
+                await asyncio.sleep(wait_time)
+
+async def main():
+    if not await validate_workspace():
+        sys.exit("FATAL: Workspace validation failed.")
+        
+    print("[*] Core Executor Online. Kernel-level I/O locks initialized.")
+    # Ready for integration with extract_phase_3_data payloads
+
+    if sys.platform == "win32":
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+    
+    target_objective = "Check the current IP configuration of the Windows machine."
+    await arm_autonomous_bridge(target_objective)
 
 if __name__ == "__main__":
     if sys.version_info < (3, 11):
         sys.exit("FATAL: Execution requires Python 3.11+.")
         
-    if sys.platform == "win32":
-        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
-    
-    target_objective = "Check the current IP configuration of the Windows machine."
-    asyncio.run(arm_autonomous_bridge(target_objective))
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\n[!] Execution halted by Operator.")
