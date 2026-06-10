@@ -1,24 +1,36 @@
 import asyncio
 import sys
-import os
-from google import genai
+import json
+import urllib.request
+import urllib.error
 
-async def execute_payload(prompt: str):
-    """Asynchronous payload delivery via Google GenAI SDK."""
-    # The client automatically extracts the GEMINI_API_KEY environment variable
-    try:
-        client = genai.Client()
-    except Exception as e:
-        sys.exit(f"FATAL CONFIG: Ensure GEMINI_API_KEY is set. Error: {e}")
+def sync_ollama_request(req):
+    """Synchronous network call isolated with timeout and socket closure."""
+    # Enforces timeout and guarantees socket closure via context manager
+    with urllib.request.urlopen(req, timeout=120) as response:
+        return json.loads(response.read().decode('utf-8'))
 
+async def execute_local_payload(prompt: str):
+    """Asynchronous payload delivery via local Ollama instance."""
+    url = "http://localhost:11434/api/generate"
+    payload = {
+        "model": "dolphin-llama3:latest",
+        "prompt": prompt,
+        "stream": False
+    }
+    
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), method='POST')
+    req.add_header('Content-Type', 'application/json')
+    
     try:
-        response = await client.aio.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=prompt,
-        )
-        print(response.text)
-    except Exception as e:
-        sys.exit(f"FATAL ROUTING: Upstream connection failed. Error: {e}")
+        loop = asyncio.get_running_loop()
+        # Offload hardened synchronous call to prevent event loop blocking
+        data = await loop.run_in_executor(None, sync_ollama_request, req)
+        print(data.get("response", ""))
+    except urllib.error.URLError as e:
+        sys.exit(f"FATAL ROUTING: Local Ollama container unreachable at :11434. Error: {e}")
+    except TimeoutError:
+        sys.exit("FATAL ROUTING: Ollama inference timed out (exceeded 120s).")
 
 async def main():
     if len(sys.argv) > 1:
@@ -31,7 +43,7 @@ async def main():
     if not prompt:
         sys.exit("ERROR: Empty payload detected.")
 
-    await execute_payload(prompt)
+    await execute_local_payload(prompt)
 
 if __name__ == "__main__":
     if sys.version_info < (3, 11):
