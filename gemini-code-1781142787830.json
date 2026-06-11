@@ -1,0 +1,6 @@
+{
+  "directive": "execute_script",
+  "target": "D:\\Watchtower_Ops",
+  "action": "powershell_execution",
+  "payload": "Terminate locked node processes. Execute global npm install for MCP servers. Operator must manually append --yes flags to their respective MCP JSON configurations."
+}

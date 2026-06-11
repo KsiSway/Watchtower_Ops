@@ -1,0 +1,11 @@
+# 1. Neutralize hung Node processes causing locked I/O streams
+Stop-Process -Name node -Force -ErrorAction SilentlyContinue
+
+# 2. Pre-cache standard MCP servers globally to bypass invisible interactive prompts
+npm install -g @modelcontextprotocol/server-memory @modelcontextprotocol/server-sqlite @modelcontextprotocol/server-github
+
+# 3. Locate your MCP configuration file (usually mcp.json or similar in your IDE settings)
+# Ensure all npx commands explicitly include the --yes flag to force silent execution.
+# Example modification for your config:
+# "command": "npx",
+# "args": ["--yes", "-y", "@modelcontextprotocol/server-sqlite"]
