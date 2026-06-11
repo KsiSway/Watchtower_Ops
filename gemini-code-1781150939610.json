@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "sqlite": {
+      "command": "mcp-server-sqlite.cmd",
+      "args": [
+        "--db",
+        "C:\\Users\\Lance\\Watchtower_Ops\\watchtower_c2.db"
+      ]
+    },
+    "github": {
+      "command": "mcp-server-github.cmd",
+      "args": []
+    },
+    "local-chrome-devtools": {
+      "command": "mcp-server-puppeteer.cmd",
+      "args": []
+    }
+  }
+}
