@@ -14,17 +14,19 @@
     "github": {
       "command": "docker",
       "args": [
-        "mcp",
-        "start",
-        "github"
+        "run",
+        "--add-host=host.docker.internal:host-gateway",
+        "mcp-server-github"
       ]
     },
     "sqlite": {
       "command": "docker",
       "args": [
-        "mcp",
-        "start",
-        "sqlite"
+        "run",
+        "--add-host=host.docker.internal:host-gateway",
+        "-v",
+        "./.memory:/var/lib/data",
+        "mcp-server-sqlite"
       ]
     }
   }

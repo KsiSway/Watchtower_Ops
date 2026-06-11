@@ -102,12 +102,19 @@ if nav_selection == "Mesh Matrix":
         
         # Dynamic Payload Construction with Safe Execution
         if st.button(f"Initiate {scan_profile.split(' ')[0]} Sweep"):
-            # OPSEC Safety Interlock
+            # OPSEC Safety Interlock (RFC 1918 Airgap)
             try:
                 if "/" in target_range:
-                    ipaddress.ip_network(target_range, strict=False)
+                    ip_obj = ipaddress.ip_network(target_range, strict=False)
+                    is_private = ip_obj.is_private
                 else:
-                    ipaddress.ip_address(target_range)
+                    ip_obj = ipaddress.ip_address(target_range)
+                    is_private = ip_obj.is_private
+                    
+                if is_private:
+                    st.error("[SECURITY INTERLOCK] Target is RFC 1918 internal. Deep External Scans Aborted.")
+                    st.stop()
+                    
             except ValueError:
                 st.error("[!] CRITICAL: Invalid IP or CIDR format. Execution aborted to prevent command injection.")
                 st.stop()
