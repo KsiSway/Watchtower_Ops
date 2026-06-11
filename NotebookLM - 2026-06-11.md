@@ -4,7 +4,7 @@ Exported on: 6/10/2026, 7:42:33 PM
 
 ---
 
-### User
+## User
 
 Analysis: The identical trace reappeared because the container's persistent internal configuration file or data volumes (/root/.spiderfoot/spiderfoot.db or a custom .cfg path mapped to your host) still contains a broken parameter mapping. When you start the image, CherryPy reads the stored global dictionary where the environment keyword is defined. The code path executing env = self.environments\[which\_env\] is evaluating which\_env as 'development', but that precise key does not exist inside CherryPy's built-in environments array. Leaving this bad configuration parameter active inside the mapped storage volume causes the container to crash loop continuously, regardless of how many times you recreate the container instance. Solution: Hard-override the execution profile by passing an explicitly supported environment flag directly via the Python command string. If the internal container configuration file is completely corrupt, boot the image into an isolated single-command mode to wipe out or patch the config database directly. Bring the service up cleanly under standard binding rules. Code: Instead of letting the container execute its default boot script, explicitly pass standard execution flags to bypass CherryPy's environment lookup completely: PowerShell 1. Strip the failed container footprint docker stop spiderfoot docker rm spiderfoot 2. Force execution with explicit host binding to completely dodge the internal profile check docker run -d --name spiderfoot -p 5001:5001 spiderfoot:latest sf.py -l 0.0.0.0:5001 If the internal database contains a persistent block forcing that KeyError, boot a clean temporary instance without mounting old volumes to confirm if the base image is functional: PowerShell 3. Clean test: Start an isolated instance with zero volume maps to isolate the host volume state docker run -d --name spiderfoot-test -p 5002:5001 spiderfoot:latest....what do u think?
 
@@ -32,7 +32,7 @@ If the identical trace reappeared, it means one of two things happened during ou
 
 You must patch the script and force a hard rebuild of the image.
 
-**Code ->**
+## Code ->
 
 ```text
 #!/bin/bash
@@ -908,4 +908,4 @@ Here are the required steps to set it up:
 
 - **Cline:** Navigate to **Manage MCP Servers > Configure MCP Servers** and append the configuration \[Source: 3: Web search - Ollama\] .-   **Codex:** Open your terminal and add the configuration block directly into your `~/.codex/config.toml` file \[Source: 3: Web search - Ollama\] .-   **Goose:** You can integrate Ollama directly via Goose's built-in MCP features \[Source: 3: Web search - Ollama\] .
 
-*(Note: The sources do not provide the exact JSON/TOML code blocks for the configuration files, but you will need to declare the Python MCP server and pass your Ollama API key within the respective client's settings* \[Source: 1: Web search - Ollama\] \[Source: 3: Web search - Ollama\] *).*
+*(Note: The sources do not provide the exact JSON/TOML code blocks for the configuration files, but you will need to declare the Python MCP server and pass your Ollama API key within the respective client's settings* \[Source: 1: Web search - Ollama\] \[Source: 3: Web search - Ollama\] *).*
