@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {
+        "MEMORY_DB_PATH": "./.memory/memory.db"
+      }
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "mcp",
+        "start",
+        "github"
+      ]
+    },
+    "sqlite": {
+      "command": "docker",
+      "args": [
+        "mcp",
+        "start",
+        "sqlite"
+      ]
+    }
+  }
+}
