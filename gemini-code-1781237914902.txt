@@ -1,0 +1,8 @@
+# 1. Verify the compressed repository size (Ensure multi-gigabyte bloat is gone)
+Get-ChildItem -Path "D:\Watchtower_Ops\.git" -Recurse | Measure-Object -Property Length -Sum
+
+# 2. Re-anchor the remote origin (Replace with actual URL)
+git remote add origin <YOUR_REMOTE_REPO_URL>
+
+# 3. Force-push the sanitized ledger using the stabilized HTTP/1.1 protocol
+git push -u origin master --force
