@@ -57,3 +57,7 @@ C2_Activity.log
 # Watchtower Specific Outputs
 Enum_Results/
 .superpowers/
+
+desktop.ini
+grafana_data/
+influxdb2/
