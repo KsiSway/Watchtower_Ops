@@ -189,3 +189,194 @@
             "error": "HTTP 400"
         }
     },
+    {
+        "ip": "192.168.68.117",
+        "timestamp": "2026-06-12 12:09:49",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.117 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.118",
+        "timestamp": "2026-06-12 12:09:55",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.118 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.119",
+        "timestamp": "2026-06-12 12:10:00",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.119 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.121",
+        "timestamp": "2026-06-12 12:10:15",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.121 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTPSConnectionPool(host='otx.alienvault.com', port=443): Read timed out. (read timeout=10)"
+        }
+    },
+    {
+        "ip": "192.168.68.128",
+        "timestamp": "2026-06-12 12:10:20",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.128 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.247",
+        "timestamp": "2026-06-12 12:10:28",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.247 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.248",
+        "timestamp": "2026-06-12 12:10:44",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.248 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTPSConnectionPool(host='otx.alienvault.com', port=443): Read timed out. (read timeout=10)"
+        }
+    },
+    {
+        "ip": "192.168.68.249",
+        "timestamp": "2026-06-12 12:10:49",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.249 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.250",
+        "timestamp": "2026-06-12 12:10:54",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.250 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    },
+    {
+        "ip": "192.168.68.107",
+        "timestamp": "2026-06-12 12:10:59",
+        "geo_intel": {
+            "error": "HTTPSConnectionPool(host='ipgeolocation.abstractapi.com', port=443): Max retries exceeded with url: /v1/?api_key=None&ip_address=192.168.68.107 (Caused by NewConnectionError(\"HTTPSConnection(host='ipgeolocation.abstractapi.com', port=443): Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions\"))"
+        },
+        "shodan": {
+            "error": "Invalid API key"
+        },
+        "censys_ports": {
+            "error": "HTTP 401"
+        },
+        "abuse_intel": {
+            "error": "HTTP 401"
+        },
+        "otx_intel": {
+            "error": "HTTP 400"
+        }
+    }
+]
