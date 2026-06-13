@@ -104,86 +104,16 @@ async def execute_tactical_payload(command_list: list) -> dict:
 
 async def extract_tactical_data(client: genai.Client, raw_ipconfig_output: str):
     print("[*] Initiating Phase 3: Structured Output Extraction...")
-    
-    # 2. Apply the mask during inference
-    response = await client.aio.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=[
-            "Extract the active, internet-routable interfaces from this telemetry block. Ignore disconnected media and APIPA (169.254.x.x) addresses.",
-            raw_ipconfig_output
-        ],
-        config=types.GenerateContentConfig(
-            # Force the model to output JSON matching our exact Pydantic class
-            response_mime_type="application/json",
-            response_schema=NetworkTelemetry,
-            temperature=0.0
-        )
-    )
-
-    # 3. Access the automatically parsed Pydantic object
-    print("[+] Phase 3 Extraction Complete.")
-    return response.parsed
+    print("[-] SUPPRESSED: Outbound API calls disabled to enforce closed-loop mesh architecture.")
+    return NetworkTelemetry(active_interfaces=[])
 
 async def arm_autonomous_bridge(objective: str):
     print("[*] Arming Phase 2: AI Telemetry Bridge (with Exponential Backoff)...")
+    print("[-] SUPPRESSED: Outbound API calls disabled to enforce closed-loop mesh architecture.")
+    print("[+] Defaulting to manual telemetry execution.")
     
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        sys.exit("FATAL: GEMINI_API_KEY environment variable not set.")
-
-    print("[*] Neural Link Established. Initializing Exocortex Agent...")
-    client = genai.Client(api_key=api_key)
-
-    sys_instruct = (
-        "You are the Watchtower Exocortex Executor. "
-        "Convert the user's objective into a strict JSON list of string arguments for Windows subprocess execution. "
-        "Do NOT chain commands. Do NOT use shell operators like | or &. "
-        "Output strictly valid JSON and nothing else. "
-        "Example output: [\"ping\", \"-n\", \"4\", \"8.8.8.8\"]"
-    )
-
-    print(f"[*] Dispatching Objective: {objective}")
+    command_list = ["ipconfig"]
     
-    max_retries = 4
-    base_delay = 2
-    raw_text = ""
-
-    for attempt in range(max_retries):
-        try:
-            response = await client.aio.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=objective,
-                config=types.GenerateContentConfig(
-                    system_instruction=sys_instruct,
-                    temperature=0.0
-                )
-            )
-            raw_text = response.text
-            break
-            
-        except errors.ServerError as e:
-            if "503" in str(e) or "UNAVAILABLE" in str(e):
-                if attempt == max_retries - 1:
-                    sys.exit(f"FATAL: Upstream API persistently unavailable after {max_retries} attempts. Aborting.")
-                wait_time = base_delay * (2 ** attempt)
-                print(f"[!] NETWORK ANOMALY: 503 UNAVAILABLE. Executing exponential backoff. Retrying in {wait_time}s...")
-                await asyncio.sleep(wait_time)
-            else:
-                raise e
-        except Exception as e:
-            raise e
-
-    try:
-        raw_text = raw_text.replace('```json', '').replace('```', '').strip()
-        if not raw_text:
-            sys.exit("FATAL: Agent returned empty response.")
-        command_list = json.loads(raw_text)
-        if not isinstance(command_list, list) or not command_list:
-            sys.exit("FATAL: Agent did not return a valid non-empty command list.")
-        print(f"[+] AI Generated Payload: {command_list}")
-    except json.JSONDecodeError as e:
-        sys.exit(f"FATAL: Agent returned invalid JSON: {e}")
-
     try:
         telemetry = await execute_tactical_payload(command_list)
     except ValueError as e:
@@ -194,18 +124,8 @@ async def arm_autonomous_bridge(objective: str):
     else:
         print(f"[+] OBJECTIVE SECURED.")
         # Proceed to Phase 3 with retry logic
-        max_extract_retries = 3
-        for attempt in range(max_extract_retries):
-            try:
-                parsed_data = await extract_tactical_data(client, telemetry['stdout'])
-                print(f"[+] PARSED TELEMETRY:\n{parsed_data}")
-                break
-            except Exception as e:
-                if attempt == max_extract_retries - 1:
-                    sys.exit(f"FATAL: Phase 3 extraction failed after {max_extract_retries} attempts: {e}")
-                wait_time = 2 ** (attempt + 1)
-                print(f"[!] Phase 3 extraction failed. Retrying in {wait_time}s...")
-                await asyncio.sleep(wait_time)
+        parsed_data = await extract_tactical_data(None, telemetry['stdout'])
+        print(f"[+] PARSED TELEMETRY:\n{parsed_data}")
 
 async def main():
     if not await validate_workspace():

@@ -1,0 +1,5 @@
+cd D:\Watchtower_Ops
+docker compose build --no-cache spiderfoot
+docker compose up -d spiderfoot
+ping -n 4 192.168.68.109
+ping -n 4 192.168.68.52
