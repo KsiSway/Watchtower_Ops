@@ -1,0 +1,3 @@
+Write-Host "STATUS: EXECUTING LOCAL SBX BINARY"
+.\sbx run kiro
+.\sbx run cursor
