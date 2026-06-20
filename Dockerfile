@@ -6,7 +6,7 @@ WORKDIR /build
 # Install build dependencies only
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    libpython3.11-dev \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 

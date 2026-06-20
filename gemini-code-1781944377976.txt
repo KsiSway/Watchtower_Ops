@@ -1,0 +1,9 @@
+# Step 1: Navigate to the active directory and tear down the broken mesh
+cd D:\Watchtower_Ops
+docker compose down
+
+# Step 2: Purge the corrupted build cache (The '-f' forces it without asking)
+docker builder prune -a -f
+
+# Step 3: Rebuild the infrastructure from absolute zero
+docker compose up -d --build
