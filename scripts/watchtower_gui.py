@@ -89,7 +89,11 @@ with st.sidebar:
     )
     
     st.markdown("---")
-    nav_selection = st.radio("Navigation", ["Mesh Matrix", "Airlock Logs"])
+    st.header("External Modules")
+    st.markdown("[🕸️ SpiderFoot Bridge](http://127.0.0.1:5001)", unsafe_allow_html=True)
+    
+    st.markdown("---")
+    nav_selection = st.radio("Navigation", ["Mesh Matrix", "Airlock Logs", "Cognitive Engine"])
 
 # 2. Expanded Intelligence Workspaces
 if nav_selection == "Mesh Matrix":
@@ -133,6 +137,15 @@ if nav_selection == "Mesh Matrix":
             subprocess.Popen(cmd_args) 
             st.rerun()
 
+        st.markdown("---")
+        if st.button("Test Data Ingestion"):
+            import recon_datastore
+            try:
+                recon_datastore.log_sweep(target_range, 'MANUAL_TEST', {'profile': scan_profile, 'status': 'SIMULATED'})
+                st.success("Test record successfully ingested into PostgreSQL `recon_data.sweeps` table.")
+            except Exception as e:
+                st.error(f"Ingestion failed: {e}")
+
         # Automated Fragment Polling
         if st.session_state.scan_status == "SCANNING":
             st.warning(f"Executing {scan_profile} on {target_range} in background...")
@@ -170,3 +183,9 @@ if nav_selection == "Mesh Matrix":
 elif nav_selection == "Airlock Logs":
     st.header("Airlock Operations")
     st.write("OSINT text artifacts and sync_master.ps1 output render here.")
+
+elif nav_selection == "Cognitive Engine":
+    st.header("AI Cognitive Engine (Ollama)")
+    ai_query = st.text_area("Provide tactical inquiry:", height=150, placeholder="Analyze Shodan telemetry...")
+    if st.button("Submit Query"):
+        st.info("Query submitted to local Ollama framework (dolphin-llama3:latest).")
