@@ -15,6 +15,7 @@ services:
       - .env
     environment:
       - DOCKER_ENV=true
+      - OLLAMA_HOST=192.168.68.110:11434
     depends_on:
       - influxdb
       - grafana

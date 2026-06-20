@@ -20,8 +20,9 @@ def sync_ollama_request(req):
 
 async def execute_local_payload(prompt: str):
     """Asynchronous payload delivery via local Ollama instance."""
-    url = "http://localhost:11434/api/generate"
-    model = os.environ.get("OLLAMA_MODEL", "dolphin-llama3:latest")
+    ollama_host = os.environ.get("OLLAMA_HOST", "192.168.68.110:11434")
+    url = f"http://{ollama_host}/api/generate"
+    model = os.environ.get("OLLAMA_MODEL", "dolphin-mistral:latest")
     payload = {
         "model": model,
         "prompt": prompt,
