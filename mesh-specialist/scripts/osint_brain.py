@@ -11,10 +11,12 @@ import logging
 
 logging.basicConfig(level=logging.ERROR, format='%(levelname)s: %(message)s')
 
+import os
 # Configuration for local, offline LLM
 # Adjust the URL and Model Name based on your specific deployment (e.g., llama3, mistral, dolphin)
-LLM_API_URL = "http://127.0.0.1:11434/api/generate" 
-MODEL_NAME = "dolphin-llama3:latest" # Known for uncensored operational capability
+ollama_host = os.environ.get("OLLAMA_HOST", "192.168.68.110:11434")
+LLM_API_URL = f"http://{ollama_host}/api/generate" 
+MODEL_NAME = os.environ.get("OLLAMA_MODEL", "dolphin-mistral:latest") # Known for uncensored operational capability
 
 async def query_local_brain(system_prompt: str, raw_data: str) -> dict:
     """Sends unstructured OSINT data to the local LLM for tactical analysis."""
