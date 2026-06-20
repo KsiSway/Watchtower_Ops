@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 # Minimum Requirement: Python 3.11+
 # Dependencies: pip install aiohttp
 # Prerequisite: Local LLM running an OpenAI-compatible API (e.g., Ollama at localhost:11434)
