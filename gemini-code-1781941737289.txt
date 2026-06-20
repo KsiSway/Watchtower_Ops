@@ -1,0 +1,5 @@
+# Step 1: Verify the file physically exists on the host machine
+Test-Path "D:\Watchtower_Ops\watchtower_gui.py"
+
+# Step 2: Extract the configuration block for the watchtower_app to find the broken mount
+Get-Content D:\Watchtower_Ops\docker-compose.yml | Select-String -Pattern "watchtower_app" -Context 0,15
