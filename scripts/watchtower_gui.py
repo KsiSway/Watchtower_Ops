@@ -3,6 +3,7 @@ import subprocess
 import os
 import ipaddress
 import shlex
+import recon_datastore
 
 st.set_page_config(page_title="Watchtower C2", layout="wide")
 
@@ -69,6 +70,33 @@ def search_mesh(query):
 def search_processes(query):
     # Logic to query processes
     return {"source": "Processes", "data": [f"Process found: {query}"]}
+
+def execute_sherlock_sweep(target):
+    """
+    Capability Integration: Triggers osint_sherlock.py and logs to PostgreSQL.
+    """
+    try:
+        # Executes the script inside the isolated Docker container
+        cmd = ["python", "osint_sherlock.py", target, "--print-found"]
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        
+        # Structure the raw output for the JSONB database column
+        raw_data = {
+            "status": "SUCCESS",
+            "output": result.stdout
+        }
+        
+        # Persist to the database using your established ledger
+        recon_datastore.log_sweep(target, "Sherlock", raw_data)
+        return raw_data
+        
+    except subprocess.CalledProcessError as e:
+        error_data = {
+            "status": "FAILED",
+            "error": e.stderr
+        }
+        recon_datastore.log_sweep(target, "Sherlock", error_data)
+        return error_data
 with st.sidebar:
     st.title("Watchtower C2")
     st.markdown("---")
@@ -84,7 +112,8 @@ with st.sidebar:
         [
             "Stealth ACK Pierce (-sA)", 
             "Fast Ping Sweep (-sn)", 
-            "Deep Fingerprint (-sV -p-)"
+            "Deep Fingerprint (-sV -p-)",
+            "Sherlock (Digital Footprint)"
         ]
     )
     
@@ -105,37 +134,49 @@ if nav_selection == "Mesh Matrix":
         st.subheader("Tactical Execution")
         
         # Dynamic Payload Construction with Safe Execution
-        if st.button(f"Initiate {scan_profile.split(' ')[0]} Sweep"):
-            # OPSEC Safety Interlock (RFC 1918 Airgap)
-            try:
-                if "/" in target_range:
-                    ip_obj = ipaddress.ip_network(target_range, strict=False)
-                    is_private = ip_obj.is_private
+        if st.button("Execute Sweep"):
+            st.warning(f"STATUS: Initiating {scan_profile} against {target_range}...")
+            
+            if scan_profile == "Sherlock (Digital Footprint)":
+                report = execute_sherlock_sweep(target_range)
+                
+                if report["status"] == "SUCCESS":
+                    st.success("Sweep Complete. Intelligence committed to PostgreSQL ledger.")
+                    st.text(report["output"])
                 else:
-                    ip_obj = ipaddress.ip_address(target_range)
-                    is_private = ip_obj.is_private
-                    
-                if is_private:
-                    st.error("[SECURITY INTERLOCK] Target is RFC 1918 internal. Deep External Scans Aborted.")
+                    st.error("Sweep Failed. Error committed to ledger.")
+                    st.text(report["error"])
+            else:
+                # OPSEC Safety Interlock (RFC 1918 Airgap)
+                try:
+                    if "/" in target_range:
+                        ip_obj = ipaddress.ip_network(target_range, strict=False)
+                        is_private = ip_obj.is_private
+                    else:
+                        ip_obj = ipaddress.ip_address(target_range)
+                        is_private = ip_obj.is_private
+                        
+                    if is_private:
+                        st.error("[SECURITY INTERLOCK] Target is RFC 1918 internal. Deep External Scans Aborted.")
+                        st.stop()
+                        
+                except ValueError:
+                    st.error("[!] CRITICAL: Invalid IP or CIDR format. Execution aborted to prevent command injection.")
                     st.stop()
-                    
-            except ValueError:
-                st.error("[!] CRITICAL: Invalid IP or CIDR format. Execution aborted to prevent command injection.")
-                st.stop()
 
-            st.session_state.scan_status = "SCANNING"
-            
-            flag_map = {
-                "Stealth ACK Pierce (-sA)": "-sA -Pn -p 22,80,443,8080,8443",
-                "Fast Ping Sweep (-sn)": "-sn",
-                "Deep Fingerprint (-sV -p-)": "-Pn -sV -sC -p-"
-            }
-            active_flags = flag_map[scan_profile]
-            
-            # Secure Subprocess Execution
-            cmd_args = ["nmap"] + shlex.split(active_flags) + [target_range, "-oN", "/D/Watchtower_Ops/dynamic_scan_results.txt"]
-            subprocess.Popen(cmd_args) 
-            st.rerun()
+                st.session_state.scan_status = "SCANNING"
+                
+                flag_map = {
+                    "Stealth ACK Pierce (-sA)": "-sA -Pn -p 22,80,443,8080,8443",
+                    "Fast Ping Sweep (-sn)": "-sn",
+                    "Deep Fingerprint (-sV -p-)": "-Pn -sV -sC -p-"
+                }
+                active_flags = flag_map[scan_profile]
+                
+                # Secure Subprocess Execution
+                cmd_args = ["nmap"] + shlex.split(active_flags) + [target_range, "-oN", "/D/Watchtower_Ops/dynamic_scan_results.txt"]
+                subprocess.Popen(cmd_args) 
+                st.rerun()
 
         st.markdown("---")
         if st.button("Test Data Ingestion"):
