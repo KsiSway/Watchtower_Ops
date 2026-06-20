@@ -67,7 +67,7 @@ services:
     image: grafana/grafana:latest
     container_name: watchtower_grafana
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3030:3000"
     volumes:
       - ./data/grafana:/var/lib/grafana
     env_file:

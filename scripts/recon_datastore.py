@@ -3,7 +3,7 @@ import json
 import os
 
 # Natively routes to the Postgres container via the Docker bridge
-DB_HOST = os.getenv("DB_HOST", "host.docker.internal")
+DB_HOST = os.getenv("DB_HOST", "watchtower-db")
 
 def get_db_connection():
     return psycopg2.connect(
