@@ -11,28 +11,9 @@ services:
     volumes:
       - D:\Watchtower_Ops:/app:rw
       - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - .env
     environment:
-      - SHODAN_API_KEY=${SHODAN_API_KEY}
-      - CENSYS_PERSONAL_ACCESS_TOKEN=${CENSYS_PERSONAL_ACCESS_TOKEN}
-      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
-      - ABUSEIPDB_API_KEY=${ABUSEIPDB_API_KEY}
-      - ALIENVAULT_API_KEY=${ALIENVAULT_API_KEY}
-      - ABSTRACT_API_KEY=${ABSTRACT_API_KEY}
-      - EXA_API_KEY=${EXA_API_KEY}
-      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - HF_TOKEN=${HF_TOKEN}
-      - BRAVE_SEARCH_API_KEY=${BRAVE_SEARCH_API_KEY}
-      - BRAVE_ANSWERS_API_KEY=${BRAVE_ANSWERS_API_KEY}
-      - BRAVE_AUTOSUGGEST_API_KEY=${BRAVE_AUTOSUGGEST_API_KEY}
-      - BRAVE_SPELLCHECK_API_KEY=${BRAVE_SPELLCHECK_API_KEY}
-      - URLSCAN_API_KEY=${URLSCAN_API_KEY}
-      - LEAKCHECK_API_KEY=${LEAKCHECK_API_KEY}
-      - WIGLE_API_NAME=${WIGLE_API_NAME}
-      - WIGLE_API_TOKEN=${WIGLE_API_TOKEN}
-      - ZOOMEYE_API_KEY=${ZOOMEYE_API_KEY}
-      - GRAFANA_USER=${GRAFANA_USER}
-      - GRAFANA_PASS=${GRAFANA_PASS}
       - DOCKER_ENV=true
     depends_on:
       - influxdb
@@ -42,12 +23,16 @@ services:
     restart: unless-stopped
     networks:
       - watchtower-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
   ollama:
     image: ollama/ollama:latest
     container_name: watchtower_ollama
-    # ports:
-    #   - "11434:11434"
     volumes:
       - ./data/ollama:/root/.ollama
     environment:
@@ -63,17 +48,16 @@ services:
       - "8086:8086"
     volumes:
       - ./data/influxdb:/var/lib/influxdb2
-    environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=lance
-      - DOCKER_INFLUXDB_INIT_PASSWORD=LANCE-1985-SECURE
-      - DOCKER_INFLUXDB_INIT_ORG=watchtower
-      - DOCKER_INFLUXDB_INIT_BUCKET=telemetry
-      - DOCKER_INFLUXDB_INIT_RETENTION=30d
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_TOKEN}
+    env_file:
+      - .env.influx
     restart: unless-stopped
     networks:
       - watchtower-network
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   grafana:
     image: grafana/grafana:latest
@@ -82,15 +66,18 @@ services:
       - "3000:3000"
     volumes:
       - ./data/grafana:/var/lib/grafana
-    environment:
-      - GF_SECURITY_ADMIN_USER=KsiSway
-      - GF_SECURITY_ADMIN_PASSWORD=DOCnomore1!
-      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    env_file:
+      - .env.grafana
     depends_on:
       - influxdb
     restart: unless-stopped
     networks:
       - watchtower-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   spiderfoot:
     build:
@@ -104,6 +91,11 @@ services:
     restart: unless-stopped
     networks:
       - watchtower-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 volumes:
   influxdb_data:

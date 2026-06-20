@@ -8,6 +8,7 @@ from google import genai
 from google.genai import types
 from google.genai import errors
 from pydantic import BaseModel, Field
+from typing import Optional
 
 # ==========================================
 # 1. ARCHITECTURAL PATHING & BASE JAIL
@@ -25,7 +26,10 @@ else:
 BASE_JAIL = Path(DEFAULT_WORK_DIR).resolve()
 
 os.environ.setdefault("WORK_DIR", DEFAULT_WORK_DIR)
-WORK_DIR = Path(os.environ["WORK_DIR"]).resolve()
+try:
+    WORK_DIR = Path(os.environ["WORK_DIR"]).resolve()
+except (OSError, RuntimeError) as e:
+    sys.exit(f"FATAL: Cannot resolve WORK_DIR: {e}")
 
 ALLOWED_COMMANDS = {"ping", "ipconfig", "netstat", "tasklist", "tracert"}
 MAX_RETRIES = 3
@@ -60,9 +64,10 @@ def secure_write(filename: str, data: str) -> bool:
         # 0o600 ensures rw------- permissions (Operator only)
         fd = os.open(target_file, O_SECURE_FLAGS, 0o600)
         
-        # Wrap the raw FD back into a Python file object for writing
-        with open(fd, 'w', encoding='utf-8') as f:
+        # Wrap the raw FD back into a Python file object for writing using fdopen
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
             f.write(data)
+            f.flush()
             
         print(f"[+] Payload securely written to inode via FD: {filename}")
         return True
@@ -102,7 +107,7 @@ async def execute_tactical_payload(command_list: list) -> dict:
         "stderr": stderr.decode('utf-8').strip()
     }
 
-async def extract_tactical_data(client: genai.Client, raw_ipconfig_output: str):
+async def extract_tactical_data(client: Optional[genai.Client], raw_ipconfig_output: str):
     print("[*] Initiating Phase 3: Structured Output Extraction...")
     print("[-] SUPPRESSED: Outbound API calls disabled to enforce closed-loop mesh architecture.")
     return NetworkTelemetry(active_interfaces=[])
@@ -112,7 +117,11 @@ async def arm_autonomous_bridge(objective: str):
     print("[-] SUPPRESSED: Outbound API calls disabled to enforce closed-loop mesh architecture.")
     print("[+] Defaulting to manual telemetry execution.")
     
-    command_list = ["ipconfig"]
+    # Cross-platform network info command
+    if sys.platform == "win32":
+        command_list = ["ipconfig"]
+    else:
+        command_list = ["ip", "addr"]
     
     try:
         telemetry = await execute_tactical_payload(command_list)

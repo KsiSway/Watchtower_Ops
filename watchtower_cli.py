@@ -1,6 +1,7 @@
 import asyncio
 import sys
 import json
+import os
 import urllib.request
 import urllib.error
 import socket
@@ -10,15 +11,19 @@ def sync_ollama_request(req):
     # Enforces timeout and guarantees socket closure via context manager
     try:
         with urllib.request.urlopen(req, timeout=120) as response:
-            return json.loads(response.read().decode('utf-8'))
+            try:
+                return json.loads(response.read().decode('utf-8'))
+            except json.JSONDecodeError as e:
+                raise RuntimeError(f"Ollama returned invalid JSON: {e}")
     except socket.timeout:
         raise TimeoutError("Ollama request exceeded 120s timeout.")
 
 async def execute_local_payload(prompt: str):
     """Asynchronous payload delivery via local Ollama instance."""
     url = "http://localhost:11434/api/generate"
+    model = os.environ.get("OLLAMA_MODEL", "dolphin-llama3:latest")
     payload = {
-        "model": "dolphin-llama3:latest",
+        "model": model,
         "prompt": prompt,
         "stream": False
     }
@@ -35,6 +40,8 @@ async def execute_local_payload(prompt: str):
         sys.exit(f"FATAL ROUTING: Ollama unreachable at :11434. Error: {e}")
     except TimeoutError as e:
         sys.exit(f"FATAL ROUTING: {e}")
+    except RuntimeError as e:
+        sys.exit(f"FATAL ROUTING: {e}")
 
 async def main():
     if len(sys.argv) > 1:
@@ -42,6 +49,8 @@ async def main():
     elif not sys.stdin.isatty():
         # Read stdin with size limit (10MB max)
         prompt = sys.stdin.read(10485760).strip()
+        if len(prompt) == 10485760:
+            print("WARNING: stdin exceeded 10MB limit; truncated.", file=sys.stderr)
     else:
         sys.exit("USAGE: python watchtower_cli.py <prompt> OR pipe data via stdin.")
     

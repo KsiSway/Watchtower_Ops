@@ -1,6 +1,33 @@
 *
 !requirements.txt
 !Dockerfile
+!docker-compose.yml
 !*.py
 !*.bat
 !*.sh
+!.env
+!.env.*
+
+# Exclude large/unnecessary directories
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.coverage
+node_modules
+dist
+build
+*.egg-info
+
+# Exclude large data directories
+data/
+media/
+screenshots/
+
+# Exclude sensitive files
+*.env
+!.env.template
+.dockerignore
+*.log
+*.tmp
