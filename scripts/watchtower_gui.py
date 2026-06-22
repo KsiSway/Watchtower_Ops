@@ -339,8 +339,10 @@ if nav_selection == "Mesh Matrix":
         st.write("Future integration: SQLite database mapping MAC addresses to known devices.")
         
     with tab3:
-        st.subheader("Vulnerability Cross-Referencing")
-        st.write("Future integration: Automated Shodan API footprinting and CVE database mapping.")
+        st.subheader("Vision Airlock")
+        st.write("TPU Optical Inference & PostgreSQL L2 Cache Integration")
+        if st.button("Initialize Optical Exfiltration"):
+            st.info("Execute 'osint_tpu_vision_v2.py' natively within Coral_Env (Python 3.9) to secure hardware bindings.")
 
 elif nav_selection == "Airlock Logs":
     st.header("Airlock Operations")
