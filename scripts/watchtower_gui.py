@@ -4,6 +4,10 @@ import os
 import ipaddress
 import shlex
 import recon_datastore
+import asyncio
+import sys
+import time
+from datetime import datetime
 
 st.set_page_config(page_title="Watchtower C2", layout="wide")
 
@@ -97,6 +101,97 @@ def execute_sherlock_sweep(target):
         }
         recon_datastore.log_sweep(target, "Sherlock", error_data)
         return error_data
+
+# DEFAULTING TO PYTHON 3.11+ ASYNC STANDARDS
+async def execute_osint_probe(module_path: str, target_arg: str, output_container):
+    """
+    Launches an external OSINT script asynchronously.
+    Pipes stdout to Streamlit with a 0.5s DOM throttler.
+    Promotes final output to L2 Cache (insights.md).
+    """
+    process = await asyncio.create_subprocess_exec(
+        sys.executable, module_path, target_arg,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.STDOUT
+    )
+
+    log_buffer = []
+    last_update = time.time()
+
+    # 1. THROTTLED STREAM INTERCEPTION
+    while True:
+        line = await process.stdout.readline()
+        if not line:
+            break
+        
+        decoded_line = line.decode('utf-8').strip()
+        log_buffer.append(decoded_line)
+        
+        # Flush buffer to UI every 0.5 seconds to prevent WebSockets crash
+        if time.time() - last_update > 0.5:
+            output_container.code('\n'.join(log_buffer), language='bash')
+            last_update = time.time()
+
+    # Final UI flush
+    final_output = '\n'.join(log_buffer)
+    output_container.code(final_output, language='bash')
+    await process.wait()
+
+    # 2. L2 CACHE CONTEXT PROMOTION
+    try:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open(r"D:\Watchtower_Ops\insights.md", "a", encoding="utf-8") as f:
+            f.write(f"\n\n## OSINT SWEEP: {module_path} [{timestamp}]\n")
+            f.write(f"**Target:** {target_arg}\n```bash\n{final_output}\n```\n")
+    except Exception as e:
+        st.error(f"L2 CACHE WRITE FAILED: {str(e)}")
+
+    return process.returncode
+
+async def run_mobile_telemetry(node_ip: str, command: str, terminal_placeholder):
+    """
+    Asynchronous ADB wrapper for live mobile node telemetry streaming.
+    Incorporates UI throttling and shell injection sanitization.
+    """
+    # 1. Sanitize the command to prevent ADB shell injection
+    safe_command = shlex.quote(command)
+    
+    # 2. Wrap in root escalation for Tab A8 (.112)
+    if node_ip == "192.168.68.112":
+        final_cmd = f"su -c {safe_command}"
+    else:
+        final_cmd = command
+        
+    adb_call = ["adb", "-s", f"{node_ip}:5555", "shell", final_cmd]
+    
+    process = await asyncio.create_subprocess_exec(
+        *adb_call,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.STDOUT
+    )
+
+    log_buffer = []
+    last_update = time.time()
+
+    # Read the stream in real-time until EOF
+    while True:
+        line = await process.stdout.readline()
+        if not line:
+            break
+        
+        decoded_line = f"[{node_ip}] > " + line.decode('utf-8').strip()
+        log_buffer.append(decoded_line)
+        
+        # 3. THROTTLE: Flush buffer to UI only every 0.5 seconds
+        if time.time() - last_update > 0.5:
+            terminal_placeholder.code('\n'.join(log_buffer), language="bash")
+            last_update = time.time()
+
+    # Final flush to ensure the last lines are rendered
+    terminal_placeholder.code('\n'.join(log_buffer), language="bash")
+    await process.wait()
+    return process.returncode
+
 with st.sidebar:
     st.title("Watchtower C2")
     st.markdown("---")
@@ -212,6 +307,29 @@ if nav_selection == "Mesh Matrix":
                 if os.path.exists("/D/Watchtower_Ops/dynamic_scan_results.txt"):
                     os.remove("/D/Watchtower_Ops/dynamic_scan_results.txt")
                 st.rerun()
+
+        st.markdown("---")
+        st.subheader("Watchtower: Active Reconnaissance")
+        target_id = st.text_input("ENTER TARGET IDENTIFIER:", key="sherlock_target_id")
+
+        if st.button("EXECUTE SHERLOCK SWEEP"):
+            if target_id:
+                st.warning(f"Initiating target acquisition: {target_id}...")
+                live_terminal = st.empty()
+                
+                # Proxy confirmed previously. Egress authorized.
+                asyncio.run(execute_osint_probe("osint_sherlock.py", target_id, live_terminal))
+                
+                st.success("SWEEP COMPLETE. DATA PROMOTED TO L2 CACHE.")
+            else:
+                st.error("FATAL: Target identifier required.")
+                
+        st.markdown("---")
+        st.subheader("Mobile Telemetry Extraction")
+        if st.button("Extract Mobile Telemetry"):
+            log_terminal = st.empty()
+            # Initiating non-blocking extraction for S25 Edge
+            asyncio.run(run_mobile_telemetry("192.168.68.109", "dumpsys battery", log_terminal))
 
     with tab2:
         st.subheader("Known Hardware Ledger")
