@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# PROJECT WATCHTOWER: Native Gemini CLI (Hardened)
-# Architecture: OptiPlex x64 Host -> Google Generative AI API
+# PROJECT WATCHTOWER: Native Gemini CLI (V4 Modernized)
+# Architecture: OptiPlex x64 Host (.venv 3.12) -> Google GenAI SDK
 
-import google.generativeai as genai
+from google import genai
 import os
 import sys
 from dotenv import load_dotenv
@@ -15,14 +15,11 @@ if not API_KEY:
     print("[!] FAULT: GEMINI_API_KEY missing from D:\\Watchtower_Ops\\.env")
     sys.exit(1)
 
-genai.configure(api_key=API_KEY)
+# 2. Engine Initialization (Modern Client Architecture)
+client = genai.Client(api_key=API_KEY)
+chat = client.chats.create(model='gemini-1.5-flash')
 
-# 2. Engine Initialization
-# Using 1.5 Flash for high-speed terminal I/O.
-model = genai.GenerativeModel('gemini-1.5-flash') 
-chat = model.start_chat(history=[])
-
-print("[+] GEMINI TERMINAL ACTIVE. Streaming enabled.")
+print("[+] GEMINI TERMINAL ACTIVE (V4 Architecture). Streaming enabled.")
 print("[+] Type 'exit' or 'quit' to terminate.\n")
 
 # 3. Persistent Execution Loop
@@ -36,11 +33,13 @@ while True:
             continue
             
         print("Gemini> ", end="", flush=True)
-        response = chat.send_message(user_input, stream=True)
+        # Modern streaming method
+        response = chat.send_message_stream(user_input)
         
         # Stream chunks to terminal as they generate
         for chunk in response:
-            print(chunk.text, end="", flush=True)
+            if chunk.text:
+                print(chunk.text, end="", flush=True)
         print("\n")
         
     except KeyboardInterrupt:
