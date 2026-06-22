@@ -33,6 +33,20 @@ with st.container():
     global_search = st.text_input("Global Search", placeholder="Search ledger, mesh, or processes...")
     st.markdown('</div>', unsafe_allow_html=True)
 
+# --- Search Orchestrators ---
+
+def search_ledger(query):
+    # Logic to query database
+    return {"source": "Ledger", "data": [f"Result 1 for {query}", f"Result 2 for {query}"]}
+
+def search_mesh(query):
+    # Logic to query mesh nodes
+    return {"source": "Mesh", "data": [f"Mesh node found: {query}"]}
+
+def search_processes(query):
+    # Logic to query processes
+    return {"source": "Processes", "data": [f"Process found: {query}"]}
+
 if global_search:
     st.write(f"### Results for: {global_search}")
     col1, col2, col3 = st.columns(3)
@@ -60,20 +74,6 @@ if global_search:
 
 if "scan_status" not in st.session_state:
     st.session_state.scan_status = "IDLE"
-
-# --- Search Orchestrators ---
-
-def search_ledger(query):
-    # Logic to query database
-    return {"source": "Ledger", "data": [f"Result 1 for {query}", f"Result 2 for {query}"]}
-
-def search_mesh(query):
-    # Logic to query mesh nodes
-    return {"source": "Mesh", "data": [f"Mesh node found: {query}"]}
-
-def search_processes(query):
-    # Logic to query processes
-    return {"source": "Processes", "data": [f"Process found: {query}"]}
 
 def execute_sherlock_sweep(target):
     """
