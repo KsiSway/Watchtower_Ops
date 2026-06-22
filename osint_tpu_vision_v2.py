@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# PROJECT WATCHTOWER: Edge TPU -> PostgreSQL Bridge (V2.1 Unified)
+# PROJECT WATCHTOWER: Edge TPU -> PostgreSQL Bridge (V2.2 Thread-Safe)
 # Architecture: OptiPlex x64 Host -> Google Coral TPU -> Postgres L2 Cache
 
 import os
 import time
 import asyncio
 import psycopg2
+import shutil
 from PIL import Image
 from pycoral.utils import edgetpu
 from pycoral.utils import dataset
@@ -18,37 +19,32 @@ ARCHIVE_DIR = "D:/Watchtower_Ops/Payloads/Visual_Intel_Analyzed"
 MODEL_PATH = "D:/Watchtower_Ops/Models/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite"
 LABEL_PATH = "D:/Watchtower_Ops/Models/coco_labels.txt"
 
-# DB Configuration - Utilizing host.docker.internal for WSL/Host to Container routing
 DB_PARAMS = {
     "dbname": "recon_data",
     "user": "watchtower_admin",
     "password": "watchtower_secure_2026",
-    "host": "host.docker.internal",
+    "host": "localhost",
     "port": "5432"
 }
 
 def inject_telemetry(source_ip, label, score, bbox, filepath):
-    """Injects high-density array telemetry into the L2 Cache."""
-    try:
-        conn = psycopg2.connect(**DB_PARAMS)
-        cursor = conn.cursor()
-        
-        # Map TPU bbox strictly to INT[] to adhere to ONTO/TOON density constraints
-        bbox_array = [int(bbox.xmin), int(bbox.ymin), int(bbox.xmax), int(bbox.ymax)]
-        
-        # Target visual_telemetry ledger, NOT mesh_sweeps
-        query = """
-            INSERT INTO visual_telemetry 
-            (source_ip, target_label, confidence_score, bbox_coords, file_path)
-            VALUES (%s, %s, %s, %s, %s)
-        """
-        cursor.execute(query, (source_ip, label, float(score), bbox_array, filepath))
-        conn.commit()
-        
-        cursor.close()
-        conn.close()
-    except Exception as e:
-        print(f"[!] L2 CACHE INJECTION FAILED: {e}")
+    """Synchronous DB injection designed for threaded offloading."""
+    conn = psycopg2.connect(**DB_PARAMS)
+    cursor = conn.cursor()
+    
+    bbox_array = [int(bbox.xmin), int(bbox.ymin), int(bbox.xmax), int(bbox.ymax)]
+    
+    query = """
+        INSERT INTO visual_telemetry 
+        (source_ip, target_label, confidence_score, bbox_coords, file_path)
+        VALUES (%s, %s, %s, %s, %s)
+    """
+    cursor.execute(query, (source_ip, label, float(score), bbox_array, filepath))
+    conn.commit()
+    
+    cursor.close()
+    conn.close()
+    return True
 
 async def process_frame(interpreter, labels, filepath):
     try:
@@ -62,27 +58,32 @@ async def process_frame(interpreter, labels, filepath):
 
         objs = detect.get_objects(interpreter, score_threshold=0.5, image_scale=scale)
         filename = os.path.basename(filepath)
-        
-        # Resolve Subnet Source IP based on filename tagging (.109 or .112)
         source_ip = "192.168.68.109" if "109" in filename else "192.168.68.112"
+        db_success = False
 
         if objs:
             print(f"[+] Detected {len(objs)} target signatures in {inference_time:.3f}s")
             for obj in objs:
                 label = labels.get(obj.id, obj.id)
                 print(f"    -> TARGET: {label} | CONFIDENCE: {obj.score:.2f} | DB: INJECTING")
-                inject_telemetry(source_ip, label, obj.score, obj.bbox, filepath)
+                
+                # Thread-safe L2 Cache Injection
+                db_success = await asyncio.to_thread(
+                    inject_telemetry, source_ip, label, obj.score, obj.bbox, filepath
+                )
         else:
             print(f"[*] {filename} STATUS: CLEAR")
+            db_success = True # No objects, but processing succeeded
 
-        # Quarantine processed payload to prevent redundant compute cycles
-        os.rename(filepath, os.path.join(ARCHIVE_DIR, filename))
+        # Idempotent Archiving
+        if db_success:
+            shutil.move(filepath, os.path.join(ARCHIVE_DIR, filename))
 
     except Exception as e:
-        print(f"[!] INFERENCE FAILURE on {filepath}: {e}")
+        print(f"[!] INFERENCE/DB FAILURE on {filepath}: {e}")
 
 async def watch_airlock():
-    print("[*] INITIALIZING EDGE TPU DB BRIDGE (V2.1)...")
+    print("[*] INITIALIZING EDGE TPU DB BRIDGE (V2.2 THREAD-SAFE)...")
     os.makedirs(STAGING_DIR, exist_ok=True)
     os.makedirs(ARCHIVE_DIR, exist_ok=True)
 
@@ -100,7 +101,6 @@ async def watch_airlock():
         for payload in payloads:
             await process_frame(interpreter, labels, payload)
         
-        # Rate-limit disk polling
         await asyncio.sleep(1.5)
 
 if __name__ == '__main__':
