@@ -157,12 +157,14 @@ async def run_mobile_telemetry(node_ip: str, command: str, terminal_placeholder)
     safe_command = shlex.quote(command)
     
     # 2. Wrap in root escalation for Tab A8 (.112)
-    if node_ip == "192.168.68.112":
+    if node_ip.startswith("192.168.68.112"):
         final_cmd = f"su -c {safe_command}"
     else:
         final_cmd = command
         
-    adb_call = ["adb", "-s", f"{node_ip}:5555", "shell", final_cmd]
+    # Handle custom port if provided in node_ip (e.g. 192.168.68.123:40321)
+    target = node_ip if ":" in node_ip else f"{node_ip}:5555"
+    adb_call = ["adb", "-s", target, "shell", final_cmd]
     
     process = await asyncio.create_subprocess_exec(
         *adb_call,
@@ -326,10 +328,11 @@ if nav_selection == "Mesh Matrix":
                 
         st.markdown("---")
         st.subheader("Mobile Telemetry Extraction")
+        st.write("Phone is at 192.168.68.123:40321 (Pairing code: 007693)")
         if st.button("Extract Mobile Telemetry"):
             log_terminal = st.empty()
-            # Initiating non-blocking extraction for S25 Edge
-            asyncio.run(run_mobile_telemetry("192.168.68.109", "dumpsys battery", log_terminal))
+            # Initiating non-blocking extraction for phone
+            asyncio.run(run_mobile_telemetry("192.168.68.123:40321", "dumpsys battery", log_terminal))
 
     with tab2:
         st.subheader("Known Hardware Ledger")
