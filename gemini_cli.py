@@ -9,14 +9,15 @@ from dotenv import load_dotenv
 
 # 1. Hardware/Authentication Verification via Secure .env
 load_dotenv(r"D:\Watchtower_Ops\.env")
-API_KEY = os.environ.get("GEMINI_API_KEY", "").strip().strip('"').strip("'")
+clean_key = os.environ.get("GEMINI_API_KEY", "").strip().strip('"').strip("'")
+os.environ["GEMINI_API_KEY"] = clean_key
 
-if not API_KEY:
+if not clean_key:
     print("[!] FAULT: GEMINI_API_KEY missing from D:\\Watchtower_Ops\\.env")
     sys.exit(1)
 
 # 2. Engine Initialization (Modern Client Architecture)
-client = genai.Client(api_key=API_KEY)
+client = genai.Client(api_key=clean_key)
 chat = client.chats.create(model='gemini-1.5-flash')
 
 print("[+] GEMINI TERMINAL ACTIVE (V4 Architecture). Streaming enabled.")
