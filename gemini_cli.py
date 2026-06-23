@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # 1. Hardware/Authentication Verification via Secure .env
 load_dotenv(r"D:\Watchtower_Ops\.env")
-API_KEY = os.environ.get("GEMINI_API_KEY")
+API_KEY = os.environ.get("GEMINI_API_KEY", "").strip().strip('"').strip("'")
 
 if not API_KEY:
     print("[!] FAULT: GEMINI_API_KEY missing from D:\\Watchtower_Ops\\.env")
