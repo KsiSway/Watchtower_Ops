@@ -2,25 +2,30 @@
 # PROJECT WATCHTOWER: Native Gemini CLI (V4 Modernized)
 # Architecture: OptiPlex x64 Host (.venv 3.12) -> Google GenAI SDK
 
-from google import genai
 import os
 import sys
 from dotenv import load_dotenv
+from google import genai
 
-# 1. Hardware/Authentication Verification via Secure .env
-load_dotenv(r"D:\Watchtower_Ops\.env")
+# 1. Hardcode the absolute vault path to prevent ghost reads
+env_path = r"D:\Watchtower_Ops\.env"
+load_dotenv(dotenv_path=env_path, override=True)
+
+# 2. Extract and aggressively sanitize the cryptographic signature
 clean_key = os.environ.get("GEMINI_API_KEY", "").strip().strip('"').strip("'")
-os.environ["GEMINI_API_KEY"] = clean_key
 
-if not clean_key:
-    print("[!] FAULT: GEMINI_API_KEY missing from D:\\Watchtower_Ops\\.env")
+# Safety check
+if not clean_key or "EXACT_KEY_HERE" in clean_key:
+    print("[!] FAULT: Placeholder or missing key detected in .env vault.")
     sys.exit(1)
 
-# 2. Engine Initialization (Modern Client Architecture)
+# 3. DIRECT INJECTION: Physically pass the sanitized variable into the engine
 client = genai.Client(api_key=clean_key)
-chat = client.chats.create(model='gemini-1.5-flash')
 
-print("[+] GEMINI TERMINAL ACTIVE (V4 Architecture). Streaming enabled.")
+# 4. CAPEX PROTECTION: Enforce strict routing to the $0.00 free-tier model
+chat = client.chats.create(model='gemini-3.1-flash-lite')
+
+print("[+] GEMINI TERMINAL ACTIVE (Unified V4 Architecture).")
 print("[+] Type 'exit' or 'quit' to terminate.\n")
 
 # 3. Persistent Execution Loop
