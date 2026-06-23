@@ -1,5 +1,5 @@
 import streamlit as st
-
+import requests
 # [Antigravity Dispatch]: Hardened OSINT Engine Execution Block
 # Injecting into Tab 2 (OSINT Engine section)
 
@@ -41,3 +41,28 @@ if st.button("Execute Sherlock Sweep", use_container_width=True):
                     st.error("[!] TIMEOUT: Sweep exceeded 15 seconds. Target node unresponsive. Thread severed.")
                     
             status.update(label="Sweep Complete", state="complete")
+
+st.markdown("---")
+st.subheader("V4 Intelligence Bridge (Local C2 -> Uvicorn)")
+
+def stream_intelligence_bridge(target_prompt):
+    url = "http://host.docker.internal:5050/stream_inference"
+    payload = {"prompt": target_prompt}
+    
+    try:
+        with requests.post(url, json=payload, stream=True) as response:
+            response.raise_for_status()
+            for line in response.iter_lines():
+                if line:
+                    decoded_line = line.decode('utf-8')
+                    if decoded_line.startswith("data: "):
+                        yield decoded_line.replace("data: ", "")
+    except requests.exceptions.RequestException as e:
+        yield f"[!] C2 IPC BRIDGE FAULT: {e}"
+
+# UI Execution Trigger
+user_input = st.text_input("Enter OSINT Query:")
+if st.button("Transmit to V4 Engine"):
+    with st.spinner("Establishing secure uplink..."):
+        response_stream = stream_intelligence_bridge(user_input)
+        st.write_stream(response_stream)
