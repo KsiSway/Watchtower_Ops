@@ -1,0 +1,1 @@
+tar -czf - --exclude=node_modules . | base64
