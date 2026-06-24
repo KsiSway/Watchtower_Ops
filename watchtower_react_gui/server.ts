@@ -1,3 +1,4 @@
+/**
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -527,14 +528,3 @@ async function setupServer() {
 setupServer().catch(err => {
   console.error('Failed to start server:', err);
 });
-------------------------------------------------------------------
-{
-  "compilerOptions": {
-    "target": "ES2022",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "module": "ESNext",
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
