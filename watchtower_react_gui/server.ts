@@ -12,7 +12,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Increase request size limit for processing files and text content
 app.use(express.json({ limit: '15mb' }));
