@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "memory": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "--yes",
         "-y",
@@ -15,6 +15,8 @@
       "command": "docker",
       "args": [
         "run",
+        "-i",
+        "--rm",
         "--add-host=host.docker.internal:host-gateway",
         "mcp-server-github"
       ]
@@ -23,6 +25,8 @@
       "command": "docker",
       "args": [
         "run",
+        "-i",
+        "--rm",
         "--add-host=host.docker.internal:host-gateway",
         "-v",
         "./.memory:/var/lib/data",
