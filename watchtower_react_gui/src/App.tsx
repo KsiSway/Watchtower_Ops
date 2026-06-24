@@ -4,17 +4,17 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence } from 'motion/react';
 import {
-  Sparkles,
+  
   Compass,
-  LayoutDashboard,
-  ShieldAlert,
-  Database,
-  RefreshCw,
-  CheckCircle2,
-  Trash2,
-  FileSpreadsheet,
+  
+  
+  
+  
+  
+  
+  
   Sun,
   Moon,
 } from 'lucide-react';
