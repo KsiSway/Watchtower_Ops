@@ -1,0 +1,6 @@
+{
+  "name": "Workspace Watchtower",
+  "description": "A smart monitoring and insights dashboard for your Google Drive, Google Sheets, and Google Docs, analyzing your workspace to recommend cleanups, organize files, and provide intelligent personal summaries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
