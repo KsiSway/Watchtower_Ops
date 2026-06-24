@@ -1,0 +1,71 @@
+{
+  "reportGeneratedAt": "2026-06-24T01:51:23.524Z",
+  "workspaceStats": {
+    "totalFiles": 50,
+    "totalSize": 81042944,
+    "score": 62,
+    "lastSyncTime": "2026-06-24T01:50:38.502Z",
+    "mimeTypeBreakdown": [
+      {
+        "name": "SwayZone Project",
+        "value": 5
+      },
+      {
+        "name": "Research Papers",
+        "value": 12
+      },
+      {
+        "name": "Gemini Logs",
+        "value": 21
+      }
+    ],
+    "sizeBreakdown": [
+      {
+        "name": "Gemini Export June 22, 2026 at 3:47:36 AM PDT",
+        "value": 4017
+      },
+      {
+        "name": "Gemini Export June 21, 2026 at 8:41:55 PM PDT",
+        "value": 1076
+      },
+      {
+        "name": "https://store.steampowered.com/sale/steammachine...",
+        "value": 2351435
+      },
+      {
+        "name": "Gemini Export June 21, 2026 at 6:57:01 AM PDT",
+        "value": 3077
+      }
+    ]
+  },
+  "cleanupRecommendations": [
+    {
+      "id": "11i83nY3ljoHDXbqaWP12VHWZZAA_dqAm",
+      "fileName": "handbook_en.pdf",
+      "type": "duplicate",
+      "reason": "Duplicate detected: 'handbook_en (1).pdf' is an identical file.",
+      "size": 23907190
+    },
+    {
+      "id": "1mKuf1BwwJ1ecey_BpCbjUKjXTNJNaAc1",
+      "fileName": "SwayZone Command Center Project Exo Operator Manual (6).pdf",
+      "type": "duplicate",
+      "reason": "Redundant versioning: there are 5 other variants of this manual. Retain only the most recent.",
+      "size": 263586
+    },
+    {
+      "id": "1WpImuYDPJedKmD0AKv8ynAjKA0YKfNXH",
+      "fileName": "windows-wsl.pdf",
+      "type": "large",
+      "reason": "Large file (17MB) that may be better stored in a dedicated 'Resources' archive.",
+      "size": 17491118
+    },
+    {
+      "id": "1d8JW-J_EaKBl4-X1xzdotLsS4MnLg3UkpPjcO33cP-g",
+      "fileName": "Gemini Export June 22, 2026...",
+      "type": "old",
+      "reason": "High frequency of automated exports creates clutter; consider archiving or deleting logs older than 7 days.",
+      "size": 4017
+    }
+  ]
+}
