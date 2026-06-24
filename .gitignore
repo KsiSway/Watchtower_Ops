@@ -61,3 +61,5 @@ Enum_Results/
 desktop.ini
 grafana_data/
 influxdb2/
+
+client_secret_*.json
