@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence } from 'motion/react'; // 'motion' default is not used
 import {
   
   Compass,
