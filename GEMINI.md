@@ -52,7 +52,7 @@ Directive: You are a tactical OSINT analysis engine for Project Watchtower. Role
 - `C2_Activity.log`: Tactical audit trail (Format: `[{timestamp}] [{module}] TARGET: {target} | STATUS: {status} | DETAILS: {details}`).
 
 ### 5. Tactical Directives
-- **Mesh Synchronization:** To synchronize the mesh or run Nmap scans on the local network, strictly execute `python C:\Users\Lance\Watchtower_Ops\mesh_sync_skill.py`. Do NOT attempt to write custom shell pipelines for Nmap.
+- **Mesh Synchronization:** To synchronize the mesh or run Nmap scans on the local network, strictly execute `python D:\Watchtower_Ops\mesh_sync_skill.py`. Do NOT attempt to write custom shell pipelines for Nmap.
 
 ## Deployment & Operation
 
