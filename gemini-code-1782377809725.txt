@@ -1,0 +1,8 @@
+// Query 1: Baseline Enrichment
+"Initiate ARP table extraction across the 192.168.68.0/24 subnet to resolve missing MAC addresses and Vendor identifiers in the current ledger."
+
+// Query 2: Active Reconnaissance 
+"Execute a deep service interrogation (-sV -p-) on unidentified node 192.168.68.100. Output open ports and running services."
+
+// Query 3: C2 Telemetry
+"Verify the AWS Uplink status for S25_Edge_Commander (192.168.68.109). Report any anomalous outbound TCP connections."
