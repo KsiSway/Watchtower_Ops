@@ -1,0 +1,8 @@
+# 1. Audit the workspace for injected package manager overrides
+Get-ChildItem -Path "D:\Watchtower_Ops" -Recurse -Include pip.conf, .npmrc, pyproject.toml -ErrorAction SilentlyContinue | Select-String -Pattern "extra-index-url|trusted-host"
+
+# 2. Nuke the compromised virtual environment airlock
+Remove-Item -Path "D:\Watchtower_Ops\.venv" -Recurse -Force
+
+# 3. Halt automated executions
+Write-Host "[!] AIRLOCK COMPROMISED. DO NOT REBUILD WITHOUT HASH VERIFICATION." -ForegroundColor Red
