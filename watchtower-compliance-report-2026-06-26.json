@@ -1,0 +1,587 @@
+{
+  "reportGeneratedAt": "2026-06-26T02:12:22.021Z",
+  "workspaceStats": {
+    "totalFiles": 50,
+    "totalSize": 77792809,
+    "score": 68,
+    "lastSyncTime": "2026-06-26T02:12:06.833Z",
+    "mimeTypeBreakdown": [
+      {
+        "name": "Gemini Exports",
+        "value": 25
+      },
+      {
+        "name": "Reference Material",
+        "value": 14
+      }
+    ],
+    "sizeBreakdown": [
+      {
+        "id": "1_r79LWYbCa9UykDOqb7ktXSLcv5VMy6k",
+        "name": "zoom_to_rect.pdf",
+        "value": 1609
+      },
+      {
+        "id": "1Pdi_SErJyXMzd8CdWXHB6Q_eAsaavD73",
+        "name": "subplots.pdf",
+        "value": 1714
+      },
+      {
+        "id": "15yMMu0ePsTQKEbTA0kapa4bJlRK50vVh",
+        "name": "qt4_editor_options.pdf",
+        "value": 1568
+      },
+      {
+        "id": "1DX6S4ZMO5KF7wLpK6IdJUtkfvEMyx6_t",
+        "name": "move.pdf",
+        "value": 1867
+      }
+    ]
+  },
+  "categories": [
+    {
+      "name": "Gemini Exports",
+      "count": 25,
+      "description": "Routine LLM chat logs and workspace data exports"
+    },
+    {
+      "name": "Reference Material",
+      "count": 14,
+      "description": "Technical manuals, guides, and academic PDF papers"
+    }
+  ],
+  "cleanupRecommendations": [
+    {
+      "id": "1ycXSn9o4hJKPHQ9O6I5MZgwZf3ukC-4G",
+      "fileName": "handbook_en (1).pdf",
+      "type": "duplicate",
+      "reason": "Exact duplicate of 'handbook_en.pdf' (size 23,907,190 bytes).",
+      "size": 23907190,
+      "confidence": 100,
+      "impact": "High",
+      "suggestedAction": "Delete duplicate file"
+    },
+    {
+      "id": "1d8JW-J_EaKBl4-X1xzdotLsS4MnLg3UkpPjcO33cP-g",
+      "fileName": "Gemini Export June 22, 2026 at 3:47:36 AM PDT",
+      "type": "orphaned",
+      "reason": "Orphaned export file with generic naming and no associated project context.",
+      "size": 4017,
+      "confidence": 85,
+      "impact": "Medium",
+      "suggestedAction": "Delete or rename to a project-specific title"
+    },
+    {
+      "id": "1WpImuYDPJedKmD0AKv8ynAjKA0YKfNXH",
+      "fileName": "windows-wsl.pdf",
+      "type": "large",
+      "reason": "Large asset (>16MB) that has not been accessed or modified recently.",
+      "size": 17491118,
+      "confidence": 90,
+      "impact": "Medium",
+      "suggestedAction": "Archive to external storage"
+    }
+  ],
+  "fileCatalog": [
+    {
+      "id": "1_r79LWYbCa9UykDOqb7ktXSLcv5VMy6k",
+      "name": "zoom_to_rect.pdf",
+      "mimeType": "application/pdf",
+      "size": 1609,
+      "modifiedTime": "2026-06-25T00:00:35.299Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1Pdi_SErJyXMzd8CdWXHB6Q_eAsaavD73",
+      "name": "subplots.pdf",
+      "mimeType": "application/pdf",
+      "size": 1714,
+      "modifiedTime": "2026-06-25T00:00:34.921Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "15yMMu0ePsTQKEbTA0kapa4bJlRK50vVh",
+      "name": "qt4_editor_options.pdf",
+      "mimeType": "application/pdf",
+      "size": 1568,
+      "modifiedTime": "2026-06-25T00:00:34.765Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1DX6S4ZMO5KF7wLpK6IdJUtkfvEMyx6_t",
+      "name": "move.pdf",
+      "mimeType": "application/pdf",
+      "size": 1867,
+      "modifiedTime": "2026-06-25T00:00:34.690Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1znmVE5Buj9mpgO0ZSvVZgzvUh5joVU9V",
+      "name": "matplotlib.pdf",
+      "mimeType": "application/pdf",
+      "size": 22852,
+      "modifiedTime": "2026-06-25T00:00:34.677Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "11-2uzL8JSFuFXkbCyRjd6XP_6StWOlan",
+      "name": "home.pdf",
+      "mimeType": "application/pdf",
+      "size": 1737,
+      "modifiedTime": "2026-06-25T00:00:34.583Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1KGSyW3V3ylKAmd6zFSCTYNnSCKPsi3LD",
+      "name": "help.pdf",
+      "mimeType": "application/pdf",
+      "size": 1813,
+      "modifiedTime": "2026-06-25T00:00:34.491Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1ku-9x1xcMZ9VKz_qEPX2gtx0yZ_KSEnW",
+      "name": "hand.pdf",
+      "mimeType": "application/pdf",
+      "size": 4172,
+      "modifiedTime": "2026-06-25T00:00:34.482Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1HndkwO5ZT6EEZPHiL6wiqsPN8Hz8-UXX",
+      "name": "forward.pdf",
+      "mimeType": "application/pdf",
+      "size": 1630,
+      "modifiedTime": "2026-06-25T00:00:34.184Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1-1Lmel62M32m7E35GNjGELPAldLVfP9Z",
+      "name": "filesave.pdf",
+      "mimeType": "application/pdf",
+      "size": 1734,
+      "modifiedTime": "2026-06-25T00:00:34.059Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1E2LYD7Qi9Wyuw-odA4HZDuscwxDxpi9b",
+      "name": "back.pdf",
+      "mimeType": "application/pdf",
+      "size": 1623,
+      "modifiedTime": "2026-06-25T00:00:33.830Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1d8JW-J_EaKBl4-X1xzdotLsS4MnLg3UkpPjcO33cP-g",
+      "name": "Gemini Export June 22, 2026 at 3:47:36 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 4017,
+      "modifiedTime": "2026-06-22T10:47:41.259Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1hdZ-HsJB26hFWIFwMS4T8vW3E5Wk4RANBE-yA7u3UM0",
+      "name": "Gemini Export June 21, 2026 at 8:41:55 PM PDT",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1076,
+      "modifiedTime": "2026-06-22T03:42:00.122Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1gn8afeo1aL98xBgV6weGS1liXWqHHb7WEnr9q8-6fZU",
+      "name": "https://store.steampowered.com/sale/steammachine...",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 2351435,
+      "modifiedTime": "2026-06-22T01:20:54.143Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1JYIgXGNXQ_vgZR5eksCUme3r2wYJ33fyuKr99Cocts8",
+      "name": "Gemini Export June 21, 2026 at 6:57:01 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3077,
+      "modifiedTime": "2026-06-21T13:57:04.879Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1R2qusjSmw9fsN0-ClnmcFMTfiNuKRrS69J1maDid-8k",
+      "name": "Gemini Export June 21, 2026 at 6:50:12 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3667,
+      "modifiedTime": "2026-06-21T13:50:16.099Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "15Apa3P3fd95CNBfdG8C11mW9RKdFtfx2tJ3tgqyGqLQ",
+      "name": "Gemini Export June 21, 2026 at 6:48:10 AM PDT",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1161,
+      "modifiedTime": "2026-06-21T13:48:14.368Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1xwoEX5x6FGVOPsTyXJYfBd2Esufe-pXV6xt4-H1nwxg",
+      "name": "Gemini Export June 21, 2026 at 6:47:11 AM PDT",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1673,
+      "modifiedTime": "2026-06-21T13:47:15.490Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1KyPqBMdcQ9sTSUerKqiGxFJwhhzRQhHYBXlB14NCiC8",
+      "name": "Gemini Export June 20, 2026 at 10:17:07 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3830,
+      "modifiedTime": "2026-06-20T17:17:11.084Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1RIu1_OEhyDBruPh3HDoFxZXIfP90lnBoFKU8tAyeZ8Y",
+      "name": "Gemini Export June 20, 2026 at 4:38:19 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3755,
+      "modifiedTime": "2026-06-20T11:38:23.225Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1qipbCLGyUnxe7S35F49pKxFr-Oo6L12GgJZwzliFh-k",
+      "name": "Gemini Export June 20, 2026 at 4:36:55 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3943,
+      "modifiedTime": "2026-06-20T11:36:59.223Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1zTO9lsHOQ0R2ho2WPtEKn7UOIgTRu7S3BtchKbw3ERU",
+      "name": "Gemini Export June 20, 2026 at 4:26:55 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 4295,
+      "modifiedTime": "2026-06-20T11:26:59.101Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "10xI19FK0YIxYCTWf1RxTdhjimk6vX3UZF4hgpYGwNJo",
+      "name": "Gemini Export June 20, 2026 at 4:26:51 AM PDT",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1386,
+      "modifiedTime": "2026-06-20T11:26:54.799Z",
+      "tags": [
+        "Finance"
+      ]
+    },
+    {
+      "id": "14Q2F8kFx4t22xrXUnJsv--HE9k-lqJTd",
+      "name": "Schedule-Flyer-1.pdf",
+      "mimeType": "application/pdf",
+      "size": 469746,
+      "modifiedTime": "2026-06-18T13:17:11.345Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1gI15ffgb-iY7F0SO1LDCdp6qVJhcT2sY1-Rh2al_lIw",
+      "name": "r/starcitizen Mod Guide Draft",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3632,
+      "modifiedTime": "2026-06-14T08:48:01.732Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "10_pHI-47GBfz_0VHmm9nGr1LmQ2j3lMDOhNuPoxvYN8",
+      "name": "Gemini Export June 13, 2026 at 3:25:43 PM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3840,
+      "modifiedTime": "2026-06-13T22:25:47.209Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1Ux-_DHTXXoKNWO3zkYNoALpGdxsqhpc7WLHzFLJ57Qc",
+      "name": "Gemini Export June 12, 2026 at 12:19:15 PM PDT",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1242,
+      "modifiedTime": "2026-06-12T19:19:18.365Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1ojgXxveaf_cpHYT9qgB9tdAY11YS_gqQxB7J_7yKkx4",
+      "name": "Gemini Export June 12, 2026 at 12:16:38 PM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3664,
+      "modifiedTime": "2026-06-12T19:16:42.382Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1Gvpg_5u2ko5mTntnwpUDtawjQmDifaAvJSsCtTGNfDE",
+      "name": "Gemini Export June 12, 2026 at 11:03:13 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 2619,
+      "modifiedTime": "2026-06-12T18:03:16.672Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1ENR2_-d93ndBWd3m7NZ-7tmPwEf7eEVilfVIeb-0bAc",
+      "name": "Gemini Export June 11, 2026 at 6:45:53 PM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3662,
+      "modifiedTime": "2026-06-12T01:45:56.109Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1XyQd0y7b9Hh5jSP2Km-zE4lPsbBa9sifodE7AkqiUok",
+      "name": "Gemini Export June 10, 2026 at 4:26:15 PM PDT",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1024,
+      "modifiedTime": "2026-06-10T23:26:20.646Z",
+      "tags": [
+        "Finance"
+      ]
+    },
+    {
+      "id": "1hVXUglHG6FlxVhdz3CPz3f1VGYvW9GU55en0_-6ymkA",
+      "name": "To-do list",
+      "mimeType": "application/vnd.google-apps.spreadsheet",
+      "size": 1710,
+      "modifiedTime": "2026-06-10T15:15:47.739Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1lA2HmvD71GwvvyvLceNKRCV8t4vI1kaoLDw0P96WpZo",
+      "name": "Gemini Export June 10, 2026 at 6:24:14 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 4269,
+      "modifiedTime": "2026-06-10T13:24:18.405Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "112S_fv89KG9qJ59Fj7m42lnMZ-Hd2NnlDJCkMZPC5hY",
+      "name": "Gemini Export June 10, 2026 at 6:10:42 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 4683,
+      "modifiedTime": "2026-06-10T13:10:46.214Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1eM1jlrjFadE9PcjZakG0K6X8TrAxy6iXT8UZVmltofM",
+      "name": "Gemini Export June 10, 2026 at 6:02:06 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3103,
+      "modifiedTime": "2026-06-10T13:02:10.529Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1i97rJcQmbUX8GhmbUeH0wLiy55ya78LDsNFM1d9paaE",
+      "name": "Gemini Export June 10, 2026 at 5:58:58 AM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 3362,
+      "modifiedTime": "2026-06-10T12:59:03.522Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1uz67rYx9DIujl-ANXInXGsYNnQlmg1ToQafg_CJm4Hk",
+      "name": "Gemini Export June 9, 2026 at 8:52:10 PM PDT",
+      "mimeType": "application/vnd.google-apps.document",
+      "size": 2983,
+      "modifiedTime": "2026-06-10T03:52:13.787Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1lBlwjGDdvJK_YR0LTPDHVLFXAn455kdM",
+      "name": "Ask-Microsoft-transparency-FAQ.pdf",
+      "mimeType": "application/pdf",
+      "size": 151401,
+      "modifiedTime": "2026-06-05T18:19:54.956Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1WpImuYDPJedKmD0AKv8ynAjKA0YKfNXH",
+      "name": "windows-wsl.pdf",
+      "mimeType": "application/pdf",
+      "size": 17491118,
+      "modifiedTime": "2026-06-04T06:55:58.698Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1mKuf1BwwJ1ecey_BpCbjUKjXTNJNaAc1",
+      "name": "SwayZone Command Center Project Exo Operator Manual (6).pdf",
+      "mimeType": "application/pdf",
+      "size": 263586,
+      "modifiedTime": "2026-06-04T06:55:34.312Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "11i83nY3ljoHDXbqaWP12VHWZZAA_dqAm",
+      "name": "handbook_en.pdf",
+      "mimeType": "application/pdf",
+      "size": 23907190,
+      "modifiedTime": "2026-06-04T06:55:31.971Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1ycXSn9o4hJKPHQ9O6I5MZgwZf3ukC-4G",
+      "name": "handbook_en (1).pdf",
+      "mimeType": "application/pdf",
+      "size": 23907190,
+      "modifiedTime": "2026-06-04T06:55:31.508Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1hjLrnlClv1WpnQCHBaRnETTbWNKJCPrs",
+      "name": "developers-handbook_en.pdf",
+      "mimeType": "application/pdf",
+      "size": 2884219,
+      "modifiedTime": "2026-06-04T06:55:21.341Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1JR7F0BfLCdbQZsnCy3wia0khLqUxqqri",
+      "name": "committers-guide_en.pdf",
+      "mimeType": "application/pdf",
+      "size": 1458430,
+      "modifiedTime": "2026-06-04T06:55:21.008Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1w4mP_ZtZiu11JgYbgvRkbsRTHu4o2ysu",
+      "name": "XbosSerisSManuel.pdf",
+      "mimeType": "application/pdf",
+      "size": 2431531,
+      "modifiedTime": "2026-06-04T06:55:20.774Z",
+      "tags": [
+        "Personal"
+      ]
+    },
+    {
+      "id": "1mFYgIAZ90sRfXlAbs6PH4fG_jdctiycl",
+      "name": "The Development of a Data Collection and Browser Fingerprinting System - MDPI.pdf",
+      "mimeType": "application/pdf",
+      "size": 1277488,
+      "modifiedTime": "2026-06-04T06:55:04.765Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1ulZbEBrKwnO_ImKSftTimzllOM0R0PZj",
+      "name": "The Case Study Teaching Method.pdf",
+      "mimeType": "application/pdf",
+      "size": 555146,
+      "modifiedTime": "2026-06-04T06:55:04.753Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1YaXc_aeuYdASRqpIKDQMsXNGLtrLp7zN",
+      "name": "The Architecture of Inquiry_ A Comprehensive Analysis of the Socratic Method from Classical Origins to Digital Integration.pdf",
+      "mimeType": "application/pdf",
+      "size": 336079,
+      "modifiedTime": "2026-06-04T06:55:04.716Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1A3mpHIjfrBXFDE-AmrSy9HC2UvhfyJVb",
+      "name": "The Architecture of Hierarchical Cognitive Caching.pdf",
+      "mimeType": "application/pdf",
+      "size": 81676,
+      "modifiedTime": "2026-06-04T06:55:04.712Z",
+      "tags": [
+        "Work"
+      ]
+    },
+    {
+      "id": "1AkHVbfWuMkZG8L9ca6LUDGv7uzXeM-ap",
+      "name": "The Architecture of Agents_ Planning, Action, and State Management in Large Language Models _ by Tejaswi kashyap _ GoPenAI.pdf",
+      "mimeType": "application/pdf",
+      "size": 112582,
+      "modifiedTime": "2026-06-04T06:55:04.692Z",
+      "tags": [
+        "Work"
+      ]
+    }
+  ]
+}

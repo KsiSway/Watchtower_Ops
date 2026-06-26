@@ -1,0 +1,78 @@
+--- WORKSPACE WATCHTOWER REPORT ---
+Generated At,6/25/2026, 7:11:30 PM
+Workspace Health Score,68
+Total Files,50
+Total Storage,74.2 MB (77792809 bytes)
+Last Synchronized,6/25/2026, 7:11:07 PM
+
+--- STORAGE BY SIZE BRACKET ---
+Size Bracket,File Count
+"zoom_to_rect.pdf",1609
+"subplots.pdf",1714
+"qt4_editor_options.pdf",1568
+"move.pdf",1867
+
+--- FILE CATEGORY BREAKDOWN ---
+Category Name,File Count
+"Documentation & Manuals",10
+"Export Logs",20
+"Utilities",12
+
+--- PENDING CLEANUP RECOMMENDATIONS ---
+ID,File Name,Type,Reason,Size (bytes),Size (formatted),Impact,Suggested Action
+1ycXSn9o4hJKPHQ9O6I5MZgwZf3ukC-4G,"handbook_en (1).pdf",duplicate,"Direct duplicate of 'handbook_en.pdf' (identical size 23907190).",23907190,22.8 MB,High,"Delete duplicate file"
+11i83nY3ljoHDXbqaWP12VHWZZAA_dqAm,"handbook_en.pdf",large,"Large asset (>5MB) not modified in over 20 days and part of a duplicated set.",23907190,22.8 MB,Medium,"Archive or move to a reference folder"
+1d8JW-J_EaKBl4-X1xzdotLsS4MnLg3UkpPjcO33cP-g,"Gemini Export June 22, 2026",orphaned,"Generic title and high frequency of similar export files indicates clutter.",4017,3.9 KB,Low,"Consolidate into a 'Notes' or 'Exports' folder"
+
+--- ACTIVE FILE CATALOG METADATA ---
+ID,File Name,Mime Type,Size (bytes),Size (formatted),Last Modified,Tags
+1_r79LWYbCa9UykDOqb7ktXSLcv5VMy6k,"zoom_to_rect.pdf","application/pdf",1609,1.6 KB,2026-06-25T00:00:35.299Z,"Work"
+1Pdi_SErJyXMzd8CdWXHB6Q_eAsaavD73,"subplots.pdf","application/pdf",1714,1.7 KB,2026-06-25T00:00:34.921Z,"Work"
+15yMMu0ePsTQKEbTA0kapa4bJlRK50vVh,"qt4_editor_options.pdf","application/pdf",1568,1.5 KB,2026-06-25T00:00:34.765Z,"Work"
+1DX6S4ZMO5KF7wLpK6IdJUtkfvEMyx6_t,"move.pdf","application/pdf",1867,1.8 KB,2026-06-25T00:00:34.690Z,"Work"
+1znmVE5Buj9mpgO0ZSvVZgzvUh5joVU9V,"matplotlib.pdf","application/pdf",22852,22.3 KB,2026-06-25T00:00:34.677Z,"Work"
+11-2uzL8JSFuFXkbCyRjd6XP_6StWOlan,"home.pdf","application/pdf",1737,1.7 KB,2026-06-25T00:00:34.583Z,"Work"
+1KGSyW3V3ylKAmd6zFSCTYNnSCKPsi3LD,"help.pdf","application/pdf",1813,1.8 KB,2026-06-25T00:00:34.491Z,"Work"
+1ku-9x1xcMZ9VKz_qEPX2gtx0yZ_KSEnW,"hand.pdf","application/pdf",4172,4.1 KB,2026-06-25T00:00:34.482Z,"Work"
+1HndkwO5ZT6EEZPHiL6wiqsPN8Hz8-UXX,"forward.pdf","application/pdf",1630,1.6 KB,2026-06-25T00:00:34.184Z,"Work"
+1-1Lmel62M32m7E35GNjGELPAldLVfP9Z,"filesave.pdf","application/pdf",1734,1.7 KB,2026-06-25T00:00:34.059Z,"Work"
+1E2LYD7Qi9Wyuw-odA4HZDuscwxDxpi9b,"back.pdf","application/pdf",1623,1.6 KB,2026-06-25T00:00:33.830Z,"Work"
+1d8JW-J_EaKBl4-X1xzdotLsS4MnLg3UkpPjcO33cP-g,"Gemini Export June 22, 2026 at 3:47:36 AM PDT","application/vnd.google-apps.document",4017,3.9 KB,2026-06-22T10:47:41.259Z,"Personal"
+1hdZ-HsJB26hFWIFwMS4T8vW3E5Wk4RANBE-yA7u3UM0,"Gemini Export June 21, 2026 at 8:41:55 PM PDT","application/vnd.google-apps.spreadsheet",1076,1.1 KB,2026-06-22T03:42:00.122Z,"Personal"
+1gn8afeo1aL98xBgV6weGS1liXWqHHb7WEnr9q8-6fZU,"https://store.steampowered.com/sale/steammachine...","application/vnd.google-apps.spreadsheet",2351435,2.2 MB,2026-06-22T01:20:54.143Z,"Personal"
+1JYIgXGNXQ_vgZR5eksCUme3r2wYJ33fyuKr99Cocts8,"Gemini Export June 21, 2026 at 6:57:01 AM PDT","application/vnd.google-apps.document",3077,3 KB,2026-06-21T13:57:04.879Z,"Personal"
+1R2qusjSmw9fsN0-ClnmcFMTfiNuKRrS69J1maDid-8k,"Gemini Export June 21, 2026 at 6:50:12 AM PDT","application/vnd.google-apps.document",3667,3.6 KB,2026-06-21T13:50:16.099Z,"Personal"
+15Apa3P3fd95CNBfdG8C11mW9RKdFtfx2tJ3tgqyGqLQ,"Gemini Export June 21, 2026 at 6:48:10 AM PDT","application/vnd.google-apps.spreadsheet",1161,1.1 KB,2026-06-21T13:48:14.368Z,"Personal"
+1xwoEX5x6FGVOPsTyXJYfBd2Esufe-pXV6xt4-H1nwxg,"Gemini Export June 21, 2026 at 6:47:11 AM PDT","application/vnd.google-apps.spreadsheet",1673,1.6 KB,2026-06-21T13:47:15.490Z,"Personal"
+1KyPqBMdcQ9sTSUerKqiGxFJwhhzRQhHYBXlB14NCiC8,"Gemini Export June 20, 2026 at 10:17:07 AM PDT","application/vnd.google-apps.document",3830,3.7 KB,2026-06-20T17:17:11.084Z,"Personal"
+1RIu1_OEhyDBruPh3HDoFxZXIfP90lnBoFKU8tAyeZ8Y,"Gemini Export June 20, 2026 at 4:38:19 AM PDT","application/vnd.google-apps.document",3755,3.7 KB,2026-06-20T11:38:23.225Z,"Personal"
+1qipbCLGyUnxe7S35F49pKxFr-Oo6L12GgJZwzliFh-k,"Gemini Export June 20, 2026 at 4:36:55 AM PDT","application/vnd.google-apps.document",3943,3.9 KB,2026-06-20T11:36:59.223Z,"Personal"
+1zTO9lsHOQ0R2ho2WPtEKn7UOIgTRu7S3BtchKbw3ERU,"Gemini Export June 20, 2026 at 4:26:55 AM PDT","application/vnd.google-apps.document",4295,4.2 KB,2026-06-20T11:26:59.101Z,"Personal"
+10xI19FK0YIxYCTWf1RxTdhjimk6vX3UZF4hgpYGwNJo,"Gemini Export June 20, 2026 at 4:26:51 AM PDT","application/vnd.google-apps.spreadsheet",1386,1.4 KB,2026-06-20T11:26:54.799Z,"Finance"
+14Q2F8kFx4t22xrXUnJsv--HE9k-lqJTd,"Schedule-Flyer-1.pdf","application/pdf",469746,458.7 KB,2026-06-18T13:17:11.345Z,"Personal"
+1gI15ffgb-iY7F0SO1LDCdp6qVJhcT2sY1-Rh2al_lIw,"r/starcitizen Mod Guide Draft","application/vnd.google-apps.document",3632,3.5 KB,2026-06-14T08:48:01.732Z,"Work"
+10_pHI-47GBfz_0VHmm9nGr1LmQ2j3lMDOhNuPoxvYN8,"Gemini Export June 13, 2026 at 3:25:43 PM PDT","application/vnd.google-apps.document",3840,3.8 KB,2026-06-13T22:25:47.209Z,"Personal"
+1Ux-_DHTXXoKNWO3zkYNoALpGdxsqhpc7WLHzFLJ57Qc,"Gemini Export June 12, 2026 at 12:19:15 PM PDT","application/vnd.google-apps.spreadsheet",1242,1.2 KB,2026-06-12T19:19:18.365Z,"Personal"
+1ojgXxveaf_cpHYT9qgB9tdAY11YS_gqQxB7J_7yKkx4,"Gemini Export June 12, 2026 at 12:16:38 PM PDT","application/vnd.google-apps.document",3664,3.6 KB,2026-06-12T19:16:42.382Z,"Personal"
+1Gvpg_5u2ko5mTntnwpUDtawjQmDifaAvJSsCtTGNfDE,"Gemini Export June 12, 2026 at 11:03:13 AM PDT","application/vnd.google-apps.document",2619,2.6 KB,2026-06-12T18:03:16.672Z,"Personal"
+1ENR2_-d93ndBWd3m7NZ-7tmPwEf7eEVilfVIeb-0bAc,"Gemini Export June 11, 2026 at 6:45:53 PM PDT","application/vnd.google-apps.document",3662,3.6 KB,2026-06-12T01:45:56.109Z,"Personal"
+1XyQd0y7b9Hh5jSP2Km-zE4lPsbBa9sifodE7AkqiUok,"Gemini Export June 10, 2026 at 4:26:15 PM PDT","application/vnd.google-apps.spreadsheet",1024,1 KB,2026-06-10T23:26:20.646Z,"Finance"
+1hVXUglHG6FlxVhdz3CPz3f1VGYvW9GU55en0_-6ymkA,"To-do list","application/vnd.google-apps.spreadsheet",1710,1.7 KB,2026-06-10T15:15:47.739Z,"Personal"
+1lA2HmvD71GwvvyvLceNKRCV8t4vI1kaoLDw0P96WpZo,"Gemini Export June 10, 2026 at 6:24:14 AM PDT","application/vnd.google-apps.document",4269,4.2 KB,2026-06-10T13:24:18.405Z,"Personal"
+112S_fv89KG9qJ59Fj7m42lnMZ-Hd2NnlDJCkMZPC5hY,"Gemini Export June 10, 2026 at 6:10:42 AM PDT","application/vnd.google-apps.document",4683,4.6 KB,2026-06-10T13:10:46.214Z,"Personal"
+1eM1jlrjFadE9PcjZakG0K6X8TrAxy6iXT8UZVmltofM,"Gemini Export June 10, 2026 at 6:02:06 AM PDT","application/vnd.google-apps.document",3103,3 KB,2026-06-10T13:02:10.529Z,"Personal"
+1i97rJcQmbUX8GhmbUeH0wLiy55ya78LDsNFM1d9paaE,"Gemini Export June 10, 2026 at 5:58:58 AM PDT","application/vnd.google-apps.document",3362,3.3 KB,2026-06-10T12:59:03.522Z,"Personal"
+1uz67rYx9DIujl-ANXInXGsYNnQlmg1ToQafg_CJm4Hk,"Gemini Export June 9, 2026 at 8:52:10 PM PDT","application/vnd.google-apps.document",2983,2.9 KB,2026-06-10T03:52:13.787Z,"Personal"
+1lBlwjGDdvJK_YR0LTPDHVLFXAn455kdM,"Ask-Microsoft-transparency-FAQ.pdf","application/pdf",151401,147.9 KB,2026-06-05T18:19:54.956Z,"Work"
+1WpImuYDPJedKmD0AKv8ynAjKA0YKfNXH,"windows-wsl.pdf","application/pdf",17491118,16.7 MB,2026-06-04T06:55:58.698Z,"Work"
+1mKuf1BwwJ1ecey_BpCbjUKjXTNJNaAc1,"SwayZone Command Center Project Exo Operator Manual (6).pdf","application/pdf",263586,257.4 KB,2026-06-04T06:55:34.312Z,"Work"
+11i83nY3ljoHDXbqaWP12VHWZZAA_dqAm,"handbook_en.pdf","application/pdf",23907190,22.8 MB,2026-06-04T06:55:31.971Z,"Work"
+1ycXSn9o4hJKPHQ9O6I5MZgwZf3ukC-4G,"handbook_en (1).pdf","application/pdf",23907190,22.8 MB,2026-06-04T06:55:31.508Z,"Work"
+1hjLrnlClv1WpnQCHBaRnETTbWNKJCPrs,"developers-handbook_en.pdf","application/pdf",2884219,2.8 MB,2026-06-04T06:55:21.341Z,"Work"
+1JR7F0BfLCdbQZsnCy3wia0khLqUxqqri,"committers-guide_en.pdf","application/pdf",1458430,1.4 MB,2026-06-04T06:55:21.008Z,"Work"
+1w4mP_ZtZiu11JgYbgvRkbsRTHu4o2ysu,"XbosSerisSManuel.pdf","application/pdf",2431531,2.3 MB,2026-06-04T06:55:20.774Z,"Personal"
+1mFYgIAZ90sRfXlAbs6PH4fG_jdctiycl,"The Development of a Data Collection and Browser Fingerprinting System - MDPI.pdf","application/pdf",1277488,1.2 MB,2026-06-04T06:55:04.765Z,"Work"
+1ulZbEBrKwnO_ImKSftTimzllOM0R0PZj,"The Case Study Teaching Method.pdf","application/pdf",555146,542.1 KB,2026-06-04T06:55:04.753Z,"Work"
+1YaXc_aeuYdASRqpIKDQMsXNGLtrLp7zN,"The Architecture of Inquiry_ A Comprehensive Analysis of the Socratic Method from Classical Origins to Digital Integration.pdf","application/pdf",336079,328.2 KB,2026-06-04T06:55:04.716Z,"Work"
+1A3mpHIjfrBXFDE-AmrSy9HC2UvhfyJVb,"The Architecture of Hierarchical Cognitive Caching.pdf","application/pdf",81676,79.8 KB,2026-06-04T06:55:04.712Z,"Work"
+1AkHVbfWuMkZG8L9ca6LUDGv7uzXeM-ap,"The Architecture of Agents_ Planning, Action, and State Management in Large Language Models _ by Tejaswi kashyap _ GoPenAI.pdf","application/pdf",112582,109.9 KB,2026-06-04T06:55:04.692Z,"Work"
