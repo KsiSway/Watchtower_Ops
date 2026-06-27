@@ -1,0 +1,94 @@
+---
+sourceFile: "SKILL.md"
+exportedBy: "Kortex"
+exportDate: "2026-06-26T04:27:51.576Z"
+---
+
+# SKILL.md
+
+3beeee58-9b4f-48c7-918d-767ee296fb2e
+
+cdf11761-d40f-409c-9883-b46de6c875e4
+
+https://contribution.usercontent.google.com/download?c=Cgpub3RlYm9va2xtEkASCW5vc19maWxlcxozCiQzYmVlZWU1OC05YjRmLTQ4YzctOTE4ZC03NjdlZTI5NmZiMmUSCxIHELeSjtn9GRgB&filename=SKILL.md.md&opi=96797242
+
+https://drive.google.com/viewer/upload?ds=AAEAbe1hVpqi5dO5TVWmBvV0XGvYZT\_9\_SLgyjxKmAXTTuSN0RUbkjH7UHJILhZ-Wd31xGHsB6kESIxQzxzj-9TfmqPykTN9oU9L36mhcIvuo6m0Iat7J6dagTlhcd2I7i\_XzF-OohLTnajaluGedSz043nzKmTODCjCkeMXlm4btHZUz3PhSUZm6-E4WBhKbzjXsk-J0LOQe6DJBWl-NKoYu2Weqod2eIHjpxVjU3zerPG66gAZxSYE9q3xGIZ1RB33ivbaQqqp5Tz3aezyy7dBR5nqoDmnSzBxJUkG0TL635wqdmcP5FssF6kvdDqumX4ABTQ1fDt77n5jRM65upNAnwxlPkYfmZuf8sOlDLmemDkAMylTDbyC-XgWFdwHLgssOVo5B3l1gKMV2VNE3\_xvylPgCkgM2qEsOZvQ26PKLPQgVSO1N9Ge7\_RSb7X2S-YhDl1oeklv5trFXW9XPdrWYEgH8bwYyrsoI7Qmwqf7a7tVGApstigntCDGiu2mA4\_HRfCTInj2oZs6RTUD1E6QxO8B8kY6kF2\_JxunJHxegUwwlfBDKOyvMwBBZkkC0VWsb\_st6k1xCcGFVM1xFOhIrq4XKqDyoeqIStVARyoYVbuCsQqjaGFUi1iGiW2Pd6y70PEEHG8HAUEfpGNb2U-q06Skwffkfi2x1\_vGV3KSoXqNS5hKqo9Qm1w2aDdW1i0W5Shk2d-V3YkwiDYmJLLtoGMjNlLvA41D2ggO1Z28ZB90G8dtANMOw3JupaYBxyI1pdiHXKm\_I0F6c78yZDkMrWbtbD2FJ2Jc0\_qZgziDifpG4havOlm1KbIOuBhpJOWNrrldGbg5Q7Q3Ph6iD1Okg1VS2eWcz73GBLCa7b06snPOpoyax5JExy5ZF8O81FS\_f\_KSgPRDb3tPl9C-XNMn13w0Jb5YUbVdeSBFJVnwEW6ziYJQUqI4A7tyiY7\_\_NVBbbJvOcRpzXoQUCNL2gl1rrHLUUtBShn7uhVGlEzr8CHdbPaz28Xf4aarG8ZPxWiP8tXqRFMDJRKEq6lbUneo6TbtJ5Rp38Pql8TCOtaflwpF3VYJvGynkjmYM-kyYIDGWcx1USq\_K\_1a8vJAu5u8YJDzEXhK9J4N-leq9XcpooHSrN7p-wzsCuZIcNymqzGea9rlFL3V8z2JUkVUIqnoCRt390DeImwboJwdmhE3eCcBoIJxOOwd2xbqd6t6r18TaICkV8LiVA9lA83fHUA164G8fHGsBjsshx7NVFlJgV\_XfSSSKdOJflqDX7PS3VIjx9wFT3UfgC3btVbMDTbsSMSmubDUVNWoPyTMrha6wWc4oP7TNloUU-5DoE8\_GwdXoE1Y\_P\_gvoVL28YbL9X4jItg9poNIawY0CFYdtuqNeCsvK-S5IQzMknLgjoET-WB9PPXDhjjwW2v022T7T12wSZdHTLQU7i4geordJgPhbGImbDzUQnrFM22TL4dSmXq34km0M5sQxn4sGxEOl1d3syz4i81tdym4ZsdEFmMmRjGnEalgwfOmfeAJdzIV58r8T7K0vbk5YYvFShWKr7f5MW414M4GC3e3mozJFTjbaay-XJEQRRXMqIxumN8zZbaQtHM5DC2aEIQLnBI\_ME8yYa8o0I8J98DbkvGtpkVVIaujiYAaar2yyXSwZR1IXRznvqDOOVWwRwNjQhu4OJtRL47215gr59gkCSJFixVp2-Ag9axQ\_PLtUMyCXjI1UnPyTT6b3Ag4CS-F7nvhYp5uorG-mxSa10frsps8Fv\_71s7xvXF2TxydwZ5V7KBHYpbf6VpDiFlFSA3bJCwQe3--j5Wgq2ejvVqx9uy1dENIRL1MdOpP2hWtwk5RxvgbZO26JQ15o15B\_4xdj2Xsiac8MNguUNIq\_ibvDcYjtP6x\_ZYp2A5dzxtUQB728CO8FNqhxhriE0LS-mQ\_uQkqCjbPdbsiUFc1OOEMRV6-SGRGZBKykVDAUqAv04bG3x6gc7sm\_9ao5gsNgSPTjFo9d5Vt7WggF3ukovznTZlMxaUGz5eKAQYPF5E1Hewkcxgmm4LoLoxjk7Xcl6QXisHjg%3D%3D&ck=contribservice&dsmi=unknown&p=proj
+
+/contrib\_service/blobrefs/notebooklm/nos\_files/MediaDataBlobref/global::00005906d310026d:000004bf:2:00005906d310026d:0000000000000001::34a72240fc50b715:0000009616b05268:0006551682757caf
+
+text/markdown
+
+AIVZ7+cAAAGkChsIBTIXChVjb250cmlic2VydmljZS1zZXJ2ZXIKlgIIClqRAggTEowCCoAC7n937BvcusyrV0c/MyAROOLn5wknQ4aN0mn/z9EW2QQfWZaWnuHRwjZ85wf89fo/BoU0U0HxEe+EkP3PHYYl8ltnTkYrzUMqThkOIHU7Kfi9U1JtiORvgd4fXlo27wlritVuUsvk4BOQb8iZxfvFWyh68f+p+OsQOdAAOEkTw1ukZ1MeMc+7vX+f9gGIGDYjPZ4TD1pyMID+cjjPXQtc6M5BLXGtNPPneRVFgqZc2n3opIl+q2FvfGH6uEv+DUqPug4DKn8LnGho4vO//Ined1AUVGny4CxqE4Rj+9guY4gS8sU2pzYOdDSBzUGlE3zG5oaVSdtGvk2ap1r6tOArqxIDAQABGAIgABCi0/3Z7zMYovPzgYM0KgAyNAsQ0LinWhoECgJwbAwLEPe4qY8BGgwKCmNhbXB1cy1kbHMMCxDAr/jEARoHCNXV/dnvMww42+W1m7TquupKOITwi4z194GgUzik9tuek8fizFA4iuOMl4DAgoArKFP0wBPw3amd1g6ouko0WPFhYcpLt8vDfn3GQibnWKxP97cYeF+Te/xqCKRAcyQYKVv/Or46q6y7RtdqLEWal6zNWKPqbueyroetzv4SZIgkSSmZUcfu9KIjvu0zeckRj/hFNNzKY51oPSereC2HPffBLBGasc1dyBI99mdkl0K3ujI7TMP4v4btXjESBXzd2WiNUB9Rx6Af16MrU7M8ZBAn7S2vkFNw5SysRwe6IxuCzMtsKW/ZeweDuElWoIYVlxf2pLblfYmcj4etXWMlK9eBY3laWl9TYJQMxI7XsLArBmd58lGdH0BAnhRlOxYSehgnRJuCr6qTDcl/DlnCpw==
+
+AM9fS6kAAAL4ChYIBTISChBsYWJzLWNvc2NpZW50aXN0CjkIBTI1CjNsYWJzLXRhaWx3aW5kLWxhbmd1YWdlLXRhaWx3aW5kLWJvcW5vZGVzLW1jcC1zZXJ2ZXIKIQgFMh0KG2xhYnMtdGFpbHdpbmQtb3JjaGVzdHJhdGlvbgokCAUyIAoec2VhcmNoLXN1cGVycm9vdC12aXN1YWwtc2VhcmNoCjEIBTItCitzZWFyY2gtc3VwZXJyb290LXZpc3VhbC1zZWFyY2gtcHJlcHJvZC1qb2JzCi8IBTIrCilzZWFyY2gtc3VwZXJyb290LXZpc3VhbC1zZWFyY2gtcHJvZC1iYXRjaAovCAUyKwopc2VhcmNoLXN1cGVycm9vdC12aXN1YWwtc2VhcmNoLXNlYXJjaG1hcmsKIQgFMh0KG3R1bmVsYWItYXBwY2F0YWx5c3QtYmFja2VuZBiWj+GR8DMiD2NvbnRyaWJfc2VydmljZSIIYmxvYnJlZnMiCm5vdGVib29rbG0iCW5vc19maWxlcyIQTWVkaWFEYXRhQmxvYnJlZiJ5Z2xvYmFsOjowMDAwNTkwNmQzMTAwMjZkOjAwMDAwNGJmOjI6MDAwMDU5MDZkMzEwMDI2ZDowMDAwMDAwMDAwMDAwMDAxOjozNGE3MjI0MGZjNTBiNzE1OjAwMDAwMDk2MTZiMDUyNjg6MDAwNjU1MTY4Mjc1N2NhZirbAQsQmZvDDhrRATLIAS9ibG9ic3RvcmUvcHJvZC9jb250cmliX3NlcnZpY2UvYmxvYnJlZnMvbm90ZWJvb2tsbS9ub3NfZmlsZXMvTWVkaWFEYXRhQmxvYnJlZi9nbG9iYWw6OjAwMDA1OTA2ZDMxMDAyNmQ6MDAwMDA0YmY6MjowMDAwNTkwNmQzMTAwMjZkOjAwMDAwMDAwMDAwMDAwMDE6OjM0YTcyMjQwZmM1MGI3MTU6MDAwMDAwOTYxNmIwNTI2ODowMDA2NTUxNjgyNzU3Y2FmOANIAWgBDFEXDYlZZBLtHmmF2a18oGmCQKl1+x89BTkXw783ffuWzOMjJCOcWvs3enjSeefm9PlvppZaNrq7UuT4fHvBh5IXBnAsDpIs+xt2s0UlSHrnpQZuLO9G8qizuf5gT8W++2WdeSU5DBX3re8Yn1XkyjMhD8OeMnVXVGOigT1CdjL/vZcxrrgQeO/ZTR2w8pxhZtjaZpYNpERc4iOieJ+ksN0ZryhsRCqv5DTmLCkAz+mWWzKZK4V/dWQWWOqKBgytYmWx+7lqchmMnEHv8EDHHC0+t5l9KwV+cWoipfwVVGT2jOY7bIlUJmCwZGc3Mb0+OAKpJ1ayE9cB0Wtq8Fe/zZo=
+
+--------------------------------------------------------------------------------
+
+name: cognitive-analyst
+
+description: AI-driven intelligence synthesis from dossiers and logs. Use when you need to perform tactical analysis on raw intelligence data (profile, darkweb, telemetry), generate persona summaries, or identify patterns in network logs using local LLMs.
+
+Cognitive Analyst
+
+This skill leverages local LLMs (dolphin-llama3) to transform raw, unstructured data into actionable tactical intelligence.
+
+Core Capabilities
+
+Intelligence Synthesis
+
+: Analyzing raw dossiers, HTML snippets, and network logs via
+
+osint\_brain.py
+
+Autonomous Profiling
+
+: Mapping digital footprints and generating AI persona summaries via
+
+osint\_sherlock\_bridge.py
+
+Pattern Recognition
+
+: Identifying anomalies in telemetry and log files.
+
+Intelligence Vectors
+
+: Use for synthesizing persona data from Sherlock/Maigret dossiers. Identifies traits, interests, and potential vulnerabilities.
+
+: Use for interpreting HTML data exfiltrated from Tor hidden services. Detects crypto addresses, PGP keys, and service types.
+
+: Use for analyzing network socket data and process logs. Detects unauthorized uplinks or suspicious process behavior.
+
+Workflow: Autonomous Hunt & Deep Profiling
+
+Standard Hunt
+
+: Deploy the Sherlock Bridge via
+
+osint\_sherlock\_bridge.py <alias>
+
+. Fast mapping of digital footprint across 300+ platforms.
+
+Deep Profiling
+
+: Deploy the Maigret Bridge via
+
+osint\_maigret\_bridge.py <alias>
+
+. Recursive biographical extraction and identity correlation.
+
+Email Mapping
+
+: Deploy the Holehe Bridge via
+
+osint\_holehe\_bridge.py <email>
+
+. Mapping digital services linked to a target email.
+
+: All scripts automatically pipe dossiers to the Cognitive Brain for AI persona summaries.
+
+Data Integration
+
+Synthesized intelligence should be referenced when updating the
+
+project context or the private
+
