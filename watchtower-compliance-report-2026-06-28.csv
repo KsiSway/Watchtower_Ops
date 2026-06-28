@@ -1,0 +1,36 @@
+--- WORKSPACE WATCHTOWER REPORT ---
+Generated At,6/28/2026, 3:16:56 AM
+Workspace Health Score,70
+Total Files,10
+Total Storage,89.7 MB (94014500 bytes)
+Last Synchronized,6/28/2026, 3:15:25 AM
+
+--- STORAGE BY SIZE BRACKET ---
+Size Bracket,File Count
+"High-Res Hero Assets Bundle.zip",85200000
+"Corporate Security Guidelines & Compliance.pdf",4200000
+"Q2 Financial Forecast.gsheet",158000
+"Other Files",77000
+
+--- FILE CATEGORY BREAKDOWN ---
+Category Name,File Count
+"Financial Forecasts",2
+"Product specs",2
+"Corporate Compliance",1
+
+--- PENDING CLEANUP RECOMMENDATIONS ---
+ID,File Name,Type,Reason,Size (bytes),Size (formatted),Impact,Suggested Action
+doc-old-spec,"Backup Draft - Watchtower Spec v1 (OLD).gdoc",old,"Stale file (last modified in March 2024, over 2 years ago) containing obsolete spec drafts.",12000,11.7 KB,N/A,""
+sheet-duplicate,"Q2 Financial Forecast (Copy).gsheet",duplicate,"Possible duplicate. Matches name and size with Q2 Financial Forecast.gsheet (created 1 min apart).",158000,154.3 KB,N/A,""
+pdf-logo-assets,"High-Res Hero Assets Bundle.zip",large,"Very large file (85.2 MB) taking up 95% of workspace storage. Has not been modified in over 7 months.",85200000,81.3 MB,N/A,""
+
+--- ACTIVE FILE CATALOG METADATA ---
+ID,File Name,Mime Type,Size (bytes),Size (formatted),Last Modified,Tags
+doc-q3-marketing,"Q3 Product Marketing Strategy.gdoc","application/vnd.google-apps.document",24500,23.9 KB,2026-06-22T14:30:00Z,"Personal"
+sheet-financials,"Q2 Financial Forecast.gsheet","application/vnd.google-apps.spreadsheet",158000,154.3 KB,2026-06-21T09:15:00Z,"Finance"
+sheet-duplicate,"Q2 Financial Forecast (Copy).gsheet","application/vnd.google-apps.spreadsheet",158000,154.3 KB,2026-06-21T09:16:00Z,"Finance"
+doc-meeting-minutes,"Sprint Planning Meeting Minutes - June 20.gdoc","application/vnd.google-apps.document",8500,8.3 KB,2026-06-20T17:00:00Z,"Work"
+sheet-client-directory,"Active Client Directories & Leads.gsheet","application/vnd.google-apps.spreadsheet",45000,43.9 KB,2026-06-18T10:30:00Z,"Finance"
+pdf-security-policy,"Corporate Security Guidelines & Compliance.pdf","application/pdf",4200000,4 MB,2025-01-10T12:00:00Z,"Archive;Work"
+doc-meeting-minutes-copy,"Sprint Planning Meeting Minutes - June 20 (1).gdoc","application/vnd.google-apps.document",8500,8.3 KB,2026-06-20T17:05:00Z,"Work"
+pdf-security-policy-copy,"Corporate Security Guidelines & Compliance - copy.pdf","application/pdf",4200000,4 MB,2025-01-10T12:05:00Z,"Archive;Work"
