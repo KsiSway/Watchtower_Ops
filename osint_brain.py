@@ -5,12 +5,12 @@ from pathlib import Path
 def synthesize_dossier(alias):
     print(f"[*] Initializing Cognitive Analyst Engine for: {alias}")
     
-    # Ingesting the confirmed vectors dynamically to support target pivots
+    # Ingesting the confirmed vectors dynamically
     verified_vectors = [
         f"GitHub - https://github.com/{alias}",
         f"Reddit - https://www.reddit.com/user/{alias}",
         f"Steam - https://steamcommunity.com/id/{alias}",
-        "Replit - https://replit.com/@{alias}"
+        f"Replit - https://replit.com/@{alias}"
     ]
     
     dossier = f"# Administrative Persona Summary: {alias}\n"
@@ -41,5 +41,4 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("[!] Target alias required.")
         sys.exit(1)
-    # CRITICAL FIX: The alias is located at index 1
     synthesize_dossier(sys.argv[1])
