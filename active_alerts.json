@@ -1,0 +1,12 @@
+[
+    {
+        "timestamp": 1782690842,
+        "source_node": "192.168.68.128",
+        "event_type": "baseline_variance_event",
+        "metrics": {
+            "variance_percent": 3.6
+        },
+        "confidence": "HIGH",
+        "status": "pending_analysis"
+    }
+]
