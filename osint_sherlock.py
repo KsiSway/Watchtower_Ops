@@ -4,6 +4,7 @@ import sys
 async def run_sherlock(alias: str):
     print(f"[*] Initiating external footprint correlation for: {alias}")
     # sys.executable ensures strict adherence to the local .venv airlock
+    # Namespace reverted to legacy 'sherlock' for v0.14.3 compatibility
     process = await asyncio.create_subprocess_exec(
         sys.executable, "-m", "sherlock", alias, "--timeout", "5", "--print-found",
         stdout=asyncio.subprocess.PIPE,
