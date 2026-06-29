@@ -1,0 +1,14 @@
+{
+    "source_node": "192.168.8.241",
+    "bridge_node": "192.168.68.128",
+    "active_endpoints": [
+        "34.54.84.110",
+        "140.82.121.3",
+        "216.239.36.223"
+    ],
+    "protocols": [
+        "SSH",
+        "HTTPS"
+    ],
+    "event_type": "unauthorized_remote_synchronization"
+}
