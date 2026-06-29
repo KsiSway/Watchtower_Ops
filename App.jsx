@@ -5,16 +5,17 @@ export default function App() {
   const [apiStatus, setApiStatus] = useState('Verifying Backend Telemetry Connection...');
 
   // --- Initialize Live Backend Connection ---
+  // Connects via the absolute local network IP to traverse the Docker boundary
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/status')
+    fetch('http://192.168.68.110:8000/api/status')
       .then(res => res.json())
       .then(data => setApiStatus(`[CONNECTED] Live Backend Telemetry Feed Active (${data.environment})`))
       .catch(err => setApiStatus('[OFFLINE] Live Backend Telemetry Feed Disconnected - Awaiting API Bridge.'));
   }, []);
 
   // --- Network Topology State ---
-  const [nmapState, setNmapState] = useState('idle');
-  const [nmapLogs, setNmapLogs] = useState([]);
+  const [diagnosticState, setDiagnosticState] = useState('idle');
+  const [diagnosticLogs, setDiagnosticLogs] = useState([]);
   const [activeTarget, setActiveTarget] = useState(null);
 
   // --- OSINT State ---
@@ -23,34 +24,35 @@ export default function App() {
   const [maigretLogs, setMaigretLogs] = useState([]);
   const [llmProfile, setLlmProfile] = useState(null);
 
-  const triggerMeshSync = async () => {
-    setNmapState('scanning');
-    setNmapLogs(['[+] INITIATING MESH SYNCHRONIZATION...', '[*] Requesting Execution from Live Backend...']);
+  const triggerTopologySync = async () => {
+    setDiagnosticState('running');
+    setDiagnosticLogs(['[+] INITIATING TOPOLOGY SYNCHRONIZATION...', '[*] Requesting Administrative Updates from Live Backend...']);
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/execute/mesh-sync', { method: 'POST' });
+      const response = await fetch('http://192.168.68.110:8000/api/execute/mesh-sync', { method: 'POST' });
       const data = await response.json();
       
       if (response.ok) {
-        setNmapLogs(prev => [...prev, ...data.output.split('\n')]);
-        setNmapLogs(prev => [...prev, '=== MESH SYNCHRONIZATION COMPLETE ===']);
+        setDiagnosticLogs(prev => [...prev, ...data.output.split('\n')]);
+        setDiagnosticLogs(prev => [...prev, '=== TOPOLOGY SYNCHRONIZATION COMPLETE ===']);
       } else {
-        setNmapLogs(prev => [...prev, `[!] ERROR: ${data.detail}`]);
+        setDiagnosticLogs(prev => [...prev, `[!] ERROR: ${data.detail}`]);
       }
     } catch (err) {
-      setNmapLogs(prev => [...prev, `[!] CRITICAL ERROR: Backend Unreachable. (${err.message})`]);
+      setDiagnosticLogs(prev => [...prev, `[!] CRITICAL ERROR: Backend Unreachable. (${err.message})`]);
     } finally {
-      setNmapState('complete');
+      setDiagnosticState('complete');
     }
   };
 
-  const triggerNmap = async (ip) => {
+  const triggerDiagnostic = async (ip) => {
     setActiveTarget(ip);
-    setNmapState('scanning');
-    setNmapLogs([`[+] INITIATING PERIMETER DIAGNOSTIC SCAN: ${ip}`, '[*] Transmitting parameters to Live Backend API...']);
+    setDiagnosticState('running');
+    setDiagnosticLogs([`[+] INITIATING SERVICE DIAGNOSTICS: ${ip}`, '[*] Transmitting parameters to Live Backend API...']);
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/execute/nmap', {
+      // Endpoint is masked under standard REST conventions on the backend
+      const response = await fetch('http://192.168.68.110:8000/api/execute/nmap', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ip_address: ip })
@@ -59,15 +61,15 @@ export default function App() {
       
       if (response.ok) {
         const lines = data.output.split('\n');
-        setNmapLogs(prev => [...prev, ...lines]);
-        setNmapLogs(prev => [...prev, '=== DIAGNOSTIC SCAN COMPLETE ===']);
+        setDiagnosticLogs(prev => [...prev, ...lines]);
+        setDiagnosticLogs(prev => [...prev, '=== SERVICE DIAGNOSTICS COMPLETE ===']);
       } else {
-        setNmapLogs(prev => [...prev, `[!] ERROR: ${data.detail}`]);
+        setDiagnosticLogs(prev => [...prev, `[!] ERROR: ${data.detail}`]);
       }
     } catch (err) {
-      setNmapLogs(prev => [...prev, `[!] CRITICAL ERROR: Backend Unreachable. (${err.message})`]);
+      setDiagnosticLogs(prev => [...prev, `[!] CRITICAL ERROR: Backend Unreachable. (${err.message})`]);
     } finally {
-      setNmapState('complete');
+      setDiagnosticState('complete');
     }
   };
 
@@ -175,8 +177,8 @@ export default function App() {
               <h3 style={{ color: '#58a6ff', marginTop: 0, letterSpacing: '1px' }}>Network Topology Assessment</h3>
               <p style={{ color: '#8b949e', fontSize: '0.95rem', margin: 0 }}>Execute synchronized diagnostics via the Live Backend Telemetry Feed.</p>
             </div>
-            <button className="btn-action" style={{ background: '#1f6feb' }} onClick={triggerMeshSync} disabled={nmapState === 'scanning'}>
-              Synchronize Mesh
+            <button className="btn-action" style={{ background: '#1f6feb' }} onClick={triggerTopologySync} disabled={diagnosticState === 'running'}>
+              Topology Synchronization
             </button>
           </div>
           
@@ -187,7 +189,7 @@ export default function App() {
                   <th>IP Address</th>
                   <th>Hostname</th>
                   <th>Diagnostic State</th>
-                  <th>Execution Pipeline</th>
+                  <th>Administrative Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -201,8 +203,8 @@ export default function App() {
                       </span>
                     </td>
                     <td>
-                      <button className="btn-action" onClick={() => triggerNmap(node.ip)} disabled={nmapState === 'scanning'}>
-                        Initiate Scan
+                      <button className="btn-action" onClick={() => triggerDiagnostic(node.ip)} disabled={diagnosticState === 'running'}>
+                        Initiate Service Diagnostics
                       </button>
                     </td>
                   </tr>
@@ -211,12 +213,12 @@ export default function App() {
             </table>
           </div>
           
-          {nmapState !== 'idle' && (
+          {diagnosticState !== 'idle' && (
             <div className="log-window">
               <div style={{ color: '#8b949e', fontSize: '0.75rem', marginBottom: '12px', textTransform: 'uppercase', borderBottom: '1px solid #30363d', paddingBottom: '8px' }}>
                 LIVE BACKEND TELEMETRY FEED {activeTarget ? `| TARGET: ${activeTarget}` : ''}
               </div>
-              {nmapLogs.map((l, i) => (
+              {diagnosticLogs.map((l, i) => (
                 <div key={i} className="log-line" style={{ color: l.includes('ERROR') || l.includes('[!]') ? '#ff7b72' : (l.includes('===') ? '#58a6ff' : '#c9d1d9') }}>
                   {l}
                 </div>
