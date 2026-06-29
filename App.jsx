@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function App() {
+  // --- JITTER SIMULATION STATE ---
   const [baseInterval, setBaseInterval] = useState(60);
   const [jitterPercent, setJitterPercent] = useState(3.6);
-  const canvasRef = useRef(null);
+  const jitterCanvasRef = useRef(null);
   const [metrics, setMetrics] = useState({ avgDelta: 0, variance: 0, isAnomaly: false });
 
+  // --- SOAR PIPELINE STATE ---
+  const soarCanvasRef = useRef(null);
+  const [syncState, setSyncState] = useState('idle'); // idle, sweeping, parsing, healing, complete
+  const [logs, setLogs] = useState([]);
+
+  // --- JITTER CANVAS EFFECT ---
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvas = jitterCanvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     
-    // Support high-DPI displays
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
@@ -21,10 +27,8 @@ export default function App() {
     const width = rect.width;
     const height = rect.height;
 
-    // Clear canvas
     ctx.clearRect(0, 0, width, height);
 
-    // Draw Tactical Grid
     ctx.strokeStyle = 'rgba(48, 54, 61, 0.5)';
     ctx.lineWidth = 1;
     for (let i = 0; i < width; i += 20) {
@@ -34,11 +38,9 @@ export default function App() {
       ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
     }
 
-    // Baseline reference line
     ctx.strokeStyle = 'rgba(88, 166, 255, 0.2)';
     ctx.beginPath(); ctx.moveTo(0, height / 2); ctx.lineTo(width, height / 2); ctx.stroke();
 
-    // Generate simulated data (20 pulses)
     const numEvents = 20;
     const events = [];
     let currentTime = 0;
@@ -61,33 +63,23 @@ export default function App() {
       isAnomaly: jitterPercent < 5
     });
 
-    // Draw connection pulses
     const timeScale = width / (baseInterval * numEvents);
-    
-    const pulseColor = jitterPercent < 5 ? '#ff7b72' : '#3fb950'; // Red for rigid/anomaly, Green for organic
+    const pulseColor = jitterPercent < 5 ? '#ff7b72' : '#3fb950'; 
     const pulseGlow = jitterPercent < 5 ? 'rgba(255, 123, 114, 0.3)' : 'rgba(63, 185, 80, 0.3)';
 
     events.forEach(evt => {
       const x = evt.time * timeScale;
       const y = height / 2;
-      
-      // Pulse height variance based on jitter
       const pulseHeight = 20 + (Math.random() * 20 * (jitterPercent/100));
 
-      // Draw glow
       ctx.shadowBlur = 10;
       ctx.shadowColor = pulseColor;
-
-      // Draw blip
       ctx.fillStyle = pulseColor;
       ctx.beginPath();
       ctx.arc(x, y, 3, 0, Math.PI * 2);
       ctx.fill();
-      
-      // Reset shadow
       ctx.shadowBlur = 0;
 
-      // Draw vertical spike (simulating signal strength/event)
       ctx.strokeStyle = pulseColor;
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -95,7 +87,6 @@ export default function App() {
       ctx.lineTo(x, y + pulseHeight);
       ctx.stroke();
 
-      // Connector line to baseline
       ctx.strokeStyle = pulseGlow;
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -103,8 +94,149 @@ export default function App() {
       ctx.lineTo(x, height);
       ctx.stroke();
     });
-
   }, [baseInterval, jitterPercent]);
+
+  // --- SOAR CANVAS EFFECT ---
+  useEffect(() => {
+    const canvas = soarCanvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    
+    const width = rect.width;
+    const height = rect.height;
+    
+    let animationFrameId;
+    let startTime = null;
+
+    const render = (time) => {
+      if (!startTime) startTime = time;
+      const elapsed = time - startTime;
+      
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(48, 54, 61, 0.5)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < width; i += 20) {
+        ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, height); ctx.stroke();
+      }
+      for (let i = 0; i < height; i += 20) {
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
+      }
+
+      if (syncState === 'idle') {
+        ctx.fillStyle = '#8b949e';
+        ctx.font = '14px "JetBrains Mono", monospace';
+        ctx.fillText("[SYSTEM IDLE] AWAITING SOAR EXECUTION DIRECTIVE...", 20, 30);
+      } else {
+        // Node coordinates mapping
+        const nodes = [
+          { x: width * 0.15, y: height * 0.5, ip: '.110' },
+          { x: width * 0.35, y: height * 0.3, ip: '.109' },
+          { x: width * 0.55, y: height * 0.7, ip: '.112' },
+          { x: width * 0.75, y: height * 0.4, ip: '.115' },
+          { x: width * 0.85, y: height * 0.6, ip: '.128' },
+        ];
+
+        nodes.forEach((node, idx) => {
+          let color = '#30363d'; // Offline / Unknown
+          let glow = 0;
+          
+          if (syncState === 'sweeping') {
+            const sweepX = (elapsed / 1500) * width % width;
+            if (Math.abs(node.x - sweepX) < 60) {
+              color = '#58a6ff'; // Scanned
+              glow = 15;
+            }
+          } else if (syncState === 'parsing') {
+            // Blinking parsing phase
+            color = (Math.floor(elapsed / 150) % 2 === 0) ? '#ff7b72' : '#58a6ff'; 
+            glow = 20;
+          } else if (syncState === 'healing' || syncState === 'complete') {
+            color = '#3fb950'; // Healthy/Synchronized
+            glow = 15;
+          }
+
+          ctx.shadowBlur = glow;
+          ctx.shadowColor = color;
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+          
+          ctx.fillStyle = color === '#30363d' ? '#8b949e' : '#c9d1d9';
+          ctx.font = '11px "JetBrains Mono", monospace';
+          ctx.fillText(`IP: ${node.ip}`, node.x + 12, node.y + 4);
+        });
+
+        // Scanner Sweep Line
+        if (syncState === 'sweeping') {
+          const sweepX = (elapsed / 1500) * width % width;
+          ctx.strokeStyle = 'rgba(88, 166, 255, 0.9)';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(sweepX, 0);
+          ctx.lineTo(sweepX, height);
+          ctx.stroke();
+          
+          const grad = ctx.createLinearGradient(sweepX - 80, 0, sweepX, 0);
+          grad.addColorStop(0, 'rgba(88, 166, 255, 0)');
+          grad.addColorStop(1, 'rgba(88, 166, 255, 0.2)');
+          ctx.fillStyle = grad;
+          ctx.fillRect(sweepX - 80, 0, 80, height);
+        }
+      }
+      
+      ctx.restore();
+
+      if (syncState !== 'idle') {
+        animationFrameId = window.requestAnimationFrame(render);
+      }
+    };
+    
+    render(performance.now());
+    
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+    };
+  }, [syncState]);
+
+  const triggerSync = () => {
+    if (syncState !== 'idle' && syncState !== 'complete') return;
+    
+    setSyncState('sweeping');
+    setLogs(['[+] UPLINK ESTABLISHED. EXECUTING SOAR PIPELINE...', '[*] Initiating async Nmap subnet sweep on 192.168.68.0/24...']);
+    
+    setTimeout(() => {
+      setSyncState('parsing');
+      setLogs(prev => [...prev, '[*] Parsing Nmap results and updating Watchtower_Final_Baseline.csv...']);
+      
+      setTimeout(() => {
+        setSyncState('healing');
+        setLogs(prev => [...prev, '[*] Initiating hostname resolution and healing...']);
+        
+        setTimeout(() => {
+          setSyncState('complete');
+          setLogs(prev => [...prev, '=== Mesh Synchronization Complete ===']);
+          
+          // Reset after a delay so it can be re-run
+          setTimeout(() => {
+            setSyncState('idle');
+            setLogs([]);
+          }, 5000);
+          
+        }, 2500);
+      }, 2500);
+    }, 3000);
+  };
 
   return (
     <div style={{ backgroundColor: '#0d1117', color: '#c9d1d9', fontFamily: '"JetBrains Mono", Consolas, monospace', minHeight: '100vh', padding: '2rem' }}>
@@ -117,40 +249,78 @@ export default function App() {
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); 
           backdrop-filter: blur(10px);
           margin-bottom: 24px;
-          transition: all 0.3s ease;
         }
         .canvas-container { 
-          margin-top: 20px; 
+          margin-top: 15px; 
           border: 1px solid #30363d; 
           background: #010409; 
           border-radius: 6px; 
           overflow: hidden; 
           width: 100%; 
-          display: flex; 
-          justify-content: center; 
           padding: 10px; 
           box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
         }
-        input[type=range] { 
-          width: 100%; 
-          accent-color: #58a6ff; 
+        input[type=range] { width: 100%; accent-color: #58a6ff; cursor: pointer; }
+        .header-glow { color: #58a6ff; text-shadow: 0 0 10px rgba(88, 166, 255, 0.4); letter-spacing: 1px; }
+        .exec-btn {
+          background: #238636;
+          color: white;
+          border: 1px solid rgba(240,246,252,0.1);
+          padding: 10px 20px;
+          border-radius: 6px;
+          font-family: inherit;
+          font-weight: bold;
           cursor: pointer;
+          transition: background 0.2s;
         }
-        .header-glow {
-          color: #58a6ff;
-          text-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
-          letter-spacing: 1px;
-        }
+        .exec-btn:hover { background: #2ea043; }
+        .exec-btn:disabled { background: #30363d; color: #8b949e; cursor: not-allowed; }
+        .log-line { margin: 5px 0; color: #c9d1d9; font-size: 0.85rem; }
+        .log-line.highlight { color: #58a6ff; font-weight: bold; }
       `}</style>
 
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <h1 className="header-glow" style={{ borderBottom: '1px solid #30363d', paddingBottom: '15px' }}>
-          [WATCHTOWER] HEURISTIC UPLINK ANALYZER
+          [WATCHTOWER] COMMAND & CONTROL DASHBOARD
         </h1>
         
-        <div className="panel">
-          <h3 style={{ margin: '0 0 20px 0', color: '#8b949e', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>
-            Simulation Parameters
+        {/* SOAR PIPELINE SIMULATOR */}
+        <div className="panel" style={{ borderLeft: '4px solid #a371f7' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+            <h3 style={{ margin: 0, color: '#a371f7', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>
+              SOAR Pipeline Execution (mesh_sync_skill.py)
+            </h3>
+            <button 
+              className="exec-btn" 
+              onClick={triggerSync} 
+              disabled={syncState !== 'idle' && syncState !== 'complete'}
+            >
+              [EXECUTE] Sync Baseline
+            </button>
+          </div>
+          
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <div style={{ flex: 2 }}>
+              <div className="canvas-container">
+                <canvas ref={soarCanvasRef} style={{ width: '100%', height: '180px', display: 'block' }}></canvas>
+              </div>
+            </div>
+            <div style={{ flex: 1, background: '#010409', border: '1px solid #30363d', borderRadius: '6px', padding: '15px', marginTop: '15px', overflowY: 'auto', maxHeight: '200px' }}>
+              <div style={{ color: '#8b949e', fontSize: '0.75rem', marginBottom: '10px', textTransform: 'uppercase' }}>Pipeline Log Output</div>
+              {logs.map((log, i) => (
+                <div key={i} className={`log-line ${log.includes('===') ? 'highlight' : ''}`}>
+                  {log}
+                </div>
+              ))}
+              {logs.length === 0 && <div style={{ color: '#484f58', fontSize: '0.85rem' }}>Waiting for execution trigger...</div>}
+            </div>
+          </div>
+        </div>
+
+        {/* JITTER HEURISTIC SIMULATOR */}
+        <div className="panel" style={{ borderLeft: '4px solid #58a6ff' }}>
+          <h3 style={{ margin: '0 0 20px 0', color: '#58a6ff', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>
+            Heuristic Uplink Analyzer (Layer 4 Pulses)
           </h3>
           <div style={{ display: 'flex', gap: '40px' }}>
             <div style={{ flex: 1 }}>
@@ -168,70 +338,27 @@ export default function App() {
               <input type="range" min="0" max="50" step="0.1" value={jitterPercent} onChange={(e) => setJitterPercent(Number(e.target.value))} />
             </div>
           </div>
-        </div>
-
-        <div className="panel">
-          <h3 style={{ margin: '0 0 10px 0', color: '#8b949e', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>
-            Telemetry Visualization (Layer 4 Pulses)
-          </h3>
+          
           <div className="canvas-container">
-            <canvas ref={canvasRef} style={{ width: '100%', height: '180px', display: 'block' }}></canvas>
+            <canvas ref={jitterCanvasRef} style={{ width: '100%', height: '120px', display: 'block' }}></canvas>
+          </div>
+
+          <div style={{ 
+            marginTop: '20px',
+            padding: '16px', 
+            background: metrics.isAnomaly ? 'rgba(255, 123, 114, 0.1)' : 'rgba(63, 185, 80, 0.1)',
+            borderLeft: metrics.isAnomaly ? '4px solid #ff7b72' : '4px solid #3fb950',
+            color: metrics.isAnomaly ? '#ff7b72' : '#3fb950',
+            borderRadius: '0 4px 4px 0'
+          }}>
+            {metrics.isAnomaly ? (
+              <strong>[!] ANOMALY DETECTED: Highly rigid connection intervals detected. Possible C2 beacon.</strong>
+            ) : (
+              <strong>[*] CLEAR: Traffic matches organic interaction profiles.</strong>
+            )}
           </div>
         </div>
 
-        <div className="panel" style={{ 
-          border: metrics.isAnomaly ? '1px solid #ff7b72' : '1px solid #3fb950',
-          boxShadow: metrics.isAnomaly ? '0 0 20px rgba(255, 123, 114, 0.1)' : '0 0 20px rgba(63, 185, 80, 0.05)'
-        }}>
-          <h3 style={{ margin: '0 0 20px 0', color: '#8b949e', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>
-            Diagnostic Output
-          </h3>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
-            <div style={{ background: '#010409', padding: '15px', borderRadius: '4px', border: '1px solid #30363d' }}>
-              <div style={{ color: '#8b949e', fontSize: '0.8rem', marginBottom: '5px' }}>Calculated Avg Delta</div>
-              <div style={{ fontSize: '1.4rem', color: '#c9d1d9' }}>{metrics.avgDelta} <span style={{fontSize: '0.9rem', color: '#8b949e'}}>sec</span></div>
-            </div>
-            <div style={{ background: '#010409', padding: '15px', borderRadius: '4px', border: '1px solid #30363d' }}>
-              <div style={{ color: '#8b949e', fontSize: '0.8rem', marginBottom: '5px' }}>Jitter Variance (±)</div>
-              <div style={{ fontSize: '1.4rem', color: '#c9d1d9' }}>{metrics.variance} <span style={{fontSize: '0.9rem', color: '#8b949e'}}>sec</span></div>
-            </div>
-          </div>
-          
-          {metrics.isAnomaly ? (
-            <div style={{ 
-              background: 'rgba(255, 123, 114, 0.1)', 
-              padding: '16px', 
-              color: '#ff7b72', 
-              borderLeft: '4px solid #ff7b72',
-              borderRadius: '0 4px 4px 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}>
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-              <div>
-                <strong>[!] ANOMALY DETECTED:</strong> Highly rigid connection intervals detected. Possible automated uplink (C2 beacon). Threshold: Jitter &lt; 5%.
-              </div>
-            </div>
-          ) : (
-            <div style={{ 
-              background: 'rgba(63, 185, 80, 0.1)', 
-              padding: '16px', 
-              color: '#3fb950', 
-              borderLeft: '4px solid #3fb950',
-              borderRadius: '0 4px 4px 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}>
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              <div>
-                <strong>[*] CLEAR:</strong> High connection variance observed. Traffic matches organic human interaction profiles.
-              </div>
-            </div>
-          )}
-        </div>
       </div>
     </div>
   );
