@@ -24,6 +24,9 @@
                             "noEmit":  true
                         },
     "exclude":  [
-                    "watchtower_react_gui"
+                    "watchtower_react_gui",
+                    "node_modules",
+                    ".venv",
+                    ".venv_v4"
                 ]
 }
