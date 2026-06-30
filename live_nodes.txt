@@ -1,3 +1,0 @@
-# Nmap 7.99 scan initiated Sun Jun 28 15:26:21 2026 as: C:\\Users\\Lance\\scoop\\apps\\nmap\\current\\nmap.exe -sn -oG D:\\Watchtower_Ops\\live_nodes.txt 192.168.68.0/24
-Host: 192.168.68.128 ()	Status: Up
-# Nmap done at Sun Jun 28 15:28:02 2026 -- 256 IP addresses (1 host up) scanned in 101.06 seconds
