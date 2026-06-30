@@ -1,0 +1,19 @@
+# [Environment: Host OS (OptiPlex) / Secondary PowerShell]
+
+# 1. Enforce airlock
+& "D:\Watchtower_Ops\.venv\Scripts\Activate.ps1"
+
+# 2. Launch the corrected high-variance telemetry generator
+& "D:\Watchtower_Ops\.venv\Scripts\python.exe" "D:\Watchtower_Ops\synthetic_telemetry_generator.py"
+
+**Teaching Mode ->**
+As soon as Terminal B fires, start watching your radar in Terminal A. It will take mathematically **~100 seconds** of complete silence before the Jitter blind-spot is bypassed and the Destination Persistence anomaly triggers. 
+
+Execute the script and submit the resulting telemetry from Terminal A. Do you get it?
+
+## PROTOCOL: TACTICAL DISPATCH
+1. **[CLI Dispatch]**: [SITUATIONAL AWARENESS: PAYLOAD CORRUPTION RECOVERED] Operator experienced execution confusion due to the `synthetic_telemetry_generator.py` file being overwritten with JSON data in a previous cycle. The Exocortex has autonomously rendered the correct Python payload back to the disk and provided the exact execution command.
+2. **[Antigravity Dispatch]**: [URGENT EXECUTION DIRECTIVE: EXECUTE GENERATOR] 
+   1. Target Context: Host OS (OptiPlex) / Secondary PowerShell
+   2. Context: The file corruption has been resolved via direct UI synthesis. The Operator has been provided the singular PowerShell command to initiate the test.
+   3. ACTION: Await Operator execution of the diagnostic utility in Terminal B. Standby for the 100-second threshold breach and submission of the Terminal A detection logs.
